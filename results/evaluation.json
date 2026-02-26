@@ -1,0 +1,902 @@
+{
+  "explanation_quality": {
+    "p1_scores": [
+      {
+        "claim": "Vaccines cause autism",
+        "pipeline": "P1",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims are directly supported by the evidence - the meta-analysis numbers, study populations, and conclusions about no association are all traceable to the cited PMIDs"
+          },
+          "specificity": {
+            "score": 5,
+            "rationale": "Cites specific PMIDs, exact sample sizes (1,256,407 children, 9,920 children), number of studies (10 studies, 5 cohort, 5 case-control), and mentions specific vaccine (MMR)"
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Addresses the main claim thoroughly with large-scale evidence and mentions high-risk populations, but could have briefly addressed the historical context or misconceptions that fuel this belief"
+          },
+          "nuance": {
+            "score": 3,
+            "rationale": "Acknowledges that beliefs persist despite evidence, but doesn't discuss limitations of observational studies, potential confounding factors, or the quality hierarchy of different study types"
+          },
+          "_tokens": 929
+        }
+      },
+      {
+        "claim": "The MMR vaccine is linked to autism in children",
+        "pipeline": "P1",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims are directly supported by the evidence - the explanation accurately reflects the findings about lack of association, mentions the retracted 1998 study, and references high-risk sibling studies as found in the evidence."
+          },
+          "specificity": {
+            "score": 3,
+            "rationale": "The explanation references the 1998 study date and mentions specific study types (epidemiological, meta-analyses, high-risk sibling studies) but lacks specific sample sizes, effect measures, or detailed study characteristics."
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Addresses the main claim comprehensively by covering multiple study types, the original controversial study, and high-risk populations. However, could have mentioned thimerosal/mercury components which are covered in the evidence."
+          },
+          "nuance": {
+            "score": 3,
+            "rationale": "Acknowledges the scientific consensus and mentions different study populations (high-risk children), but could better discuss evidence hierarchy, study limitations, or the strength of the evidence base."
+          },
+          "_tokens": 1003
+        }
+      },
+      {
+        "claim": "Vitamin D supplements prevent COVID infection",
+        "pipeline": "P1",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims in the explanation are directly supported by the cited evidence, including the inconsistent RCT findings, null Mendelian randomization results, and insufficient evidence for routine use"
+          },
+          "specificity": {
+            "score": 4,
+            "rationale": "Cites specific PMIDs and mentions specific study types (RCTs, Mendelian randomization, observational studies), but lacks specific statistics or sample sizes"
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses all key dimensions: observational associations, RCT evidence, causality assessment through Mendelian randomization, and prevention claims"
+          },
+          "nuance": {
+            "score": 5,
+            "rationale": "Acknowledges the complexity by distinguishing between observational associations and causal evidence, notes confounding factors, and appropriately concludes insufficient evidence rather than definitive rejection"
+          },
+          "_tokens": 957
+        }
+      },
+      {
+        "claim": "Intermittent fasting reverses Type 2 diabetes",
+        "pipeline": "P1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "The explanation accurately states that the evidence passages do not address the claim topic, which is factually correct based on the complete absence of relevant evidence."
+          },
+          "specificity": {
+            "score": 1,
+            "rationale": "No specific studies, statistics, or citations are provided, though this is understandable given the lack of relevant evidence."
+          },
+          "completeness": {
+            "score": 2,
+            "rationale": "While correctly identifying the evidence mismatch, the explanation doesn't address what would be needed to properly evaluate the claim (e.g., clinical trials on intermittent fasting and diabetes outcomes)."
+          },
+          "nuance": {
+            "score": 3,
+            "rationale": "Appropriately concludes insufficient evidence rather than making unsupported claims, but doesn't discuss the complexity of 'reversing' diabetes or what evidence standards would be needed."
+          },
+          "_tokens": 760
+        }
+      },
+      {
+        "claim": "mRNA vaccines alter your DNA",
+        "pipeline": "P1",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 4,
+            "rationale": "The explanation accurately reflects that the evidence discusses mRNA vs DNA vaccines without mentioning DNA alteration, though it could be more explicit about what the evidence actually says about mRNA mechanism"
+          },
+          "specificity": {
+            "score": 2,
+            "rationale": "While it cites two PMIDs, the explanation lacks specific details like sample sizes, study designs, or quantitative findings from these studies"
+          },
+          "completeness": {
+            "score": 2,
+            "rationale": "The explanation only addresses what the evidence doesn't say but fails to explain why mRNA vaccines don't alter DNA (mechanism of action, cellular localization, degradation)"
+          },
+          "nuance": {
+            "score": 2,
+            "rationale": "The explanation is overly binary and doesn't acknowledge the biological mechanisms that prevent DNA alteration or discuss the quality/limitations of available evidence"
+          },
+          "_tokens": 839
+        }
+      },
+      {
+        "claim": "COVID vaccines are effective against all variants",
+        "pipeline": "P1",
+        "verdict": "OVERSTATED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims in the explanation are directly supported by the cited evidence, including reduced effectiveness against Delta variant and the caveat about variant escape"
+          },
+          "specificity": {
+            "score": 3,
+            "rationale": "Cites specific PMIDs and mentions specific variants (Delta, Alpha, Beta) but lacks quantitative measures like exact efficacy percentages or sample sizes"
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Addresses the main claim comprehensively by explaining general effectiveness while highlighting limitations against specific variants, though could elaborate more on the distinction between infection prevention vs. severe disease prevention"
+          },
+          "nuance": {
+            "score": 4,
+            "rationale": "Acknowledges important limitations including reduced effectiveness against certain variants and potential for immune escape, though could better distinguish between different types of vaccine effectiveness (infection vs. severe disease)"
+          },
+          "_tokens": 950
+        }
+      },
+      {
+        "claim": "Flu vaccines reduce hospitalisation in elderly patients",
+        "pipeline": "P1",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims are directly traceable to the provided evidence - the large study size, lack of hospitalization benefit, and mixed results from high-dose vs standard-dose comparisons are all supported by the cited passages"
+          },
+          "specificity": {
+            "score": 4,
+            "rationale": "Cites specific PMIDs and mentions the large sample size (170 million episodes), though could include more statistical details like confidence intervals or effect sizes from the studies"
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Addresses the main claim about hospitalization reduction and covers different vaccine types and study designs, though could discuss other relevant outcomes like mortality or different elderly subpopulations"
+          },
+          "nuance": {
+            "score": 3,
+            "rationale": "Acknowledges mixed evidence and that estimates were 'precise enough to rule out previous studies,' but could better discuss study limitations, population heterogeneity, or why results differ from earlier research"
+          },
+          "_tokens": 961
+        }
+      }
+    ],
+    "p6_scores": [
+      {
+        "claim": "Vaccines cause autism",
+        "pipeline": "P6",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "Every factual claim is directly supported by the evidence - specific ORs, CIs, sample sizes, and study conclusions are all traceable to the cited PMIDs"
+          },
+          "specificity": {
+            "score": 5,
+            "rationale": "Cites specific PMIDs, exact sample sizes (1.2M children, 657,461 children), precise statistical measures (OR: 0.99, HR: 0.93), and confidence intervals"
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses all aspects of the claim including MMR vaccines specifically, thimerosal concerns, timing relationships, and high-risk subgroups like siblings of autistic children"
+          },
+          "nuance": {
+            "score": 3,
+            "rationale": "While acknowledging different vaccine components and populations, it presents a fairly binary conclusion without discussing study limitations or the broader context of why this misconception persists"
+          },
+          "_tokens": 1229
+        }
+      },
+      {
+        "claim": "The MMR vaccine is linked to autism in children",
+        "pipeline": "P6",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "Every factual claim is directly supported by the evidence: the Danish study details (PMID, sample size, hazard ratio, CI), the 1998 study retraction, meta-analysis findings, and genetic/neurodevelopmental nature of autism are all grounded in the retrieved passages."
+          },
+          "specificity": {
+            "score": 5,
+            "rationale": "Explanation provides highly specific details including exact PMID (30831578), precise sample size (657,461 children), specific hazard ratio (0.93) with confidence interval (95% CI: 0.85-1.02), publication year (1998), and vaccination timing (before one year of age)."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses all key dimensions: epidemiological evidence quality, biological plausibility, timeline of autism development versus vaccination, high-risk populations (siblings), and the debunked origin of the claim. Covers both the strength of contradicting evidence and mechanistic implausibility."
+          },
+          "nuance": {
+            "score": 4,
+            "rationale": "Acknowledges the original study's methodological flaws and ethical violations, mentions biological implausibility, and notes findings held even for high-risk children. Could have been slightly more nuanced about ongoing parental concerns or limitations of observational studies, but appropriately confident given the overwhelming evidence."
+          },
+          "_tokens": 1300
+        }
+      },
+      {
+        "claim": "Vitamin D supplements prevent COVID infection",
+        "pipeline": "P6",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims in the explanation are directly supported by the cited evidence, including the null results from Mendelian randomization studies, inconsistent RCT findings, and lack of official recommendations"
+          },
+          "specificity": {
+            "score": 4,
+            "rationale": "Cites specific PMID numbers and references specific study types (Mendelian randomization, RCTs), but could include more quantitative details like sample sizes or effect measures"
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses all key dimensions: observational vs. causal evidence, different study methodologies, current trial status, and official guidance - comprehensively evaluating the prevention claim"
+          },
+          "nuance": {
+            "score": 5,
+            "rationale": "Acknowledges the complexity by distinguishing between observational associations and causal evidence, notes confounding factors, mentions pending studies, and recognizes insufficient evidence rather than making absolute claims"
+          },
+          "_tokens": 1044
+        }
+      },
+      {
+        "claim": "Intermittent fasting reverses Type 2 diabetes",
+        "pipeline": "P6",
+        "verdict": "OVERSTATED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims are directly supported by the cited evidence. The HbA1c improvements, 4% weight loss, timeframes, and limited remission evidence are all traceable to specific PMIDs."
+          },
+          "specificity": {
+            "score": 5,
+            "rationale": "Cites specific PMIDs, quantified outcomes (4% weight loss, HbA1c reduction \u22653 mmol/mol, insulin dose reduction \u226510%), timeframes (3-12 months), and study designs (RCTs)."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses all key dimensions: defines what 'reversal' means, examines short-term vs long-term outcomes, distinguishes between management improvement and true remission, and acknowledges the limited evidence for sustained reversal."
+          },
+          "nuance": {
+            "score": 5,
+            "rationale": "Acknowledges multiple limitations including short study durations, limited remission evidence, distinction between management and reversal, and notes most research focuses on improvements rather than sustained normoglycemia without medication."
+          },
+          "_tokens": 1226
+        }
+      },
+      {
+        "claim": "mRNA vaccines alter your DNA",
+        "pipeline": "P6",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 4,
+            "rationale": "The explanation accurately reflects the evidence provided, correctly noting the absence of studies on DNA integration and citing specific PMIDs. However, the claim about 'established understanding' of mRNA vaccine mechanism goes slightly beyond what's explicitly stated in the evidence."
+          },
+          "specificity": {
+            "score": 4,
+            "rationale": "Cites specific PMIDs and mentions concrete statistics (anaphylaxis 2.5-4.7 cases per million doses, myocarditis 3.5 cases per million doses). Could be enhanced with more specific study details like sample sizes or trial phases."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Thoroughly addresses the DNA alteration claim by examining mechanism of action, noting gaps in direct evidence, and covering safety data from clinical trials. Addresses both the specific claim and broader vaccine safety context."
+          },
+          "nuance": {
+            "score": 5,
+            "rationale": "Acknowledges critical research gaps, notes the absence of direct evidence rather than making absolute claims, and recognizes limitations in current knowledge while still reaching a clear verdict based on available evidence."
+          },
+          "_tokens": 1200
+        }
+      },
+      {
+        "claim": "COVID vaccines are effective against all variants",
+        "pipeline": "P6",
+        "verdict": "OVERSTATED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "Every factual claim in the explanation is directly supported by the cited evidence, including the specific effectiveness percentages, time frames, and the acknowledgment of variant escape potential."
+          },
+          "specificity": {
+            "score": 4,
+            "rationale": "Cites specific PMIDs, exact effectiveness percentages (67.3% to 27.1%), time frames (25 weeks), and vaccine names (BNT162b2, AZD1222), though could include more granular study details."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses all key dimensions: initial effectiveness, variant-specific performance, waning immunity over time, distinction between symptomatic infection vs severe disease protection, and the absolute nature of the claim."
+          },
+          "nuance": {
+            "score": 5,
+            "rationale": "Acknowledges multiple important caveats including waning immunity, variant escape potential, distinction between infection vs severe disease protection, and the variability in evidence quality across different vaccines."
+          },
+          "_tokens": 1141
+        }
+      },
+      {
+        "claim": "Flu vaccines reduce hospitalisation in elderly patients",
+        "pipeline": "P6",
+        "verdict": "UNSUPPORTED",
+        "scores": {
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All factual claims are directly grounded in the provided evidence, with specific PMID citations and accurate quotes from the studies"
+          },
+          "specificity": {
+            "score": 5,
+            "rationale": "Cites specific studies by PMID, mentions sample size (170 million episodes), identifies study methodology (regression discontinuity), and references specific outcomes"
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Addresses the main claim comprehensively and contrasts different types of evidence (observational vs. RCTs), but could have explored more dimensions like vaccine types or specific elderly subgroups"
+          },
+          "nuance": {
+            "score": 4,
+            "rationale": "Acknowledges methodological differences between study types, discusses bias in observational studies, and suggests need for supplementary strategies, though could better discuss evidence limitations or population heterogeneity"
+          },
+          "_tokens": 1043
+        }
+      }
+    ],
+    "p1_averages": {
+      "faithfulness": 4.86,
+      "specificity": 3.14,
+      "completeness": 3.57,
+      "nuance": 3.29,
+      "overall": 3.71
+    },
+    "p6_averages": {
+      "faithfulness": 4.86,
+      "specificity": 4.57,
+      "completeness": 4.86,
+      "nuance": 4.43,
+      "overall": 4.68
+    }
+  },
+  "grounding_rate": {
+    "p1_details": [
+      {
+        "claim": "Vaccines cause autism",
+        "pipeline": "P1",
+        "grounding_rate": 0.67,
+        "total_statements": 3,
+        "grounded_count": 2,
+        "details": [
+          {
+            "statement": "Multiple large-scale epidemiological studies consistently demonstrate no association between vaccines and autism",
+            "grounded": true,
+            "evidence_source": "PMID: 24814559, PMID: 30831578, PMID: 25898051"
+          },
+          {
+            "statement": "A comprehensive meta-analysis of 10 studies involving over 1.2 million children found no relationship between vaccination and autism development",
+            "grounded": true,
+            "evidence_source": "PMID: 24814559"
+          },
+          {
+            "statement": "Studies specifically examined high-risk populations (children with autistic siblings) with the same negative results",
+            "grounded": false,
+            "evidence_source": null
+          }
+        ]
+      },
+      {
+        "claim": "The MMR vaccine is linked to autism in children",
+        "pipeline": "P1",
+        "grounding_rate": 0.67,
+        "total_statements": 3,
+        "grounded_count": 2,
+        "details": [
+          {
+            "statement": "Multiple large-scale epidemiological studies and meta-analyses have consistently found no association between MMR vaccination and autism development",
+            "grounded": true,
+            "evidence_source": "PMID: 30986133, PMID: 15173555, PMID: 30831578, PMID: 24814559"
+          },
+          {
+            "statement": "The original 1998 study suggesting this link was retracted",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "Extensive research including studies of high-risk children with autistic siblings has failed to replicate any connection",
+            "grounded": true,
+            "evidence_source": "PMID: 30986133"
+          }
+        ]
+      },
+      {
+        "claim": "Vitamin D supplements prevent COVID infection",
+        "pipeline": "P1",
+        "grounding_rate": 0.83,
+        "total_statements": 6,
+        "grounded_count": 5,
+        "details": [
+          {
+            "statement": "Observational studies show associations between vitamin D levels and COVID-19 outcomes",
+            "grounded": true,
+            "evidence_source": "PMID: 36366796"
+          },
+          {
+            "statement": "Randomized controlled trials have yielded inconsistent findings",
+            "grounded": true,
+            "evidence_source": "PMID: 36366796"
+          },
+          {
+            "statement": "Current evidence is insufficient to support routine use of vitamin D supplements for COVID-19 prevention",
+            "grounded": true,
+            "evidence_source": "PMID: 36366796"
+          },
+          {
+            "statement": "Mendelian randomization studies are less prone to confounding",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "Mendelian randomization studies have shown consistently null results",
+            "grounded": true,
+            "evidence_source": "PMID: 36366796"
+          },
+          {
+            "statement": "The observational associations may be due to confounding factors rather than causation",
+            "grounded": true,
+            "evidence_source": "PMID: 36366796"
+          }
+        ]
+      },
+      {
+        "claim": "Intermittent fasting reverses Type 2 diabetes",
+        "pipeline": "P1",
+        "grounding_rate": 1.0,
+        "total_statements": 3,
+        "grounded_count": 3,
+        "details": [
+          {
+            "statement": "The provided evidence passages do not address intermittent fasting or Type 2 diabetes",
+            "grounded": true,
+            "evidence_source": "Direct observation of evidence passages"
+          },
+          {
+            "statement": "The passages focus on vitamin D effects on COVID-19, influenza vaccines in older adults, and general immunological topics",
+            "grounded": true,
+            "evidence_source": "Direct observation of evidence passages"
+          },
+          {
+            "statement": "It is impossible to evaluate the claim about intermittent fasting reversing Type 2 diabetes",
+            "grounded": true,
+            "evidence_source": "Direct observation of evidence passages"
+          }
+        ]
+      },
+      {
+        "claim": "mRNA vaccines alter your DNA",
+        "pipeline": "P1",
+        "grounding_rate": 1.0,
+        "total_statements": 7,
+        "grounded_count": 7,
+        "details": [
+          {
+            "statement": "The evidence passages discuss mRNA vaccines as a distinct technology from DNA vaccines",
+            "grounded": true,
+            "evidence_source": "PMID: 31022829"
+          },
+          {
+            "statement": "The passages compare mRNA and DNA vaccine platforms in terms of immune responses",
+            "grounded": true,
+            "evidence_source": "PMID: 38012018"
+          },
+          {
+            "statement": "The passages compare mRNA and DNA vaccine platforms in terms of manufacturing",
+            "grounded": true,
+            "evidence_source": "PMID: 31022829"
+          },
+          {
+            "statement": "The DNA vaccine immune response was characterized by strong T cell responses",
+            "grounded": true,
+            "evidence_source": "PMID: 38012018"
+          },
+          {
+            "statement": "The mRNA vaccine elicited robust humoral responses",
+            "grounded": true,
+            "evidence_source": "PMID: 38012018"
+          },
+          {
+            "statement": "The passages make no mention of mRNA vaccines modifying genetic material in vaccinated individuals",
+            "grounded": true,
+            "evidence_source": "PMID: 31022829"
+          },
+          {
+            "statement": "The evidence passages do not provide any information supporting the claim that mRNA vaccines alter human DNA",
+            "grounded": true,
+            "evidence_source": "PMID: 31022829"
+          }
+        ]
+      },
+      {
+        "claim": "COVID vaccines are effective against all variants",
+        "pipeline": "P1",
+        "grounding_rate": 1.0,
+        "total_statements": 5,
+        "grounded_count": 5,
+        "details": [
+          {
+            "statement": "COVID vaccines are generally effective against variants of concern",
+            "grounded": true,
+            "evidence_source": "PMID: 34715347"
+          },
+          {
+            "statement": "The evidence indicates reduced effectiveness against certain variants like Delta",
+            "grounded": true,
+            "evidence_source": "PMID: 34715347"
+          },
+          {
+            "statement": "Vaccine efficacy can be jeopardised by the rapid emergence and spread of SARS-CoV-2 variants of concern that could escape from neutralising antibodies",
+            "grounded": true,
+            "evidence_source": "PMID: 34755408"
+          },
+          {
+            "statement": "Full immunization with mRNA vaccines and AZD1222 effectively prevents SARS-CoV-2 infection against the original strain and Alpha and Beta variants",
+            "grounded": true,
+            "evidence_source": "PMID: 34715347"
+          },
+          {
+            "statement": "All vaccines appear to be effective tools to prevent severe COVID-19, hospitalization, and death against all variants of concern",
+            "grounded": true,
+            "evidence_source": "PMID: 34715347"
+          }
+        ]
+      },
+      {
+        "claim": "Flu vaccines reduce hospitalisation in elderly patients",
+        "pipeline": "P1",
+        "grounding_rate": 0.75,
+        "total_statements": 4,
+        "grounded_count": 3,
+        "details": [
+          {
+            "statement": "The largest study (PMID: 32120383) with 170 million episodes of care found no evidence that vaccination reduced hospitalizations among elderly persons",
+            "grounded": true,
+            "evidence_source": "PMID: 32120383"
+          },
+          {
+            "statement": "The estimates were precise enough to rule out many previous positive studies",
+            "grounded": true,
+            "evidence_source": "PMID: 32120383"
+          },
+          {
+            "statement": "One study (PMID: 40888694) showed some benefit comparing high-dose to standard-dose vaccines",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "Another similar trial (PMID: 40888720) found no significant reduction in hospitalization rates",
+            "grounded": true,
+            "evidence_source": "PMID: 40888720"
+          }
+        ]
+      }
+    ],
+    "p6_details": [
+      {
+        "claim": "Vaccines cause autism",
+        "pipeline": "P6",
+        "grounding_rate": 1.0,
+        "total_statements": 8,
+        "grounded_count": 8,
+        "details": [
+          {
+            "statement": "The claim that vaccines cause autism is thoroughly contradicted by robust scientific evidence",
+            "grounded": true,
+            "evidence_source": "PMID:24814559, PMID:30831578"
+          },
+          {
+            "statement": "A comprehensive meta-analysis of over 1.2 million children found no relationship between vaccination and autism (OR: 0.99; 95% CI: 0.92 to 1.06)",
+            "grounded": true,
+            "evidence_source": "PMID:24814559"
+          },
+          {
+            "statement": "A large Danish nationwide study of 657,461 children actually found MMR vaccination associated with reduced autism risk (HR: 0.93; 95% CI: 0.85 to 1.02)",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          },
+          {
+            "statement": "The evidence consistently refutes all components of the claim, including concerns about MMR vaccines specifically",
+            "grounded": true,
+            "evidence_source": "PMID:24814559"
+          },
+          {
+            "statement": "The evidence consistently refutes concerns about thimerosal-containing vaccines",
+            "grounded": true,
+            "evidence_source": "PMID:24814559"
+          },
+          {
+            "statement": "The evidence consistently refutes timing relationships between vaccination and autism onset",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          },
+          {
+            "statement": "Even in high-risk subgroups such as children with siblings who have autism, no increased risk was observed",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          },
+          {
+            "statement": "No clustering of autism cases occurred after vaccination",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          }
+        ]
+      },
+      {
+        "claim": "The MMR vaccine is linked to autism in children",
+        "pipeline": "P6",
+        "grounding_rate": 1.0,
+        "total_statements": 9,
+        "grounded_count": 9,
+        "details": [
+          {
+            "statement": "The largest and most rigorous study to date was a Danish nationwide cohort study of 657,461 children (PMID:30831578)",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          },
+          {
+            "statement": "The Danish study found no increased autism risk with MMR vaccination (hazard ratio: 0.93, 95% CI: 0.85-1.02)",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          },
+          {
+            "statement": "The finding held even for high-risk children with autistic siblings",
+            "grounded": true,
+            "evidence_source": "PMID:30831578"
+          },
+          {
+            "statement": "Multiple epidemiological studies and meta-analyses consistently demonstrate no association between MMR vaccination and autism development",
+            "grounded": true,
+            "evidence_source": "PMID:30986133"
+          },
+          {
+            "statement": "The original 1998 study suggesting this link was retracted by the publishing journal due to methodological flaws and ethical violations",
+            "grounded": true,
+            "evidence_source": "PMID:30986133"
+          },
+          {
+            "statement": "Autism is a neurodevelopmental condition with strong genetic components",
+            "grounded": true,
+            "evidence_source": "PMID:30986133"
+          },
+          {
+            "statement": "Autism begins before the typical age of MMR vaccination",
+            "grounded": true,
+            "evidence_source": "PMID:30986133"
+          },
+          {
+            "statement": "Meta-analysis findings suggest that vaccinations are not associated with the development of autism or autism spectrum disorder",
+            "grounded": true,
+            "evidence_source": "PMID:24814559"
+          },
+          {
+            "statement": "Vaccine components (thimerosal or mercury) or multiple vaccines (MMR) are not associated with the development of autism or autism spectrum disorder",
+            "grounded": true,
+            "evidence_source": "PMID:24814559"
+          }
+        ]
+      },
+      {
+        "claim": "Vitamin D supplements prevent COVID infection",
+        "pipeline": "P6",
+        "grounding_rate": 1.0,
+        "total_statements": 7,
+        "grounded_count": 7,
+        "details": [
+          {
+            "statement": "The claim that vitamin D supplements prevent COVID infection is not supported by the available evidence",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          },
+          {
+            "statement": "Observational studies show associations between higher vitamin D levels and reduced COVID-19 risk",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          },
+          {
+            "statement": "Mendelian randomization studies consistently yield null results",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          },
+          {
+            "statement": "These associations are likely due to confounding factors rather than causation",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          },
+          {
+            "statement": "Randomized controlled trials of vitamin D supplementation have produced inconsistent findings",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          },
+          {
+            "statement": "Current evidence is insufficient to support routine prophylactic use",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          },
+          {
+            "statement": "National and international health bodies have made no recommendations for vitamin D in COVID-19 prevention",
+            "grounded": true,
+            "evidence_source": "PMID:36366796"
+          }
+        ]
+      },
+      {
+        "claim": "Intermittent fasting reverses Type 2 diabetes",
+        "pipeline": "P6",
+        "grounding_rate": 0.57,
+        "total_statements": 7,
+        "grounded_count": 4,
+        "details": [
+          {
+            "statement": "Multiple randomized controlled trials demonstrate that IF significantly improves glycemic control and reduces HbA1c levels in T2DM patients",
+            "grounded": true,
+            "evidence_source": "PMID:36508320"
+          },
+          {
+            "statement": "IF achieves approximately 4% weight loss over 3-12 months",
+            "grounded": true,
+            "evidence_source": "PMID:38932663"
+          },
+          {
+            "statement": "Only one study showed maintained diabetes remission at 3-year follow-up",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "Most research focuses on short-term improvements rather than sustained normoglycemia without medication",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "IF improves diabetes management and metabolic outcomes",
+            "grounded": true,
+            "evidence_source": "PMID:38307325"
+          },
+          {
+            "statement": "The evidence for true diabetes reversal or remission is extremely limited",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "An intermittent fasting plan consisting of 2 nonconsecutive fasting days and 5 days of habitual intake per week could provide additional benefits to patients with type 2 diabetes",
+            "grounded": true,
+            "evidence_source": "PMID:38904963"
+          }
+        ]
+      },
+      {
+        "claim": "mRNA vaccines alter your DNA",
+        "pipeline": "P6",
+        "grounding_rate": 0.86,
+        "total_statements": 7,
+        "grounded_count": 6,
+        "details": [
+          {
+            "statement": "The evidence review reveals critical gaps in research specifically examining whether mRNA from vaccines can enter the cell nucleus, integrate into genomic DNA, or cause permanent genetic changes",
+            "grounded": true,
+            "evidence_source": "PMID:36718314"
+          },
+          {
+            "statement": "The provided studies focus on vaccine delivery mechanisms, comparative efficacy, and safety profiles",
+            "grounded": true,
+            "evidence_source": "PMID:37896985, PMID:31022829, PMID:34715347"
+          },
+          {
+            "statement": "Clinical trials of COVID-19 mRNA vaccines demonstrate safety and efficacy outcomes without any reported genetic modification effects",
+            "grounded": true,
+            "evidence_source": "PMID:34715347"
+          },
+          {
+            "statement": "BNT162b2, mRNA-1273 and Sputnik V after two doses had the highest efficacy (>90%) in preventing symptomatic cases in phase III trials",
+            "grounded": true,
+            "evidence_source": "PMID:34715347"
+          },
+          {
+            "statement": "Serious adverse event rates were rare for mRNA vaccines-anaphylaxis 2.5-4.7 cases per million doses, myocarditis 3.5 cases per million doses",
+            "grounded": true,
+            "evidence_source": "PMID:34715347"
+          },
+          {
+            "statement": "LNPs serve as an integral component of mRNA vaccines by protecting and transporting the mRNA payload into host cells",
+            "grounded": true,
+            "evidence_source": "PMID:37896985"
+          },
+          {
+            "statement": "mRNA vaccines work through temporary protein expression in the cytoplasm without nuclear entry",
+            "grounded": false,
+            "evidence_source": null
+          }
+        ]
+      },
+      {
+        "claim": "COVID vaccines are effective against all variants",
+        "pipeline": "P6",
+        "grounding_rate": 0.8,
+        "total_statements": 5,
+        "grounded_count": 4,
+        "details": [
+          {
+            "statement": "vaccines show strong initial effectiveness against the original strain (50-96% efficacy across platforms)",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "vaccines maintain good protection against severe disease across variants",
+            "grounded": true,
+            "evidence_source": "PMID:34715347"
+          },
+          {
+            "statement": "effectiveness against the Omicron variant shows significant decline over time, dropping from 67.3% to 27.1% after 25 weeks",
+            "grounded": true,
+            "evidence_source": "PMID:39431651"
+          },
+          {
+            "statement": "vaccine efficacy can be jeopardised by variants that could escape from neutralising antibodies",
+            "grounded": true,
+            "evidence_source": "PMID:34755408"
+          },
+          {
+            "statement": "a decline in infection protection was observed at 6 months for BNT162b2 and AZD1222",
+            "grounded": true,
+            "evidence_source": "PMID:34715347"
+          }
+        ]
+      },
+      {
+        "claim": "Flu vaccines reduce hospitalisation in elderly patients",
+        "pipeline": "P6",
+        "grounding_rate": 0.67,
+        "total_statements": 6,
+        "grounded_count": 4,
+        "details": [
+          {
+            "statement": "A large-scale regression discontinuity study analyzing 170 million episodes of care found no evidence that vaccination reduced hospitalizations among elderly persons",
+            "grounded": true,
+            "evidence_source": "PMID:32120383"
+          },
+          {
+            "statement": "The estimates were precise enough to rule out results from many previous studies",
+            "grounded": true,
+            "evidence_source": "PMID:32120383"
+          },
+          {
+            "statement": "Traditional observational studies suggested benefits but are subject to bias and confounding that this rigorous methodology addressed",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "Recent randomized controlled trials (PMID:33275134, PMID:40888720) failed to show significant reductions in hospitalizations",
+            "grounded": true,
+            "evidence_source": "PMID:33275134, PMID:40888720"
+          },
+          {
+            "statement": "Only modest benefits were seen in some secondary outcomes",
+            "grounded": false,
+            "evidence_source": null
+          },
+          {
+            "statement": "Current vaccination strategies may be less effective than believed at reducing serious morbidity in elderly populations",
+            "grounded": true,
+            "evidence_source": "PMID:32120383"
+          }
+        ]
+      }
+    ],
+    "p1_summary": {
+      "avg_grounding_rate": 0.846,
+      "overall_grounding_rate": 0.871,
+      "total_statements": 31,
+      "total_grounded": 27
+    },
+    "p6_summary": {
+      "avg_grounding_rate": 0.843,
+      "overall_grounding_rate": 0.857,
+      "total_statements": 49,
+      "total_grounded": 42
+    }
+  }
+}

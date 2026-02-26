@@ -1,0 +1,37 @@
+[
+  {
+    "claim": "Vaccines cause autism",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "easy"
+  },
+  {
+    "claim": "The MMR vaccine is linked to autism in children",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "easy"
+  },
+  {
+    "claim": "Vitamin D supplements prevent COVID infection",
+    "expected_verdict": "OVERSTATED",
+    "difficulty": "nuanced"
+  },
+  {
+    "claim": "Intermittent fasting reverses Type 2 diabetes",
+    "expected_verdict": "OVERSTATED",
+    "difficulty": "nuanced"
+  },
+  {
+    "claim": "mRNA vaccines alter your DNA",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "mechanistic"
+  },
+  {
+    "claim": "COVID vaccines are effective against all variants",
+    "expected_verdict": "OVERSTATED",
+    "difficulty": "mixed_evidence"
+  },
+  {
+    "claim": "Flu vaccines reduce hospitalisation in elderly patients",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "simple_supported"
+  }
+]
