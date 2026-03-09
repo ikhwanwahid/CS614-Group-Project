@@ -1,4 +1,4 @@
-"""LLM client wrapper — single model configuration for all pipelines."""
+"""Multi-provider LLM client — routes to Anthropic, OpenAI, or Ollama."""
 
 import os
 
@@ -7,27 +7,75 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DEFAULT_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514")
-BEDROCK_MODEL_ID = os.getenv("BEDROCK_MODEL_ID", "us.anthropic.claude-sonnet-4-20250514-v1:0")
+# Default models per provider
+DEFAULTS = {
+    "anthropic": os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
+    "openai": os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+    "ollama": os.getenv("OLLAMA_MODEL", "llama3.1:8b"),
+    "bedrock": os.getenv("BEDROCK_MODEL_ID", "us.anthropic.claude-sonnet-4-20250514-v1:0"),
+}
+
+# Pricing per token (approximate, for cost estimation)
+PRICING = {
+    "claude-sonnet-4-20250514": {"input": 3.0 / 1_000_000, "output": 15.0 / 1_000_000},
+    "gpt-4o-mini": {"input": 0.15 / 1_000_000, "output": 0.60 / 1_000_000},
+    "claude-haiku-4-5-20251001": {"input": 0.80 / 1_000_000, "output": 4.0 / 1_000_000},
+    "llama3.1:8b": {"input": 0.0, "output": 0.0},  # local, free
+}
 
 
-def get_llm_client() -> Anthropic:
-    """Get the Anthropic client."""
-    return Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+def get_llm_client(provider: str = "anthropic"):
+    """Get the LLM client for the specified provider."""
+    if provider == "anthropic":
+        return Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    elif provider == "openai":
+        try:
+            from openai import OpenAI
+            return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        except ImportError:
+            raise ImportError("openai package required. Run: uv pip install openai")
+    elif provider == "ollama":
+        try:
+            from openai import OpenAI
+            return OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+        except ImportError:
+            raise ImportError("openai package required for Ollama. Run: uv pip install openai")
+    else:
+        raise ValueError(f"Unknown provider: {provider}. Choose from: anthropic, openai, ollama")
 
 
 def call_llm(
     prompt: str,
     system: str = "You are a health claim fact-checker.",
     model: str | None = None,
+    provider: str = "anthropic",
     max_tokens: int = 2048,
 ) -> dict:
     """Make a single LLM call and return response with usage metadata.
 
-    Returns dict with keys: content, input_tokens, output_tokens.
+    Args:
+        prompt: User prompt text.
+        system: System prompt.
+        model: Model ID (defaults to provider's default).
+        provider: One of 'anthropic', 'openai', 'ollama'.
+        max_tokens: Maximum tokens in response.
+
+    Returns:
+        Dict with keys: content, input_tokens, output_tokens.
     """
-    model = model or DEFAULT_MODEL
-    client = get_llm_client()
+    model = model or DEFAULTS.get(provider, "claude-sonnet-4-20250514")
+
+    if provider == "anthropic":
+        return _call_anthropic(prompt, system, model, max_tokens)
+    elif provider in ("openai", "ollama"):
+        return _call_openai_compatible(prompt, system, model, provider, max_tokens)
+    else:
+        raise ValueError(f"Unknown provider: {provider}")
+
+
+def _call_anthropic(prompt: str, system: str, model: str, max_tokens: int) -> dict:
+    """Call Anthropic's Messages API."""
+    client = get_llm_client("anthropic")
     response = client.messages.create(
         model=model,
         max_tokens=max_tokens,
@@ -38,4 +86,23 @@ def call_llm(
         "content": response.content[0].text,
         "input_tokens": response.usage.input_tokens,
         "output_tokens": response.usage.output_tokens,
+    }
+
+
+def _call_openai_compatible(prompt: str, system: str, model: str, provider: str, max_tokens: int) -> dict:
+    """Call OpenAI-compatible API (OpenAI or Ollama)."""
+    client = get_llm_client(provider)
+    response = client.chat.completions.create(
+        model=model,
+        max_tokens=max_tokens,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": prompt},
+        ],
+    )
+    usage = response.usage
+    return {
+        "content": response.choices[0].message.content,
+        "input_tokens": usage.prompt_tokens if usage else 0,
+        "output_tokens": usage.completion_tokens if usage else 0,
     }
