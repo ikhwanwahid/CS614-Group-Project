@@ -28,6 +28,11 @@ dependencies = [
     "python-dotenv>=1.0.0",
     # Demo
     "streamlit>=1.30.0",
+    # Text splitting
+    "langchain-text-splitters>=0.3.0",
+    # Statistical analysis
+    "scipy>=1.11.0",
+    "numpy>=1.24.0",
     # Analysis & notebooks
     "jupyter>=1.0.0",
     "pandas>=2.0.0",
