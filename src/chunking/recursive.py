@@ -44,8 +44,8 @@ def _extract_metadata(abstract: str, article: dict) -> dict:
 
 def chunk_corpus_recursive(
     corpus: list[dict],
-    chunk_size: int = 500,
-    chunk_overlap: int = 100,
+    chunk_size: int = 800,
+    chunk_overlap: int = 150,
 ) -> list[dict]:
     """Chunk all abstracts using recursive splitting with metadata enrichment.
 

@@ -67,13 +67,20 @@ def _parse_json_response(content: str) -> dict:
     return {"verdict": "INSUFFICIENT_EVIDENCE", "explanation": content, "evidence": []}
 
 
-def _get_collection(chunking_strategy: str = "fixed"):
+def _get_collection(chunking_strategy: str = "fixed", force_reindex: bool = False):
     """Get or create a ChromaDB collection for the given chunking strategy.
 
     Each strategy gets its own collection so different chunk sizes don't conflict.
+    Auto-indexes if empty; re-indexes if force_reindex is True.
     """
+    from src.shared.vector_store import delete_collection as _delete_collection
+
     client = get_chroma_client()
     collection_name = f"health_corpus_{chunking_strategy}" if chunking_strategy != "fixed" else "health_corpus"
+
+    if force_reindex:
+        _delete_collection(client, collection_name)
+
     collection = get_or_create_collection(client, collection_name=collection_name)
 
     # Check if collection has documents; if empty, index the corpus

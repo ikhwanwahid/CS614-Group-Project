@@ -5,6 +5,9 @@ Uses a simple word-based approximation (1 token ~ 0.75 words).
 """
 
 
+MIN_CHUNK_WORDS = 10  # Drop chunks smaller than this
+
+
 def chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]:
     """Split text into fixed-size chunks with overlap."""
     words = text.split()
@@ -16,7 +19,11 @@ def chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]
     while start < len(words):
         end = start + words_per_chunk
         chunk = " ".join(words[start:end])
-        chunks.append(chunk)
+        if len(chunk.split()) >= MIN_CHUNK_WORDS:
+            chunks.append(chunk)
+        elif chunks:
+            # Merge tiny trailing chunk into the previous one
+            chunks[-1] = chunks[-1] + " " + chunk
         start += words_per_chunk - words_overlap
 
     return chunks

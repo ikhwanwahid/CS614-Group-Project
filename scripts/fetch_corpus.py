@@ -1,4 +1,4 @@
-"""Fetch vaccine-related PubMed abstracts for the retrieval corpus."""
+"""Fetch health-related PubMed abstracts for the retrieval corpus."""
 
 import json
 import time
@@ -10,16 +10,67 @@ from Bio import Entrez
 Entrez.email = "health-claims-factchecker@example.com"
 
 SEARCH_QUERIES = [
+    # Vaccines (original)
     "COVID-19 vaccine efficacy",
     "MMR vaccine autism",
-    "Vitamin D COVID prevention",
     "mRNA vaccine DNA",
     "HPV vaccine safety",
     "influenza vaccine elderly hospitalisation",
     "COVID-19 vaccine variants effectiveness",
+    # COVID-19
+    "COVID-19 treatment hydroxychloroquine",
+    "COVID-19 mask effectiveness transmission",
+    "long COVID symptoms treatment",
+    "COVID-19 ivermectin clinical trial",
+    "Vitamin D COVID prevention",
+    # General health
+    "intermittent fasting health benefits",
+    "sleep deprivation health effects",
+    "exercise cardiovascular disease prevention",
+    "drinking water health benefits hydration",
+    "organic food health benefits",
+    "sugar consumption health risks",
+    "sitting sedentary lifestyle health",
+    # Mental health
+    "social media mental health adolescents",
+    "meditation anxiety treatment",
+    "antidepressant efficacy meta-analysis",
+    "exercise depression treatment",
+    # Medications
+    "aspirin cardiovascular prevention",
+    "statin side effects muscle",
+    "antibiotics viral infection",
+    "opioid addiction treatment",
+    "ibuprofen kidney risk",
+    # Cancer
+    "cell phone cancer risk",
+    "sunscreen skin cancer prevention",
+    "antioxidants cancer prevention",
+    "processed meat cancer risk",
+    # Nutrition
+    "vitamin supplements efficacy healthy adults",
+    "gluten free diet celiac",
+    "omega-3 fatty acids heart health",
+    "probiotics gut health evidence",
+    # Maternal and child health
+    "breastfeeding benefits infant health",
+    "prenatal vitamins pregnancy outcomes",
+    "childhood obesity prevention",
+    # Fitness
+    "high intensity interval training benefits",
+    "stretching injury prevention exercise",
+    "protein supplementation muscle growth",
+    # Chronic disease
+    "type 2 diabetes diet management",
+    "hypertension lifestyle modification",
+    "rheumatoid arthritis treatment biologics",
+    # Substance use
+    "e-cigarette vaping health risks",
+    "alcohol moderate drinking health",
+    "cannabis medical marijuana pain",
 ]
 
-MAX_RESULTS_PER_QUERY = 6  # ~6 per query → ~30-40 unique abstracts
+MAX_RESULTS_PER_QUERY = 5  # ~5 per query → ~200-250 unique abstracts
 
 
 def search_pubmed(query: str, max_results: int = MAX_RESULTS_PER_QUERY) -> list[str]:
@@ -60,10 +111,18 @@ def fetch_details(pmids: list[str]) -> list[dict]:
         # Extract title
         title = str(art.get("ArticleTitle", ""))
 
-        # Extract abstract
+        # Extract abstract — preserve section labels from structured abstracts
         abstract_parts = art.get("Abstract", {}).get("AbstractText", [])
         if abstract_parts:
-            abstract = " ".join(str(part) for part in abstract_parts)
+            parts_with_labels = []
+            for part in abstract_parts:
+                label = getattr(part, "attributes", {}).get("Label", "")
+                text = str(part)
+                if label:
+                    parts_with_labels.append(f"{label.upper()}: {text}")
+                else:
+                    parts_with_labels.append(text)
+            abstract = " ".join(parts_with_labels)
         else:
             continue  # Skip articles without abstracts
 
@@ -99,10 +158,15 @@ def main():
     all_articles = []
     seen_pmids = set()
 
+    pmid_to_query = {}  # Track which query found each PMID
+
     for query in SEARCH_QUERIES:
         print(f"Searching: {query}")
         pmids = search_pubmed(query)
         print(f"  Found {len(pmids)} results")
+        for pmid in pmids:
+            if pmid not in pmid_to_query:
+                pmid_to_query[pmid] = query
         all_pmids.update(pmids)
         time.sleep(0.5)  # Be polite to NCBI servers
 
@@ -117,6 +181,7 @@ def main():
         for article in articles:
             if article["pmid"] not in seen_pmids:
                 seen_pmids.add(article["pmid"])
+                article["query"] = pmid_to_query.get(article["pmid"], "unknown")
                 all_articles.append(article)
         time.sleep(0.5)
 

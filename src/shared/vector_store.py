@@ -47,6 +47,14 @@ def add_documents(collection: chromadb.Collection, chunks: list[dict]):
     )
 
 
+def delete_collection(client: chromadb.ClientAPI, collection_name: str):
+    """Delete a ChromaDB collection if it exists."""
+    try:
+        client.delete_collection(collection_name)
+    except ValueError:
+        pass  # Collection doesn't exist
+
+
 def search(collection: chromadb.Collection, query: str, top_k: int = 5) -> list[dict]:
     """Search the collection and return top-k results."""
     results = collection.query(query_texts=[query], n_results=top_k)
