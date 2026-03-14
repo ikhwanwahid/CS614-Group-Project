@@ -1,54 +1,15 @@
 """P1: Naive RAG + Single-Pass pipeline."""
 
-import json
-import re
 import time
 
 from src.shared.llm import call_llm
 from src.shared.schema import FactCheckResult
 from src.shared.vector_store import get_chroma_client, get_or_create_collection, search
-
-SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
-1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
-2. An explanation justifying your verdict (2-3 sentences)
-3. Which evidence passages you relied on
-
-Respond ONLY with valid JSON matching this schema:
-{
-    "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-    "explanation": "Your explanation here",
-    "evidence": [
-        {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
-    ]
-}"""
+from src.pipelines.configurable import SYSTEM_PROMPT, parse_json_response
 
 # Claude Sonnet pricing (per token)
 INPUT_COST_PER_TOKEN = 3.0 / 1_000_000   # $3 per 1M input tokens
 OUTPUT_COST_PER_TOKEN = 15.0 / 1_000_000  # $15 per 1M output tokens
-
-
-def _parse_json_response(content: str) -> dict:
-    """Extract JSON from LLM response, handling markdown code blocks."""
-    # Try direct parse first
-    try:
-        return json.loads(content)
-    except json.JSONDecodeError:
-        pass
-
-    # Try extracting from markdown code block
-    match = re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, re.DOTALL)
-    if match:
-        try:
-            return json.loads(match.group(1))
-        except json.JSONDecodeError:
-            pass
-
-    # Fallback
-    return {
-        "verdict": "INSUFFICIENT_EVIDENCE",
-        "explanation": content,
-        "evidence": [],
-    }
 
 
 def run(claim: str, model: str | None = None) -> dict:
@@ -78,7 +39,7 @@ def run(claim: str, model: str | None = None) -> dict:
     estimated_cost = (input_tokens * INPUT_COST_PER_TOKEN) + (output_tokens * OUTPUT_COST_PER_TOKEN)
 
     # 4. Parse response
-    result_data = _parse_json_response(response["content"])
+    result_data = parse_json_response(response["content"])
 
     latency = time.time() - start_time
 

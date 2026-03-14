@@ -24,7 +24,9 @@ def run(claim: str) -> dict:
     verdict_data = raw["verdict"]
     gating = raw.get("gating", {})
 
-    # Estimate tokens (same rough heuristic as P6)
+    if "verdict" not in verdict_data:
+        raise KeyError(f"Orchestrator response missing 'verdict' key: {verdict_data}")
+
     estimated_tokens = len(str(raw)) // 4
     estimated_cost = estimated_tokens * (INPUT_COST_PER_TOKEN + OUTPUT_COST_PER_TOKEN) / 2
 
@@ -33,7 +35,7 @@ def run(claim: str) -> dict:
 
     result = FactCheckResult(
         claim=claim,
-        verdict=verdict_data.get("verdict", "INSUFFICIENT_EVIDENCE"),
+        verdict=verdict_data["verdict"],
         explanation=verdict_data.get("explanation", ""),
         evidence=verdict_data.get("evidence", []),
         metadata={

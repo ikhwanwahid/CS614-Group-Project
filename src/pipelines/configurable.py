@@ -4,6 +4,8 @@ Dispatches to the appropriate chunking strategy, retrieval method, agent
 architecture, and model based on the experiment config.
 """
 
+import json
+import re
 import time
 
 from src.shared.schema import FactCheckResult
@@ -13,6 +15,62 @@ CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
 RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
 AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting")
 MODELS = ("claude-sonnet-4", "gpt-4o-mini", "claude-haiku", "llama-3.1-8b", "llama-3.1-8b-ft", "llama-3.1-70b")
+
+SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
+1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
+2. An explanation justifying your verdict (2-3 sentences)
+3. Which evidence passages you relied on
+
+Respond ONLY with valid JSON matching this schema:
+{
+    "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+    "explanation": "Your explanation here",
+    "evidence": [
+        {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
+    ]
+}"""
+
+
+def get_collection(chunking_strategy: str):
+    """Get or create and populate a ChromaDB collection for the given chunking strategy."""
+    from src.shared.vector_store import get_chroma_client, get_or_create_collection, add_documents
+    from src.shared.corpus_loader import load_corpus
+    from src.chunking import chunk_corpus
+
+    collection_name = f"health_corpus_{chunking_strategy}"
+    client = get_chroma_client()
+    collection = get_or_create_collection(client, collection_name=collection_name)
+
+    if collection.count() > 0:
+        return collection
+
+    corpus = load_corpus()
+    chunks = chunk_corpus(corpus, strategy=chunking_strategy)
+    add_documents(collection, chunks)
+    return collection
+
+
+def _sanitize_json(text: str) -> str:
+    """Fix common invalid JSON escapes produced by LLMs (e.g. \\%)."""
+    return re.sub(r'\\(?=[^"\\bfnrtu/])', r'\\\\', text)
+
+
+def parse_json_response(content: str) -> dict:
+    """Extract JSON from LLM response, handling markdown code blocks."""
+    for text in [content, _sanitize_json(content)]:
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+    match = re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, re.DOTALL)
+    if match:
+        raw = match.group(1)
+        for text in [raw, _sanitize_json(raw)]:
+            try:
+                return json.loads(text)
+            except json.JSONDecodeError:
+                pass
+    raise ValueError(f"(Failed to parse JSON response) {content}")
 
 
 def run_experiment(
@@ -38,7 +96,7 @@ def run_experiment(
 
     # Dispatch based on architecture
     if agent_architecture == "single_pass":
-        raw = _run_single_pass(claim, retrieval_method, model)
+        raw = _run_single_pass(claim, chunking_strategy, retrieval_method, model)
     elif agent_architecture == "strands_multi":
         raw = _run_strands_multi(claim, model)
     elif agent_architecture == "langgraph_multi":
@@ -52,9 +110,12 @@ def run_experiment(
     estimated_tokens = len(str(raw)) // 4
     estimated_cost = estimated_tokens * 9e-6  # rough average
 
+    if "verdict" not in raw:
+        raise KeyError(f"LLM response missing 'verdict' key: {raw}")
+
     result = FactCheckResult(
         claim=claim,
-        verdict=raw.get("verdict", "INSUFFICIENT_EVIDENCE"),
+        verdict=raw["verdict"],
         explanation=raw.get("explanation", ""),
         evidence=raw.get("evidence", []),
         metadata={
@@ -77,24 +138,47 @@ def run_experiment(
     return output
 
 
-def _run_single_pass(claim: str, retrieval_method: str, model: str) -> dict:
+def _run_single_pass(claim: str, chunking_strategy: str, retrieval_method: str, model: str) -> dict:
     """Single-pass: retrieve evidence + one LLM call for verdict."""
-    # For now, delegate to the existing P1 pipeline for the baseline config
     if retrieval_method == "naive":
         from src.pipelines.p1_naive_single.pipeline import run as run_p1
-        result = run_p1(claim)
+        result = run_p1(claim, model=model)
         return {
             "verdict": result["verdict"],
             "explanation": result["explanation"],
             "evidence": result["evidence"],
         }
 
-    # Hybrid / reranked retrieval with single-pass — not yet implemented
-    raise NotImplementedError(
-        f"Single-pass with retrieval_method='{retrieval_method}' not yet implemented.\n"
-        "RAG pair (Members 2 & 3) will wire up hybrid retrieval + reranking "
-        "into the single-pass flow."
+    # Hybrid / reranked retrieval with single-pass
+    collection = get_collection(chunking_strategy)
+
+    from src.retrieval.hybrid import retrieve_hybrid
+    hits = retrieve_hybrid(claim, collection, top_k=10)
+
+    if retrieval_method == "hybrid_reranked":
+        from src.retrieval.reranker import rerank
+        hits = rerank(claim, hits, top_k=5)
+    else:
+        hits = hits[:5]
+
+    # Format evidence passages for the LLM
+    passages = "\n\n".join(
+        f"[{i+1}] (PMID: {h['metadata'].get('pmid', 'N/A')}) {h['text']}"
+        for i, h in enumerate(hits)
     )
+
+    from src.shared.llm import call_llm
+    prompt = f"Claim: {claim}\n\nEvidence:\n{passages}"
+    response = call_llm(prompt, system=SYSTEM_PROMPT, model=model)
+
+    result_data = parse_json_response(response["content"])
+    if "verdict" not in result_data:
+        raise KeyError(f"LLM response missing 'verdict' key: {result_data}")
+    return {
+        "verdict": result_data["verdict"],
+        "explanation": result_data.get("explanation", ""),
+        "evidence": result_data.get("evidence", []),
+    }
 
 
 def _run_strands_multi(claim: str, model: str) -> dict:
@@ -113,8 +197,7 @@ def _run_langgraph_multi(claim: str, model: str) -> dict:
 
 
 def _run_strands_rerouting(claim: str, model: str) -> dict:
-    """Strands multi-agent with rerouting (adaptive loop)."""
-    raise NotImplementedError(
-        "Rerouting agent architecture not yet implemented — Agent pair (Members 4 & 5).\n"
-        "Evidence Reviewer loops back to Retrieval Agent if coverage is insufficient."
-    )
+    """Strands multi-agent with gated rerouting (adaptive loop)."""
+    from src.agents.strands.orchestrator_gated import run_pipeline_with_gating
+    raw = run_pipeline_with_gating(claim)
+    return raw["verdict"]
