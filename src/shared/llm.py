@@ -24,6 +24,17 @@ PRICING = {
 }
 
 
+def _infer_provider(model: str) -> str:
+    """Infer the LLM provider from the model name."""
+    if model.startswith("claude"):
+        return "anthropic"
+    elif model.startswith("gpt-"):
+        return "openai"
+    elif model.startswith("llama"):
+        return "ollama"
+    return "anthropic"
+
+
 def get_llm_client(provider: str = "anthropic"):
     """Get the LLM client for the specified provider."""
     if provider == "anthropic":
@@ -63,6 +74,8 @@ def call_llm(
     Returns:
         Dict with keys: content, input_tokens, output_tokens.
     """
+    if model:
+        provider = _infer_provider(model)
     model = model or DEFAULTS.get(provider, "claude-sonnet-4-20250514")
 
     if provider == "anthropic":

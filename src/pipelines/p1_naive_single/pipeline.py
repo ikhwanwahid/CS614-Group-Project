@@ -51,7 +51,7 @@ def _parse_json_response(content: str) -> dict:
     }
 
 
-def run(claim: str) -> dict:
+def run(claim: str, model: str | None = None) -> dict:
     """Run P1 pipeline on a claim. Returns output matching shared schema."""
     start_time = time.time()
 
@@ -67,7 +67,10 @@ def run(claim: str) -> dict:
 
     # 3. Single LLM call
     prompt = f"Claim: {claim}\n\nEvidence:\n{passages}"
-    response = call_llm(prompt, system=SYSTEM_PROMPT)
+    llm_kwargs = {"system": SYSTEM_PROMPT}
+    if model:
+        llm_kwargs["model"] = model
+    response = call_llm(prompt, **llm_kwargs)
 
     input_tokens = response["input_tokens"]
     output_tokens = response["output_tokens"]
