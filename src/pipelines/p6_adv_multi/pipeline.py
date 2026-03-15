@@ -14,20 +14,20 @@ def run(claim: str) -> dict:
     """Run P6 pipeline on a claim. Returns output matching shared schema."""
     start_time = time.time()
 
-    # Run the 4-agent orchestrated pipeline
     raw = run_pipeline(claim)
 
     latency = time.time() - start_time
     verdict_data = raw["verdict"]
 
-    # Estimate tokens from all 4 agent calls (approximate from response sizes)
-    # In production, aggregate from each agent's metrics
-    estimated_tokens = len(str(raw)) // 4  # rough approximation
+    if "verdict" not in verdict_data:
+        raise KeyError(f"Orchestrator response missing 'verdict' key: {verdict_data}")
+
+    estimated_tokens = len(str(raw)) // 4
     estimated_cost = estimated_tokens * (INPUT_COST_PER_TOKEN + OUTPUT_COST_PER_TOKEN) / 2
 
     result = FactCheckResult(
         claim=claim,
-        verdict=verdict_data.get("verdict", "INSUFFICIENT_EVIDENCE"),
+        verdict=verdict_data["verdict"],
         explanation=verdict_data.get("explanation", ""),
         evidence=verdict_data.get("evidence", []),
         metadata={

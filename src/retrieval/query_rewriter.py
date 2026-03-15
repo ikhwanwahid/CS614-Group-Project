@@ -1,5 +1,7 @@
 """LLM-based query rewriting and expansion."""
 
+from src.shared.llm import call_llm
+
 
 def rewrite_query(claim: str, model: str | None = None) -> str:
     """Rewrite a health claim into an optimised search query.
@@ -14,8 +16,15 @@ def rewrite_query(claim: str, model: str | None = None) -> str:
     Returns:
         Rewritten search query string.
     """
-    raise NotImplementedError(
-        "Query rewriter not yet implemented — RAG pair (Members 2 & 3).\n"
-        "Approach: single LLM call to expand claim with medical synonyms "
-        "and reformulate as a search query."
+    prompt = (
+        "Rewrite this health claim as a PubMed search query. "
+        "Add medical synonyms and MeSH terms. Return ONLY the query, nothing else.\n\n"
+        f"Claim: {claim}"
     )
+    response = call_llm(
+        prompt,
+        system="You are a medical librarian specialising in PubMed literature search.",
+        model=model,
+        max_tokens=200,
+    )
+    return response["content"].strip()
