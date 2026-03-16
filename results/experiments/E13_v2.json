@@ -1,0 +1,281 @@
+{
+  "experiment_id": "E13",
+  "config": {
+    "name": "Recursive chunking + metadata",
+    "chunking_strategy": "recursive",
+    "retrieval_method": "hybrid_reranked",
+    "agent_architecture": "single_pass",
+    "model": "claude-sonnet-4-20250514"
+  },
+  "total_claims": 7,
+  "correct": 3,
+  "accuracy": 0.42857142857142855,
+  "results": [
+    {
+      "claim": "Vaccines cause autism",
+      "verdict": "UNSUPPORTED",
+      "explanation": "Multiple large-scale epidemiological studies and a comprehensive meta-analysis consistently find no association between vaccines and autism development. The evidence explicitly refutes the causal relationship claimed, showing no increased autism risk from MMR vaccination, thimerosal exposure, or multiple vaccines, even in high-risk populations.",
+      "evidence": [
+        {
+          "source": "PMID: 30986133",
+          "passage": "Several epidemiologic studies have not found an association between MMR vaccination and autism, including a study that found that MMR vaccine was not associated with an increased risk of autism even among high-risk children whose older siblings had autism.",
+          "relevance_score": 0.95
+        },
+        {
+          "source": "PMID: 30831578",
+          "passage": "The hypothesized link between the measles, mumps, rubella (MMR) vaccine and autism continues to cause concern and challenge vaccine uptake. To evaluate whether the MMR vaccine increases the risk for autism in children, subgroups of children, or time periods after vaccination.",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "PMID: 24814559",
+          "passage": "Findings of this meta-analysis suggest that vaccinations are not associated with the development of autism or autism spectrum disorder. Furthermore, the components of the vaccines (thimerosal or mercury) or multiple vaccines (MMR) are not associated with the development of autism or autism spectrum disorder.",
+          "relevance_score": 1.0
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 38.9,
+        "total_tokens": 363,
+        "estimated_cost_usd": 0.003267,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": true
+    },
+    {
+      "claim": "The MMR vaccine is linked to autism in children",
+      "verdict": "UNSUPPORTED",
+      "explanation": "Multiple large-scale epidemiological studies consistently found no association between MMR vaccination and autism development in children. The evidence includes a Danish nationwide cohort study of 657,461 children showing no increased autism risk (hazard ratio 0.93), systematic literature reviews, and studies of high-risk children with autistic siblings, all demonstrating no causal link.",
+      "evidence": [
+        {
+          "source": "PMID: 30831578",
+          "passage": "Comparing MMR-vaccinated with MMR-unvaccinated children yielded a fully adjusted autism hazard ratio of 0.93 (95% CI, 0.85 to 1.02). The study strongly supports that MMR vaccination does not increase the risk for autism, does not trigger autism in susceptible children, and is not associated with clustering of autism cases after vaccination",
+          "relevance_score": 1.0
+        },
+        {
+          "source": "PMID: 15173555",
+          "passage": "Based upon the current literature, it appears that there is no relationship between MMR vaccination and the development of autism.",
+          "relevance_score": 1.0
+        },
+        {
+          "source": "PMID: 25898051",
+          "passage": "Despite research showing no link between the measles-mumps-rubella (MMR) vaccine and autism spectrum disorders (ASD), beliefs that the vaccine causes autism persist",
+          "relevance_score": 1.0
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 7.66,
+        "total_tokens": 322,
+        "estimated_cost_usd": 0.002898,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": true
+    },
+    {
+      "claim": "Vitamin D supplements prevent COVID infection",
+      "verdict": "UNSUPPORTED",
+      "explanation": "While observational studies suggest protective associations between vitamin D supplementation and reduced COVID-19 risk, the evidence indicates this may result from confounding factors. Mendelian randomization studies show null results, and randomized controlled trials have yielded inconsistent findings, with current evidence deemed insufficient to support routine vitamin D supplementation for COVID-19 prevention.",
+      "evidence": [
+        {
+          "source": "PMID: 36366796",
+          "passage": "Meta-analyses of cross-sectional, case-control and longitudinal studies report consistent protective associations between higher circulating 25-hydroxyvitamin D [25(OH)D] concentrations or vitamin D supplement use and reduced risk and severity of COVID-19",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "PMID: 36366796",
+          "passage": "However, Mendelian randomisation studies testing for associations between genetically predicted circulating 25(OH)D concentrations and COVID-19 outcomes have yielded consistently null results. Positive findings from observational epidemiological studies may therefore have arisen as a result of residual or unmeasured confounding or reverse causality.",
+          "relevance_score": 0.95
+        },
+        {
+          "source": "PMID: 36366796",
+          "passage": "current evidence is insufficient to support routine use of vitamin D supplements as a therapeutic or prophylactic agent for COVID-19",
+          "relevance_score": 1.0
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 7.45,
+        "total_tokens": 355,
+        "estimated_cost_usd": 0.003195,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "OVERSTATED",
+      "correct": false
+    },
+    {
+      "claim": "Intermittent fasting reverses Type 2 diabetes",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence exclusively discusses vitamin D supplementation for COVID-19, COVID-19 vaccine efficacy, and HPV vaccine effectiveness. None of the evidence passages mention intermittent fasting, Type 2 diabetes, or any metabolic interventions, making it impossible to evaluate the claim.",
+      "evidence": [
+        {
+          "source": "PMID: 36366796",
+          "passage": "Meta-analyses of cross-sectional, case-control and longitudinal studies report consistent protective associations between higher circulating 25-hydroxyvitamin D [25(OH)D] concentrations or vitamin D supplement use and reduced risk and severity of COVID-19",
+          "relevance_score": 0.0
+        },
+        {
+          "source": "PMID: 34373623",
+          "passage": "the currently approved vaccines have been extremely effective in preventing COVID-19, particularly severe disease",
+          "relevance_score": 0.0
+        },
+        {
+          "source": "PMID: 41337735",
+          "passage": "One dose of either a bivalent or nonavalent HPV vaccine provided protection against HPV16 or HPV18 infection",
+          "relevance_score": 0.0
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 7.01,
+        "total_tokens": 261,
+        "estimated_cost_usd": 0.002349,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "OVERSTATED",
+      "correct": false
+    },
+    {
+      "claim": "mRNA vaccines alter your DNA",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence discusses mRNA vaccine development, delivery mechanisms, and immune responses but does not address the specific claim about DNA alteration. The passages focus on vaccine efficacy and comparison with DNA vaccines, not on whether mRNA vaccines modify the recipient's genetic material.",
+      "evidence": [
+        {
+          "source": "PMID: 31022829",
+          "passage": "This review provides a comparison of the theoretical issues and experimental findings for plasmid DNA and mRNA vaccine technologies",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "PMID: 38012018",
+          "passage": "Nucleic acid vaccines are designed based on genetic sequences (DNA or mRNA) of a target antigen to be expressed in vivo to drive a host immune response",
+          "relevance_score": 0.4
+        },
+        {
+          "source": "PMID: 37896985",
+          "passage": "LNPs serve as an integral component of mRNA vaccines by protecting and transporting the mRNA payload into host cells",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 10.27,
+        "total_tokens": 244,
+        "estimated_cost_usd": 0.002196,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "COVID vaccines are effective against all variants",
+      "verdict": "OVERSTATED",
+      "explanation": "The evidence shows COVID vaccines are effective against several specific variants (Alpha, Beta, Gamma, Delta) but demonstrates reduced effectiveness against some variants like Delta. The claim's assertion of effectiveness against 'all variants' is overstated, as the evidence only covers named variants of concern and shows variable protection levels.",
+      "evidence": [
+        {
+          "source": "PMID: 34715347",
+          "passage": "mRNA vaccines, AZD1222, and CoronaVac were effective in preventing symptomatic COVID-19 and severe infections against Alpha, Beta, Gamma or Delta variants",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "PMID: 34715347",
+          "passage": "full immunization with mRNA vaccines and AZD1222 seems to effectively prevent SARS-CoV-2 infection against the original strain and Alpha and Beta variants but with reduced effectiveness against the Delta strain",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "PMID: 34755408",
+          "passage": "vaccine efficacy (VE) can be jeopardised by the rapid emergence and spread of SARS-CoV-2 variants of concern (VOCs) that could escape from neutralising antibodies",
+          "relevance_score": 0.8
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 8.11,
+        "total_tokens": 285,
+        "estimated_cost_usd": 0.002565,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "OVERSTATED",
+      "correct": true
+    },
+    {
+      "claim": "Flu vaccines reduce hospitalisation in elderly patients",
+      "verdict": "UNSUPPORTED",
+      "explanation": "The evidence presents conflicting findings that do not support the claim. A large regression discontinuity study (PMID: 32120383) with 170 million episodes found no evidence that vaccination reduced hospitalizations among elderly persons, despite increased vaccination rates at age 65. While one source mentions that high-dose vaccines show better protection against influenza-associated hospitalization compared to standard-dose vaccines, the overall evidence does not demonstrate that flu vaccines reduce hospitalization in elderly patients.",
+      "evidence": [
+        {
+          "source": "PMID: 32120383",
+          "passage": "no evidence indicated that vaccination reduced hospitalizations or mortality among elderly persons. The estimates were precise enough to rule out results from many previous studies.",
+          "relevance_score": 1.0
+        },
+        {
+          "source": "PMID: 40888720",
+          "passage": "a high-dose inactivated influenza vaccine did not result in a significantly lower incidence of hospitalization for influenza or pneumonia than a standard dose among older adults",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "PMID: 27813430",
+          "passage": "IIV3-HD induces substantially greater antibody responses and better protection against influenza and influenza-associated hospitalization than IIV3-SD",
+          "relevance_score": 0.8
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 8.23,
+        "total_tokens": 329,
+        "estimated_cost_usd": 0.002961,
+        "pipeline": "recursive_hybrid_reranked_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "hybrid_reranked",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514"
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    }
+  ]
+}

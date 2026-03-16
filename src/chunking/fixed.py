@@ -4,6 +4,9 @@ Splits text into chunks of approximately chunk_size tokens with overlap.
 Uses a simple word-based approximation (1 token ~ 0.75 words).
 """
 
+import json
+import os
+
 
 def chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]:
     """Split text into fixed-size chunks with overlap."""
@@ -44,3 +47,24 @@ def chunk_corpus_fixed(corpus: list[dict], chunk_size: int = 200, overlap: int =
                 "text": chunk,
             })
     return chunked
+
+
+if __name__ == "__main__":
+    # Load corpus from data/corpus.json
+    corpus_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "corpus.json")
+    with open(corpus_path, "r", encoding="utf-8") as f:
+        corpus = json.load(f)
+
+    print(f"Loaded corpus with {len(corpus)} articles.")
+
+    # Chunk the corpus
+    chunked_corpus = chunk_corpus_fixed(corpus, chunk_size=200, overlap=50)
+
+    print(f"Total chunks generated: {len(chunked_corpus)}")
+
+    # Print sample output
+    print("\nSample chunks:")
+    for i, chunk in enumerate(chunked_corpus[:5]):  # First 5 chunks
+        print(f"Chunk {i+1}: PMID {chunk['pmid']}, Index {chunk['chunk_index']}")
+        print(f"Text: {chunk['text'][:100]}...")  # First 100 chars
+        print("-" * 50)
