@@ -97,6 +97,20 @@ EXPERIMENT_CONFIGS = {
         "agent_architecture": "single_pass",
         "model": "gpt-4o-mini",
     },
+        "E13": {
+        "name": "Recursive chunking + metadata",
+        "chunking_strategy": "recursive",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+    },
+            "E14": {
+        "name": "Recursive chunking + metadata",
+        "chunking_strategy": "semantic",
+        "retrieval_method": "hybrid_reranked",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+    },
 }
 
 
