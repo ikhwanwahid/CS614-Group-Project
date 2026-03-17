@@ -96,6 +96,14 @@
     "source_id": "37578"
   },
   {
+    "claim": "Indiana University cleaning mold inside residence quadrangle.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "easy",
+    "category": "mental_health",
+    "source": "PUBHEALTH",
+    "source_id": "4269"
+  },
+  {
     "claim": "FDA approves new drug that prevents migraines without side effects",
     "expected_verdict": "OVERSTATED",
     "difficulty": "nuanced",
@@ -112,6 +120,14 @@
     "source_id": "26748"
   },
   {
+    "claim": "Heparin recalled in France, Italy, Denmark: report.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "easy",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "8855"
+  },
+  {
     "claim": "Injected Drug Reduces Risk of Fracture among Women with Osteoporosis",
     "expected_verdict": "OVERSTATED",
     "difficulty": "nuanced",
@@ -120,12 +136,28 @@
     "source_id": "9270"
   },
   {
+    "claim": "If someone with the new coronavirus sneezes, it travels about 10 feet before it drops to the ground and is no longer airborne",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "difficulty": "hard",
+    "category": "covid",
+    "source": "PUBHEALTH",
+    "source_id": "41069"
+  },
+  {
     "claim": "A Tennessee boy died in the arms of a local man portraying Santa Claus during a hospital visit.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
     "difficulty": "hard",
     "category": "general_health",
     "source": "PUBHEALTH",
     "source_id": "34491"
+  },
+  {
+    "claim": "An immigrant put peanut butter in a little girl's sandwich causing her to have an allergic reaction.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "difficulty": "hard",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "34429"
   },
   {
     "claim": "Proper exercise can reverse damage from heart aging",
@@ -208,6 +240,14 @@
     "source_id": "41091"
   },
   {
+    "claim": "Swiss police arrest \"healer\" accused of infecting 16 with HIV.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "easy",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "2530"
+  },
+  {
     "claim": "FDA Panel Backs Novartis Drug For Treating Parkinson\u2019s Dementia",
     "expected_verdict": "UNSUPPORTED",
     "difficulty": "easy",
@@ -230,6 +270,14 @@
     "category": "fitness",
     "source": "PUBHEALTH",
     "source_id": "8958"
+  },
+  {
+    "claim": "Nathan Phillips falsely claimed to be a U.S. military veteran who served in the Vietnam War.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "difficulty": "hard",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "34219"
   },
   {
     "claim": "Drinking one diet drink a day triples a person's risk of dementia and strokes.",
@@ -288,6 +336,14 @@
     "source_id": "11565"
   },
   {
+    "claim": "Tidy Cats Lightweight brand cat litter causes breathing problems in cats.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "difficulty": "hard",
+    "category": "fitness",
+    "source": "PUBHEALTH",
+    "source_id": "34655"
+  },
+  {
     "claim": " President Donald Trump allowed the use of chlorpyrifos in chemical pesticides because Dow Chemical paid him $1 million. ",
     "expected_verdict": "OVERSTATED",
     "difficulty": "nuanced",
@@ -318,6 +374,14 @@
     "category": "covid",
     "source": "PUBHEALTH",
     "source_id": "25711"
+  },
+  {
+    "claim": "Bodycad Announces First Use of Its Unicompartmental Knee System in Patients",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "easy",
+    "category": "mental_health",
+    "source": "PUBHEALTH",
+    "source_id": "9089"
   },
   {
     "claim": "UK authorities release confiscated cannabis after boy hospitalized.",
@@ -456,12 +520,28 @@
     "source_id": "35014"
   },
   {
+    "claim": "For Cold Virus, Zinc May Edge Out Even Chicken Soup",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "easy",
+    "category": "nutrition",
+    "source": "PUBHEALTH",
+    "source_id": "9895"
+  },
+  {
     "claim": "New Blood Test May Rule Out Heart Attacks More Quickly",
     "expected_verdict": "UNSUPPORTED",
     "difficulty": "easy",
     "category": "chronic_disease",
     "source": "PUBHEALTH",
     "source_id": "9832"
+  },
+  {
+    "claim": "\u00a0\u00a0     Kayla Mueller, the 26-year-old woman who died while being held hostage   by the Islamic State terrorist group, \u201cdeserves no tears\u201d because she   supported terrorist groups.       ",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "moderate",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "39772"
   },
   {
     "claim": "More support for osteoporosis drugs",
@@ -510,6 +590,14 @@
     "category": "general_health",
     "source": "PUBHEALTH",
     "source_id": "10897"
+  },
+  {
+    "claim": "HIV-positive basketball star Earvin \"Magic\" Johnson donated blood to patients with leukemia. ",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "moderate",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "33361"
   },
   {
     "claim": "Quick brain scan could screen for autism",
@@ -776,6 +864,14 @@
     "source_id": "26961"
   },
   {
+    "claim": "A Texas girl required surgery after she swallowed part of a fidget spinner while cleaning it.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "moderate",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "27545"
+  },
+  {
     "claim": "Wyeth Wins U.S. OK to Sell Pristiq for Depression.",
     "expected_verdict": "SUPPORTED",
     "difficulty": "easy",
@@ -822,6 +918,14 @@
     "category": "medications",
     "source": "PUBHEALTH",
     "source_id": "23421"
+  },
+  {
+    "claim": "O\u2019Rourke offers blue vision for red Texas during Nelson show.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "easy",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "3317"
   },
   {
     "claim": "After passing a bill to make consuming raw milk legal in the state, several members of the West Virginia legislature fell ill due to drinking raw milk to celebrate the bill becoming law.",
@@ -896,6 +1000,30 @@
     "source_id": "9093"
   },
   {
+    "claim": "Fiancee sues over principal\u2019s death in bone marrow procedure.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "easy",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "5230"
+  },
+  {
+    "claim": "A female mortuary worker was arrested after becoming pregnant by one of the corpses she was preparing for burial.",
+    "expected_verdict": "UNSUPPORTED",
+    "difficulty": "moderate",
+    "category": "maternal_child",
+    "source": "PUBHEALTH",
+    "source_id": "31582"
+  },
+  {
+    "claim": "A photograph shows two children holding a 'F*CK Donald Trump' sign at a Chicago rally.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "difficulty": "hard",
+    "category": "maternal_child",
+    "source": "PUBHEALTH",
+    "source_id": "34626"
+  },
+  {
     "claim": "Policies that legalize recreational marijuana exacerbate America\u2019s opioid addiction epidemic.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
     "difficulty": "hard",
@@ -944,6 +1072,22 @@
     "source_id": "381"
   },
   {
+    "claim": "Scientists solve the mystery of the dragon with transparent teeth.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "moderate",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "2229"
+  },
+  {
+    "claim": "Jury clears J&J of liability in New Jersey talc cancer case.",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "moderate",
+    "category": "cancer",
+    "source": "PUBHEALTH",
+    "source_id": "7656"
+  },
+  {
     "claim": "Gilead wins OK to promote drug for hepatitis B.",
     "expected_verdict": "SUPPORTED",
     "difficulty": "moderate",
@@ -974,6 +1118,14 @@
     "category": "nutrition",
     "source": "PUBHEALTH",
     "source_id": "22717"
+  },
+  {
+    "claim": "Two studies in Africa link male circumcision to lower risk of HIV",
+    "expected_verdict": "SUPPORTED",
+    "difficulty": "moderate",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "11593"
   },
   {
     "claim": "Adult swaddling therapy fad hits Tokyo.",
@@ -1126,6 +1278,14 @@
     "category": "maternal_child",
     "source": "PUBHEALTH",
     "source_id": "9869"
+  },
+  {
+    "claim": "How six cups of ground coffee can improve nose, throat surgery",
+    "expected_verdict": "OVERSTATED",
+    "difficulty": "moderate",
+    "category": "general_health",
+    "source": "PUBHEALTH",
+    "source_id": "9130"
   },
   {
     "claim": "Low-dose lithium reduces side effects from most common treatment for Parkinson's disease",
@@ -1382,6 +1542,14 @@
     "category": "general_health",
     "source": "PUBHEALTH",
     "source_id": "34623"
+  },
+  {
+    "claim": "Two dozen children went home from St. Jude's hospital cancer-free in a single week.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "difficulty": "moderate",
+    "category": "cancer",
+    "source": "PUBHEALTH",
+    "source_id": "34214"
   },
   {
     "claim": "Coconut oil is an effective treatment for Alzheimer's disease.",
