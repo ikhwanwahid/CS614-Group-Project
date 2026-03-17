@@ -138,21 +138,106 @@ def _sanitize_json(text: str) -> str:
     return re.sub(r'\\(?=[^"\\bfnrtu/])', r'\\\\', text)
 
 
+def _extract_first_json_object(text: str) -> str | None:
+    """Return the first balanced top-level JSON object substring, if present."""
+    start = text.find("{")
+    if start == -1:
+        return None
+
+    depth = 0
+    in_string = False
+    escape = False
+
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start : i + 1]
+
+    return None
+
+
+def _repair_json_like(text: str) -> str:
+    """Repair common model output issues that violate strict JSON syntax."""
+    fixed = text
+    # Remove parenthetical commentary after primitive values, e.g. false (note...)
+    fixed = re.sub(
+        r'(:\s*(?:true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?))\s*\([^\n\r{}\[\]]*\)',
+        r"\1",
+        fixed,
+    )
+    # Quote bareword values that appear before a comma or closing brace.
+    fixed = re.sub(
+        r'(:\s*)([A-Za-z][A-Za-z0-9_\- ]+?)(\s*(?:,|\}))',
+        lambda m: f'{m.group(1)}"{m.group(2).strip()}"{m.group(3)}',
+        fixed,
+    )
+    return fixed
+
+
+def _fallback_from_verdict(content: str) -> dict | None:
+    """Fallback parser: recover verdict/explanation from non-JSON output."""
+    verdict_match = re.search(
+        r'"?verdict"?\s*[:=]\s*"?(SUPPORTED|UNSUPPORTED|OVERSTATED|INSUFFICIENT_EVIDENCE)"?',
+        content,
+        re.IGNORECASE,
+    )
+    if not verdict_match:
+        return None
+
+    verdict = verdict_match.group(1).upper()
+    explanation = ""
+    explanation_match = re.search(r'"?explanation"?\s*[:=]\s*"(.*?)"', content, re.DOTALL)
+    if explanation_match:
+        explanation = explanation_match.group(1).strip()
+
+    return {"verdict": verdict, "explanation": explanation, "evidence": []}
+
+
 def parse_json_response(content: str) -> dict:
     """Extract JSON from LLM response, handling markdown code blocks."""
-    for text in [content, _sanitize_json(content)]:
+    candidates = [content, _sanitize_json(content)]
+
+    match = re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, re.DOTALL)
+    if match:
+        raw = match.group(1)
+        candidates.extend([raw, _sanitize_json(raw)])
+
+    extracted = _extract_first_json_object(content)
+    if extracted:
+        candidates.extend([extracted, _sanitize_json(extracted), _repair_json_like(extracted), _sanitize_json(_repair_json_like(extracted))])
+
+    seen = set()
+    deduped = []
+    for text in candidates:
+        if text and text not in seen:
+            deduped.append(text)
+            seen.add(text)
+
+    for text in deduped:
         try:
             return json.loads(text)
         except json.JSONDecodeError:
             pass
-    match = re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, re.DOTALL)
-    if match:
-        raw = match.group(1)
-        for text in [raw, _sanitize_json(raw)]:
-            try:
-                return json.loads(text)
-            except json.JSONDecodeError:
-                pass
+
+    fallback = _fallback_from_verdict(content)
+    if fallback:
+        return fallback
+
     raise ValueError(f"(Failed to parse JSON response) {content}")
 
 
