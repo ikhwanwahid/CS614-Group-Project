@@ -5,7 +5,9 @@ and chunks per-section, keeping methodological context together.
 """
 
 import re
+
 from src.chunking.fixed import chunk_text
+from src.shared.chunking_utils import build_chunk_record
 
 # Define known section labels and their common variants in PubMed abstracts.
 # https://www.researchgate.net/figure/Headings-of-Structured-Abstracts_tbl1_23998674
@@ -144,12 +146,13 @@ def chunk_corpus_section_aware(corpus: list[dict], chunk_size: int = 200, overla
         chunk_index = 0
         for section_label, section_text in sections:
             for text in chunk_text(section_text, chunk_size=chunk_size, overlap=overlap):
-                chunked.append({
-                    "pmid": article["pmid"],
-                    "title": article["title"],
-                    "chunk_index": chunk_index,
-                    "text": text,
-                    "metadata": {"section": section_label.lower() if section_label else "unstructured"},
-                })
+                chunked.append(
+                    build_chunk_record(
+                        article,
+                        chunk_index,
+                        text,
+                        extra_metadata={"section": section_label.lower() if section_label else "unstructured"},
+                    )
+                )
                 chunk_index += 1
     return chunked

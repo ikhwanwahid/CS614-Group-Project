@@ -8,13 +8,21 @@ import json
 import re
 import time
 
-from src.shared.schema import FactCheckResult
+from src.shared.chunking_utils import chunk_artifacts_exist, clear_chunk_artifacts, export_chunk_artifacts
 
 # Supported values for each axis
 CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
 RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
 AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting")
-MODELS = ("claude-sonnet-4", "gpt-4o-mini", "claude-haiku", "llama-3.1-8b", "llama-3.1-8b-ft", "llama-3.1-70b")
+MODELS = (
+    "claude-sonnet-4",
+    "claude-sonnet-4-20250514",
+    "gpt-4o-mini",
+    "claude-haiku",
+    "llama-3.1-8b",
+    "llama-3.1-8b-ft",
+    "llama-3.1-70b",
+)
 
 # SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
 # 1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
@@ -100,22 +108,48 @@ Respond ONLY with valid JSON:
     ]
 }"""
 
-def get_collection(chunking_strategy: str):
+def get_collection(chunking_strategy: str, force_rebuild: bool = False):
     """Get or create and populate a ChromaDB collection for the given chunking strategy."""
-    from src.shared.vector_store import get_chroma_client, get_or_create_collection, add_documents
+    from src.shared.vector_store import add_documents, get_chroma_client, get_or_create_collection, reset_collection
     from src.shared.corpus_loader import load_corpus
     from src.chunking import chunk_corpus
 
     collection_name = f"health_corpus_{chunking_strategy}"
     client = get_chroma_client()
-    collection = get_or_create_collection(client, collection_name=collection_name)
+    artifacts_ready = chunk_artifacts_exist(chunking_strategy)
 
-    if collection.count() > 0:
+    print(f"[chunking] Preparing collection '{collection_name}' with strategy='{chunking_strategy}'")
+
+    if force_rebuild:
+        print(f"[chunking] Force rebuild requested for strategy='{chunking_strategy}'")
+        reset_collection(client, collection_name)
+        clear_chunk_artifacts(chunking_strategy)
+
+    collection = get_or_create_collection(client, collection_name=collection_name)
+    if not force_rebuild and collection.count() > 0 and artifacts_ready:
+        print(
+            f"[chunking] Reusing cached collection '{collection_name}' "
+            f"({collection.count()} chunks already indexed)"
+        )
         return collection
 
+    if collection.count() > 0:
+        print(f"[chunking] Resetting existing collection '{collection_name}' before rebuild")
+        reset_collection(client, collection_name)
+        collection = get_or_create_collection(client, collection_name=collection_name)
+
     corpus = load_corpus()
+    print(f"[chunking] Running strategy='{chunking_strategy}' on {len(corpus)} corpus articles")
     chunks = chunk_corpus(corpus, strategy=chunking_strategy)
+    print(f"[chunking] Generated {len(chunks)} chunks for strategy='{chunking_strategy}'")
+    export_chunk_artifacts(
+        strategy=chunking_strategy,
+        chunks=chunks,
+        corpus_size=len(corpus),
+        parameters={"chunking_strategy": chunking_strategy},
+    )
     add_documents(collection, chunks)
+    print(f"[chunking] Indexed {len(chunks)} chunks into collection '{collection_name}'")
     return collection
 
 
@@ -194,6 +228,30 @@ def _fallback_from_verdict(content: str) -> dict | None:
     return {"verdict": verdict, "explanation": explanation, "evidence": []}
 
 
+def _normalize_parsed_response(result: dict) -> dict:
+    """Normalize LLM JSON into the project schema."""
+    verdict = str(result.get("verdict", "")).strip().upper()
+    explanation = str(result.get("explanation", "") or "").strip()
+    evidence_items = []
+
+    for item in result.get("evidence", []) or []:
+        if not isinstance(item, dict):
+            continue
+        evidence_items.append(
+            {
+                "source": str(item.get("source", "N/A") or "N/A"),
+                "passage": str(item.get("passage", item.get("text", "")) or ""),
+                "relevance_score": float(item.get("relevance_score", item.get("score", 0.0)) or 0.0),
+            }
+        )
+
+    return {
+        "verdict": verdict,
+        "explanation": explanation,
+        "evidence": evidence_items,
+    }
+
+
 def parse_json_response(content: str) -> dict:
     """Extract JSON from LLM response, handling markdown code blocks."""
     candidates = [content, _sanitize_json(content)]
@@ -216,13 +274,13 @@ def parse_json_response(content: str) -> dict:
 
     for text in deduped:
         try:
-            return json.loads(text)
+            return _normalize_parsed_response(json.loads(text))
         except json.JSONDecodeError:
             pass
 
     fallback = _fallback_from_verdict(content)
     if fallback:
-        return fallback
+        return _normalize_parsed_response(fallback)
 
     raise ValueError(f"(Failed to parse JSON response) {content}")
 
@@ -233,6 +291,7 @@ def run_experiment(
     retrieval_method: str = "naive",
     agent_architecture: str = "single_pass",
     model: str = "claude-sonnet-4",
+    force_rebuild_chunks: bool = False,
 ) -> dict:
     """Run a single claim through a configured pipeline.
 
@@ -246,11 +305,13 @@ def run_experiment(
     Returns:
         Dict matching FactCheckResult schema with experiment config in metadata.
     """
+    from src.shared.schema import FactCheckResult
+
     start_time = time.time()
 
     # Dispatch based on architecture
     if agent_architecture == "single_pass":
-        raw = _run_single_pass(claim, chunking_strategy, retrieval_method, model)
+        raw = _run_single_pass(claim, chunking_strategy, retrieval_method, model, force_rebuild_chunks=force_rebuild_chunks)
     elif agent_architecture == "strands_multi":
         raw = _run_strands_multi(claim, model)
     elif agent_architecture == "langgraph_multi":
@@ -261,8 +322,11 @@ def run_experiment(
         raise ValueError(f"Unknown agent architecture: {agent_architecture}")
 
     latency = time.time() - start_time
-    estimated_tokens = len(str(raw)) // 4
-    estimated_cost = estimated_tokens * 9e-6  # rough average
+    usage = raw.pop("_usage", {})
+    input_tokens = int(usage.get("input_tokens", 0) or 0)
+    output_tokens = int(usage.get("output_tokens", 0) or 0)
+    estimated_tokens = input_tokens + output_tokens or len(str(raw)) // 4
+    estimated_cost = usage.get("estimated_cost_usd", estimated_tokens * 9e-6)
 
     if "verdict" not in raw:
         raise KeyError(f"LLM response missing 'verdict' key: {raw}")
@@ -275,7 +339,7 @@ def run_experiment(
         metadata={
             "latency_seconds": round(latency, 2),
             "total_tokens": estimated_tokens,
-            "estimated_cost_usd": round(estimated_cost, 6),
+            "estimated_cost_usd": round(float(estimated_cost), 6),
             "pipeline": f"{chunking_strategy}_{retrieval_method}_{agent_architecture}_{model}",
             "retrieval_method": retrieval_method,
             "agent_type": agent_architecture,
@@ -288,32 +352,40 @@ def run_experiment(
         "retrieval_method": retrieval_method,
         "agent_architecture": agent_architecture,
         "model": model,
+        "force_rebuild_chunks": force_rebuild_chunks,
     }
     return output
 
 
-def _run_single_pass(claim: str, chunking_strategy: str, retrieval_method: str, model: str) -> dict:
+def _run_single_pass(
+    claim: str,
+    chunking_strategy: str,
+    retrieval_method: str,
+    model: str,
+    force_rebuild_chunks: bool = False,
+) -> dict:
     """Single-pass: retrieve evidence + one LLM call for verdict."""
     if retrieval_method == "naive":
-        from src.pipelines.p1_naive_single.pipeline import run as run_p1
-        result = run_p1(claim, model=model)
-        return {
-            "verdict": result["verdict"],
-            "explanation": result["explanation"],
-            "evidence": result["evidence"],
-        }
-
-    # Hybrid / reranked retrieval with single-pass
-    collection = get_collection(chunking_strategy)
-
-    from src.retrieval.hybrid import retrieve_hybrid
-    hits = retrieve_hybrid(claim, collection, top_k=10)
-
-    if retrieval_method == "hybrid_reranked":
-        from src.retrieval.reranker import rerank
-        hits = rerank(claim, hits, top_k=5)
+        from src.shared.vector_store import search
+        print(f"[retrieval] Running naive retrieval with chunking='{chunking_strategy}'")
+        collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
+        hits = search(collection, claim, top_k=5)
+        print(f"[retrieval] Naive retrieval returned {len(hits)} hits")
     else:
-        hits = hits[:5]
+        print(f"[retrieval] Running {retrieval_method} retrieval with chunking='{chunking_strategy}'")
+        collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
+
+        from src.retrieval.hybrid import retrieve_hybrid
+        hits = retrieve_hybrid(claim, collection, top_k=10)
+        print(f"[retrieval] Hybrid retrieval returned {len(hits)} candidate hits")
+
+        if retrieval_method == "hybrid_reranked":
+            from src.retrieval.reranker import rerank
+            hits = rerank(claim, hits, top_k=5)
+            print(f"[retrieval] Reranker kept {len(hits)} hits")
+        else:
+            hits = hits[:5]
+            print(f"[retrieval] Using top {len(hits)} hybrid hits without reranking")
 
     # Format evidence passages for the LLM
     passages = "\n\n".join(
@@ -332,6 +404,10 @@ def _run_single_pass(claim: str, chunking_strategy: str, retrieval_method: str, 
         "verdict": result_data["verdict"],
         "explanation": result_data.get("explanation", ""),
         "evidence": result_data.get("evidence", []),
+        "_usage": {
+            "input_tokens": response.get("input_tokens", 0),
+            "output_tokens": response.get("output_tokens", 0),
+        },
     }
 
 

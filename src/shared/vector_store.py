@@ -1,5 +1,7 @@
 """ChromaDB vector store setup and search."""
 
+from __future__ import annotations
+
 import chromadb
 from chromadb.utils import embedding_functions
 
@@ -38,6 +40,14 @@ def get_or_create_collection(
     )
 
 
+def reset_collection(client: chromadb.ClientAPI, collection_name: str) -> None:
+    """Delete a collection if it exists so it can be rebuilt cleanly."""
+    try:
+        client.delete_collection(name=collection_name)
+    except Exception:
+        pass
+
+
 def add_documents(collection: chromadb.Collection, chunks: list[dict]):
     """Add chunked documents to the collection in batches."""
     BATCH_SIZE = 500
@@ -46,7 +56,15 @@ def add_documents(collection: chromadb.Collection, chunks: list[dict]):
         collection.add(
             ids=[f"{c['pmid']}_{c['chunk_index']}" for c in batch],
             documents=[c["text"] for c in batch],
-            metadatas=[{"pmid": c["pmid"], "title": c["title"], "chunk_index": c["chunk_index"]} for c in batch],
+            metadatas=[
+                {
+                    "pmid": c["pmid"],
+                    "title": c["title"],
+                    "chunk_index": c["chunk_index"],
+                    **c.get("metadata", {}),
+                }
+                for c in batch
+            ],
         )
 
 

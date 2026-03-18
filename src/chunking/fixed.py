@@ -7,6 +7,8 @@ Uses a simple word-based approximation (1 token ~ 0.75 words).
 import json
 import os
 
+from src.shared.chunking_utils import build_chunk_record
+
 
 def chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]:
     """Split text into fixed-size chunks with overlap."""
@@ -38,14 +40,9 @@ def chunk_corpus_fixed(corpus: list[dict], chunk_size: int = 200, overlap: int =
     """
     chunked = []
     for article in corpus:
-        chunks = chunk_text(article["abstract"], chunk_size, overlap)
+        chunks = chunk_text(article.get("abstract", "") or "", chunk_size, overlap)
         for i, chunk in enumerate(chunks):
-            chunked.append({
-                "pmid": article["pmid"],
-                "title": article["title"],
-                "chunk_index": i,
-                "text": chunk,
-            })
+            chunked.append(build_chunk_record(article, i, chunk))
     return chunked
 
 
