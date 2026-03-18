@@ -80,38 +80,24 @@ MODELS = ("claude-sonnet-4", "gpt-4o-mini", "claude-haiku", "llama-3.1-8b", "lla
 #          {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
 #      ]
 # }"""
-SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
-Focus strictly on the 'Disease', 'Population', and the 'Intensity' of the claim.
+SYSTEM_PROMPT = """You are a scientific claim fact-checker. Given evidence passages from research abstracts, determine whether each claim is supported, contradicted, or lacks sufficient evidence.
 
-Verification & Weighting Logic:
-1. Extract Claim Entities & Modality: Identify [Disease], [Population], and [Intensity Modifiers] (e.g., look for absolute terms like 'prevents', 'cures', 'eliminates' vs. relative terms like 'reduces', 'manages', 'lowers risk').
-2. Prioritize Specificity: Evidence matching BOTH entities explicitly (e.g., 'Flu vaccine' AND 'elderly') is HIGH-PRIORITY.
-3. Penalty for Ambiguity: If evidence uses general terms (e.g., 'vaccination' instead of 'flu vaccine'), downgrade its importance. It cannot be used as the sole basis for SUPPORTED or UNSUPPORTED.
-4. Overstated Detection (Crucial): Compare the claim's intensity to the evidence's intensity. 
-   - If the claim uses absolute terms (e.g., "prevents hospitalization") but the evidence only demonstrates a partial effect (e.g., "reduces the risk/incidence of hospitalization"), the verdict MUST be OVERSTATED.
-   - If the claim implies a guarantee but the evidence only shows a statistical association, it is OVERSTATED.
-5. Final Verdict: If high-priority evidence is missing, use INSUFFICIENT_EVIDENCE.
+Verification Logic:
+1. Read the claim carefully. Identify the core scientific assertion.
+2. Examine each evidence passage. Does it directly address the claim's topic?
+3. If evidence directly supports the claim's assertion, verdict is SUPPORTED.
+4. If evidence directly contradicts the claim's assertion, verdict is UNSUPPORTED.
+5. If the evidence does not address the claim, or is only tangentially related, verdict is INSUFFICIENT_EVIDENCE.
+
+Important: Base your verdict ONLY on the provided evidence. If the evidence partially relates to the topic but does not confirm or deny the specific claim, use INSUFFICIENT_EVIDENCE.
 
 Respond ONLY with valid JSON:
 {
-    "analysis": {
-         "claim_extraction": {
-             "disease": "...",
-             "population": "...",
-             "intensity_modifiers": "Identify the exact verbs/adverbs setting the claim's strength (e.g., 'prevents', 'reduces')."
-         },
-         "evidence_match": {
-             "disease_matched": true/false,
-             "population_matched": true/false,
-             "intensity_matched": true/false,
-             "notes": "Detail any entity gaps AND explain if the claim exaggerates the evidence (e.g., Claim says 'prevention', Evidence says 'reduction')."
-         }
-     },
-     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-     "explanation": "Justify the verdict. If OVERSTATED, explicitly state how the claim's absolute language exceeds the evidence's findings. If entities do not match exactly, explain the ambiguity.",
-     "evidence": [
-         {"source": "PMID/Author", "passage": "key passage demonstrating the actual effect/entities", "relevance_score": 0.0-1.0}
-     ]
+    "verdict": "SUPPORTED | UNSUPPORTED | INSUFFICIENT_EVIDENCE",
+    "explanation": "2-3 sentences justifying your verdict based on the evidence.",
+    "evidence": [
+        {"source": "PMID/Author", "passage": "key passage text", "relevance_score": 0.0-1.0}
+    ]
 }"""
 
 def get_collection(chunking_strategy: str):
@@ -192,7 +178,7 @@ def _repair_json_like(text: str) -> str:
 def _fallback_from_verdict(content: str) -> dict | None:
     """Fallback parser: recover verdict/explanation from non-JSON output."""
     verdict_match = re.search(
-        r'"?verdict"?\s*[:=]\s*"?(SUPPORTED|UNSUPPORTED|OVERSTATED|INSUFFICIENT_EVIDENCE)"?',
+        r'"?verdict"?\s*[:=]\s*"?(SUPPORTED|UNSUPPORTED|INSUFFICIENT_EVIDENCE)"?',
         content,
         re.IGNORECASE,
     )
