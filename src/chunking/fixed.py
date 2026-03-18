@@ -1,13 +1,6 @@
-"""Fixed-size chunking strategy (baseline).
+"""Fixed-size chunking strategy."""
 
-Splits text into chunks of approximately chunk_size tokens with overlap.
-Uses a simple word-based approximation (1 token ~ 0.75 words).
-"""
-
-import json
-import os
-
-from src.shared.chunking_utils import build_chunk_record
+from src.shared.chunking_utils import abstract_to_text, build_chunk_record
 
 
 def chunk_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]:
@@ -31,37 +24,16 @@ def chunk_corpus_fixed(corpus: list[dict], chunk_size: int = 200, overlap: int =
     """Chunk all abstracts using fixed-size windowing.
 
     Args:
-        corpus: List of article dicts with 'pmid', 'title', 'abstract'.
+        corpus: List of article dicts with 'doc_id', 'title', 'abstract'.
         chunk_size: Approximate number of tokens per chunk.
         overlap: Approximate token overlap between consecutive chunks.
 
     Returns:
-        List of chunk dicts with 'pmid', 'title', 'chunk_index', 'text'.
+        List of chunk dicts with 'doc_id', 'title', 'chunk_index', 'text'.
     """
     chunked = []
     for article in corpus:
-        chunks = chunk_text(article.get("abstract", "") or "", chunk_size, overlap)
+        chunks = chunk_text(abstract_to_text(article.get("abstract")), chunk_size, overlap)
         for i, chunk in enumerate(chunks):
             chunked.append(build_chunk_record(article, i, chunk))
     return chunked
-
-
-if __name__ == "__main__":
-    # Load corpus from data/corpus.json
-    corpus_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "corpus.json")
-    with open(corpus_path, "r", encoding="utf-8") as f:
-        corpus = json.load(f)
-
-    print(f"Loaded corpus with {len(corpus)} articles.")
-
-    # Chunk the corpus
-    chunked_corpus = chunk_corpus_fixed(corpus, chunk_size=200, overlap=50)
-
-    print(f"Total chunks generated: {len(chunked_corpus)}")
-
-    # Print sample output
-    print("\nSample chunks:")
-    for i, chunk in enumerate(chunked_corpus[:5]):  # First 5 chunks
-        print(f"Chunk {i+1}: PMID {chunk['pmid']}, Index {chunk['chunk_index']}")
-        print(f"Text: {chunk['text'][:100]}...")  # First 100 chars
-        print("-" * 50)

@@ -1,21 +1,21 @@
 """Build test claims and corpus from SciFact dataset.
 
 SciFact (AllenAI, EMNLP 2020) contains expert-written scientific claims
-paired with PubMed abstracts as evidence. Labels: SUPPORT, CONTRADICT, or
+paired with scientific abstracts as evidence. Labels: SUPPORT, CONTRADICT, or
 no evidence (NEI).
 
-Mapping to our schema:
+Mapping to our verdict schema:
     SUPPORT    -> SUPPORTED
     CONTRADICT -> UNSUPPORTED
     '' (NEI)   -> INSUFFICIENT_EVIDENCE
 
 Outputs:
     data/test_claims.json   — balanced claims (sampled per class)
-    data/corpus.json        — SciFact corpus (5,183 PubMed abstracts)
+    data/corpus.json        — SciFact corpus (5,183 abstracts)
 
 Usage:
     python scripts/build_scifact_dataset.py
-    python scripts/build_scifact_dataset.py --claims-per-class 60
+    python scripts/build_scifact_dataset.py --claims-per-class 100
 """
 
 import argparse
@@ -35,19 +35,16 @@ LABEL_MAP = {
     "": "INSUFFICIENT_EVIDENCE",
 }
 
-
 def build_corpus(corpus_ds) -> list[dict]:
     """Convert SciFact corpus to our format."""
     articles = []
     for doc in corpus_ds["train"]:
         abstract_text = " ".join(doc["abstract"])
         articles.append({
-            "pmid": str(doc["doc_id"]),
+            "doc_id": str(doc["doc_id"]),
             "title": doc["title"],
             "abstract": abstract_text,
-            "authors": [],
-            "year": "",
-            "source": "scifact",
+            "structured": doc["structured"],
         })
     return articles
 
@@ -77,6 +74,7 @@ def build_claims(claims_ds, claims_per_class: int | None = None) -> list[dict]:
             "source_id": str(c["id"]),
             "evidence_doc_id": c["evidence_doc_id"] if c["evidence_doc_id"] else None,
             "evidence_sentences": c["evidence_sentences"] if c["evidence_sentences"] else None,
+            "cited_doc_ids": c["cited_doc_ids"] if c["cited_doc_ids"] else None,
         })
 
     # Balance classes
@@ -100,8 +98,8 @@ def main():
     parser.add_argument(
         "--claims-per-class",
         type=int,
-        default=None,
-        help="Claims per verdict class (default: auto-balance to smallest class)",
+        default=100,
+        help="Claims per verdict class (default: 100, yielding 300 total across 3 classes)",
     )
     args = parser.parse_args()
 
@@ -139,10 +137,8 @@ def main():
         for s in samples:
             print(f"    - {s['claim'][:100]}")
 
-    print(f"\n  Corpus: {len(corpus)} PubMed abstracts")
-    print(f"  Claims: {len(claims)} ({len(verdicts)} verdict classes)")
-    print(f"\n  NOTE: SciFact has 3 classes (no OVERSTATED). Update pipeline verdicts accordingly.")
-
+    print(f"\n  Corpus: {len(corpus)} abstracts")
+    print(f"  Claims: {len(claims)} ({len(verdicts)} verdict classes)\n")
 
 if __name__ == "__main__":
     main()

@@ -1,10 +1,8 @@
-"""Hybrid retrieval — BM25 (lexical) + dense (PubMedBERT) with reciprocal rank fusion.
+"""Hybrid retrieval — BM25 (lexical) + dense retrieval with reciprocal rank fusion.
 
 Combines keyword matching (BM25) with semantic similarity (ChromaDB dense search)
 using Reciprocal Rank Fusion (RRF) so neither method dominates.
 """
-
-from rank_bm25 import BM25Okapi
 
 _RRF_K = 60  # Standard RRF constant — penalises very low-ranked docs less aggressively
 
@@ -54,23 +52,27 @@ def retrieve_hybrid(
         for i, doc_id in enumerate(ids)
     }
 
-    # --- BM25 retrieval (lexical) ---
-    tokenized_corpus = [t.lower().split() for t in texts]
-    bm25 = BM25Okapi(tokenized_corpus)
-    bm25_raw_scores = bm25.get_scores(query.lower().split())
-
-    # Build rank lookup: id → 0-based rank (0 = highest BM25 score)
-    bm25_order = sorted(range(len(bm25_raw_scores)), key=lambda i: bm25_raw_scores[i], reverse=True)
-    bm25_rank_of: dict[str, int] = {ids[i]: rank for rank, i in enumerate(bm25_order)}
-
     # --- Dense retrieval (ChromaDB cosine similarity) ---
     n_dense = min(top_k * 3, len(ids))
     dense_results = collection.query(query_texts=[query], n_results=n_dense)
     dense_ids: list[str] = dense_results["ids"][0]
     dense_rank_of: dict[str, int] = {doc_id: rank for rank, doc_id in enumerate(dense_ids)}
 
+    # --- BM25 retrieval (lexical) ---
+    try:
+        from rank_bm25 import BM25Okapi
+
+        tokenized_corpus = [t.lower().split() for t in texts]
+        bm25 = BM25Okapi(tokenized_corpus)
+        bm25_raw_scores = bm25.get_scores(query.lower().split())
+        bm25_order = sorted(range(len(bm25_raw_scores)), key=lambda i: bm25_raw_scores[i], reverse=True)
+        bm25_rank_of: dict[str, int] = {ids[i]: rank for rank, i in enumerate(bm25_order)}
+        bm25_top_ids = {ids[i] for i in bm25_order[: top_k * 3]}
+    except Exception:
+        bm25_rank_of = {}
+        bm25_top_ids = set()
+
     # --- RRF fusion over union of top candidates from both lists ---
-    bm25_top_ids = {ids[i] for i in bm25_order[: top_k * 3]}
     candidate_ids: set[str] = set(dense_ids) | bm25_top_ids
 
     scored: list[tuple[str, float]] = []

@@ -7,7 +7,7 @@ chunking strategies for fair comparison.
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from src.shared.chunking_utils import build_chunk_record
+from src.shared.chunking_utils import abstract_to_text, build_chunk_record
 
 # Separators: paragraph break, sentence end, space, then individual characters
 _SEPARATORS = ["\n\n", "\n", ". ", "! ", "? ", " ", ""]
@@ -19,13 +19,13 @@ def chunk_corpus_recursive(
     """Chunk all abstracts using recursive splitting.
 
     Args:
-        corpus: List of article dicts with 'pmid', 'title', 'abstract',
-                and optionally 'year'.
+        corpus: List of article dicts with 'doc_id', 'title', 'abstract',
+            and 'structured'.
         chunk_size: Approximate token budget per chunk.
         overlap: Approximate token overlap between consecutive chunks.
 
     Returns:
-        List of dicts with 'pmid', 'title', 'chunk_index', 'text', 'metadata'.
+        List of dicts with 'doc_id', 'title', 'chunk_index', 'text', 'metadata'.
     """
 
     # Keep API in token-like units for consistency with other chunkers.
@@ -41,7 +41,7 @@ def chunk_corpus_recursive(
 
     chunks: list[dict] = []
     for article in corpus:
-        abstract = article.get("abstract", "") or ""
+        abstract = abstract_to_text(article.get("abstract"))
         raw_chunks = splitter.split_text(abstract)
         for i, chunk_text in enumerate(raw_chunks):
             chunks.append(build_chunk_record(article, i, chunk_text))

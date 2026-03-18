@@ -54,11 +54,11 @@ def add_documents(collection: chromadb.Collection, chunks: list[dict]):
     for i in range(0, len(chunks), BATCH_SIZE):
         batch = chunks[i : i + BATCH_SIZE]
         collection.add(
-            ids=[f"{c['pmid']}_{c['chunk_index']}" for c in batch],
+            ids=[f"{c['doc_id']}_{c['chunk_index']}" for c in batch],
             documents=[c["text"] for c in batch],
             metadatas=[
                 {
-                    "pmid": c["pmid"],
+                    "doc_id": c["doc_id"],
                     "title": c["title"],
                     "chunk_index": c["chunk_index"],
                     **c.get("metadata", {}),

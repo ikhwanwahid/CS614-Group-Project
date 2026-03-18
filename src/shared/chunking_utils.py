@@ -11,23 +11,21 @@ from typing import Any
 PROCESSED_CORPUS_DIR = Path("data/corpus/processed")
 
 
-def _stringify_authors(authors: Any) -> str:
-    """Convert a corpus authors field into a readable scalar value."""
-    if isinstance(authors, list):
-        return ", ".join(str(author).strip() for author in authors if str(author).strip())
-    if authors is None:
+def abstract_to_text(abstract: Any) -> str:
+    """Convert a SciFact abstract field into plain text for chunking."""
+    if isinstance(abstract, list):
+        return " ".join(str(sentence).strip() for sentence in abstract if str(sentence).strip())
+    if abstract is None:
         return ""
-    return str(authors).strip()
+    return str(abstract)
 
 
 def build_base_metadata(article: dict, extra: dict[str, Any] | None = None) -> dict[str, Any]:
-    """Build shared, Chroma-safe metadata from the raw corpus article."""
-    authors_text = _stringify_authors(article.get("authors", []))
+    """Build shared, Chroma-safe metadata from the SciFact corpus article."""
+    doc_id = str(article["doc_id"])
     metadata: dict[str, Any] = {
-        "source": str(article.get("source", "") or ""),
-        "year": str(article.get("year", "") or ""),
-        "authors": authors_text,
-        "author_count": len(article.get("authors", [])) if isinstance(article.get("authors"), list) else 0,
+        "doc_id": doc_id,
+        "structured": bool(article.get("structured", False)),
     }
     if extra:
         metadata.update(extra)
@@ -41,8 +39,9 @@ def build_chunk_record(
     extra_metadata: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Create a standard chunk dict used by all chunking strategies."""
+    doc_id = str(article["doc_id"])
     return {
-        "pmid": str(article["pmid"]),
+        "doc_id": doc_id,
         "title": article.get("title", ""),
         "chunk_index": chunk_index,
         "text": text,
@@ -93,21 +92,25 @@ def export_chunk_artifacts(
     with open(paths["csv"], "w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(
             handle,
-            fieldnames=["pmid", "title", "chunk_index", "text", "source", "year", "authors", "author_count", "section"],
+            fieldnames=[
+                "doc_id",
+                "title",
+                "chunk_index",
+                "text",
+                "structured",
+                "section",
+            ],
         )
         writer.writeheader()
         for chunk in chunks:
             metadata = chunk.get("metadata", {})
             writer.writerow(
                 {
-                    "pmid": chunk.get("pmid", ""),
+                    "doc_id": chunk.get("doc_id", metadata.get("doc_id", "")),
                     "title": chunk.get("title", ""),
                     "chunk_index": chunk.get("chunk_index", ""),
                     "text": chunk.get("text", ""),
-                    "source": metadata.get("source", ""),
-                    "year": metadata.get("year", ""),
-                    "authors": metadata.get("authors", ""),
-                    "author_count": metadata.get("author_count", 0),
+                    "structured": metadata.get("structured", False),
                     "section": metadata.get("section", ""),
                 }
             )

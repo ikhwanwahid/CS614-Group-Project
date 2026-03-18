@@ -5,14 +5,14 @@ Loads a CrossEncoder once per process (cached by model name) and scores every
 embeddings miss.
 """
 
-from sentence_transformers import CrossEncoder
-
 # Module-level cache so the model weights are loaded only once per process
-_MODEL_CACHE: dict[str, CrossEncoder] = {}
+_MODEL_CACHE: dict[str, object] = {}
 
 
-def _get_model(model_name: str) -> CrossEncoder:
+def _get_model(model_name: str):
     if model_name not in _MODEL_CACHE:
+        from sentence_transformers import CrossEncoder
+
         _MODEL_CACHE[model_name] = CrossEncoder(model_name)
     return _MODEL_CACHE[model_name]
 

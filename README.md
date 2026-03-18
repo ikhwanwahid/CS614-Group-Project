@@ -1,8 +1,10 @@
-# Health Claims Fact-Checker
+# Scientific Claims Fact-Checker
 
-Comparing RAG and Agent Architectures for Health Claim Verification.
+Comparing RAG and Agent Architectures for Scienstific Claim Verification.
 
-A systematic study comparing **chunking strategies**, **retrieval methods**, **agent architectures**, and **LLM models** for automated health claim fact-checking — evaluated across 120+ claims with statistical significance testing.
+A systematic study comparing **chunking strategies**, **retrieval methods**, **agent architectures**, and **LLM models** for automated scientific claim fact-checking — evaluated across claims with statistical significance testing.
+
+Current data/loading path is based on the local **SciFact** corpus and claim set in `data/`, with **3 verdict classes**: `SUPPORTED`, `UNSUPPORTED`, and `INSUFFICIENT_EVIDENCE`.
 
 ## Table of Contents
 
@@ -32,7 +34,7 @@ Given a health claim like _"Vaccines cause autism"_, the configurable pipeline:
 1. **Chunks** the corpus using one of 4 strategies (fixed, semantic, section-aware, recursive)
 2. **Retrieves** relevant evidence via naive cosine similarity or hybrid BM25+dense search with re-ranking
 3. **Reasons** over the evidence using a single-pass LLM call or multi-agent orchestration
-4. **Returns** a structured verdict (`SUPPORTED`, `UNSUPPORTED`, `OVERSTATED`, or `INSUFFICIENT_EVIDENCE`) with cited evidence and an explanation
+4. **Returns** a structured verdict (`SUPPORTED`, `UNSUPPORTED`, or `INSUFFICIENT_EVIDENCE`) with cited evidence and an explanation
 
 The research question: _How do chunking sophistication, retrieval method, agent architecture, and model choice independently contribute to fact-checking accuracy and explanation quality?_
 
@@ -45,8 +47,8 @@ health-claims-factchecker/
 ├── app/
 │   └── streamlit_app.py                # Interactive demo UI
 ├── data/
-│   ├── corpus.json                     # 36 PubMed abstracts (vaccine & health topics)
-│   ├── test_claims.json                # 7 POC test claims with expected verdicts
+│   ├── corpus.json                     # SciFact corpus (native fields: doc_id, title, abstract, structured)
+│   ├── test_claims.json                # Balanced SciFact claims (normalized with expected_verdict)
 │   └── corpus/
 │       ├── processed/chunks.json       # Chunked corpus
 │       └── embeddings/chroma_db/       # ChromaDB persistent vector store
@@ -61,7 +63,7 @@ health-claims-factchecker/
 │   ├── evaluation.json                 # LLM judge scores & grounding metrics
 │   └── figures/                        # Generated charts
 ├── scripts/
-│   └── fetch_corpus.py                 # Fetch PubMed abstracts
+│   └── build_scifact_dataset.py        # Build SciFact corpus and balanced claim set
 ├── src/
 │   ├── chunking/                       # Chunking strategies
 │   │   ├── __init__.py                 # Dispatcher: chunk_corpus(corpus, strategy=...)
@@ -72,7 +74,7 @@ health-claims-factchecker/
 │   ├── agents/
 │   │   ├── strands/                    # AWS Strands Agent SDK agents
 │   │   │   ├── claim_parser.py         # Agent 1: Decompose claim into sub-claims
-│   │   │   ├── retrieval_agent.py      # Agent 2: Search corpus + PubMed
+│   │   │   ├── retrieval_agent.py      # Agent 2: Retrieval agent
 │   │   │   ├── evidence_reviewer.py    # Agent 3: Flag contradictions & gaps
 │   │   │   ├── verdict_agent.py        # Agent 4: Generate final verdict
 │   │   │   ├── orchestrator.py         # Sequential 4-agent orchestrator
@@ -81,16 +83,11 @@ health-claims-factchecker/
 │   │   └── langgraph/                  # LangGraph graph-based agents (stub)
 │   ├── pipelines/
 │   │   ├── configurable.py             # Single entry point: run_experiment()
-│   │   ├── p1_naive_single/            # Baseline: fixed chunks + naive RAG + single-pass
 │   │   └── p6_adv_multi/              # Multi-agent: Strands 4-agent pipeline
 │   ├── retrieval/
 │   │   ├── naive.py                    # Cosine similarity search (implemented)
 │   │   ├── hybrid.py                   # BM25 + dense fusion
-│   │   ├── reranker.py                 # Cross-encoder re-ranking
-│   │   ├── pubmed_search.py            # Live PubMed E-utilities API
-│   │   ├── query_rewriter.py           # LLM-based query expansion
-│   │   ├── claim_decomposer.py         # Claim decomposition
-│   │   └── evidence_ranker.py          # Evidence scoring and ranking
+│   │   └── reranker.py                 # Cross-encoder re-ranking
 │   ├── evaluation/
 │   │   ├── llm_judge.py                # LLM-as-judge (4 dimensions, 1-5 scale)
 │   │   ├── grounding_rate.py           # Grounding rate computation
@@ -102,7 +99,7 @@ health-claims-factchecker/
 │   │   ├── llm.py                      # Multi-provider LLM client (Anthropic, OpenAI, Ollama)
 │   │   ├── vector_store.py             # ChromaDB setup & search
 │   │   ├── embeddings.py               # Embedding model config
-│   │   └── corpus_loader.py            # Corpus loading & chunking
+│   │   └── corpus_loader.py            # SciFact corpus loading helpers
 │   ├── experiment_runner.py            # Batch execution with resumption (E1-E12)
 │   └── compare.py                      # Run P1 vs P6 comparison
 ├── pyproject.toml
@@ -179,14 +176,16 @@ OLLAMA_MODEL=llama3.1:8b
 
 ### Corpus Preparation
 
-The corpus is already included in the repository (`data/corpus.json`). To re-fetch from PubMed or index into ChromaDB:
+The SciFact corpus and balanced claim set are already included in the repository. To regenerate them or rebuild ChromaDB:
 
 ```bash
-# Re-fetch PubMed abstracts (optional — corpus.json is already provided)
-uv run python scripts/fetch_corpus.py
+# Rebuild SciFact corpus.json and test_claims.json from the source archive
+uv run python scripts/build_scifact_dataset.py --claims-per-class 100
 
 # Indexing into ChromaDB happens automatically on first pipeline run
 ```
+
+`data/test_claims.json` is stored in the repo's normalized format with `expected_verdict`; `src/experiment_runner.py` also accepts native SciFact-style `evidence_label` if you pass raw claim records programmatically.
 
 ### Jupyter Notebook Kernel
 
@@ -237,22 +236,23 @@ The configurable pipeline (`src/pipelines/configurable.py`) accepts 4 parameters
 
 ### Experiment Configurations
 
-12 experiments defined in `src/experiment_runner.py`:
+Experiments currently defined in `src/experiment_runner.py`:
 
 | ID | Name | Chunking | Retrieval | Agent | Model |
 |----|------|----------|-----------|-------|-------|
-| **E1** | Baseline | fixed | naive | single_pass | Claude Sonnet |
-| **E2** | Best RAG + single-pass | semantic | hybrid_reranked | single_pass | Claude Sonnet |
-| **E3** | Section-aware chunking | section_aware | hybrid_reranked | single_pass | Claude Sonnet |
-| **E4** | Recursive chunking | recursive | hybrid_reranked | single_pass | Claude Sonnet |
-| **E5** | Best RAG + Strands agents | semantic | hybrid_reranked | strands_multi | Claude Sonnet |
-| **E6** | Best RAG + LangGraph | semantic | hybrid_reranked | langgraph_multi | Claude Sonnet |
-| **E7** | Best RAG + rerouting | semantic | hybrid_reranked | strands_rerouting | Claude Sonnet |
-| **E8** | GPT-4o-mini + single-pass | semantic | hybrid_reranked | single_pass | GPT-4o-mini |
-| **E9** | Llama 3.1 8B baseline | semantic | hybrid_reranked | single_pass | Llama 3.1 8B |
-| **E10** | Llama 3.1 8B fine-tuned | semantic | hybrid_reranked | single_pass | Llama 3.1 8B FT |
-| **E11** | GPT-4o-mini + agents | semantic | hybrid_reranked | strands_multi | GPT-4o-mini |
-| **E12** | Budget baseline | fixed | naive | single_pass | GPT-4o-mini |
+| **E1** | Fixed chunking + naive RAG | fixed | naive | single_pass | Claude Sonnet |
+| **E2** | Section-aware chunking + naive RAG | section_aware | naive | single_pass | Claude Sonnet |
+| **E3** | Semantic chunking + naive RAG | semantic | naive | single_pass | Claude Sonnet |
+| **E4** | Recursive chunking + naive RAG | recursive | naive | single_pass | Claude Sonnet |
+| **E5** | Best chunking + hybrid RAG | recursive | hybrid | single_pass | Claude Sonnet |
+| **E6** | Best chunking + hybrid reranked RAG | recursive | hybrid_reranked | single_pass | Claude Sonnet |
+| **E7** | Best RAG + Strands agents | recursive | hybrid_reranked | strands_multi | Claude Sonnet |
+| **E8** | Best RAG + LangGraph agents | recursive | hybrid_reranked | langgraph_multi | Claude Sonnet |
+| **E9** | Best RAG + rerouting | recursive | hybrid_reranked | strands_rerouting | Claude Sonnet |
+| **E10** | GPT-4o-mini + single-pass | recursive | hybrid_reranked | single_pass | GPT-4o-mini |
+| **E11** | Llama 3.1 8B baseline | recursive | hybrid_reranked | single_pass | Llama 3.1 8B |
+| **E12** | GPT-4o-mini + agents | recursive | hybrid_reranked | strands_multi | GPT-4o-mini |
+| **E13** | Budget baseline | fixed | naive | single_pass | GPT-4o-mini |
 
 ---
 
@@ -319,14 +319,14 @@ uv run python src/evaluation/run_eval.py
 
 | Metric | Method | What It Measures |
 |--------|--------|-----------------|
-| **Verdict Accuracy** | Macro-F1 against dataset labels (PUBHEALTH, ANTi-Vax) | Correctness across verdict classes |
+| **Verdict Accuracy** | Accuracy + Macro-F1 against SciFact labels | Correctness across verdict classes |
 | **Explanation Quality** | LLM-as-Judge (4 dimensions, 1-5 scale) | Faithfulness, Specificity, Completeness, Nuance |
 | **Grounding Rate** | Automated statement-level check | % of factual statements traceable to retrieved evidence |
 | **Statistical Significance** | McNemar's test + bootstrap CIs | Whether differences between experiments are significant |
 | **Pairwise Comparison** | LLM judge head-to-head | Which experiment produces better explanations |
 
 Data sources for ground truth:
-- **Verdict labels**: From PUBHEALTH and ANTi-Vax datasets (120+ claims)
+- **Verdict labels**: From SciFact claim annotations, normalized to the repo's 3-label schema
 - **Explanation quality**: No reference explanations needed — LLM judge evaluates properties of the pipeline's own output (faithfulness to its own evidence, specificity, etc.)
 
 ---
@@ -342,7 +342,7 @@ All experiments return a `FactCheckResult` (defined in `src/shared/schema.py`):
   "explanation": "Multiple large-scale studies...",
   "evidence": [
     {
-      "source": "PMID:30986133",
+      "source": "30986133",
       "passage": "Findings suggest that vaccinations are not associated...",
       "relevance_score": 0.85
     }
@@ -364,7 +364,7 @@ All experiments return a `FactCheckResult` (defined in `src/shared/schema.py`):
 }
 ```
 
-Valid verdicts: `SUPPORTED`, `UNSUPPORTED`, `OVERSTATED`, `INSUFFICIENT_EVIDENCE`
+Valid verdicts: `SUPPORTED`, `UNSUPPORTED`, `INSUFFICIENT_EVIDENCE`
 
 ---
 
@@ -380,7 +380,7 @@ Valid verdicts: `SUPPORTED`, `UNSUPPORTED`, `OVERSTATED`, `INSUFFICIENT_EVIDENCE
 | LLM (Budget) | GPT-4o-mini via OpenAI API |
 | LLM (Open-Source) | Llama 3.1 8B/70B via Ollama (local) |
 | Agent Frameworks | [Strands Agent SDK](https://github.com/strands-agents/sdk-python), LangGraph |
-| PubMed Access | Biopython Entrez (E-utilities API) |
+| Dataset | SciFact corpus + claims (stored locally in `data/`) |
 | Evaluation | LLM-as-Judge, McNemar's test, bootstrap CIs |
 | Notebook | Jupyter |
 | Demo | Streamlit |

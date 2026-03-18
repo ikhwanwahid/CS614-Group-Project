@@ -9,6 +9,7 @@ import re
 import time
 
 from src.shared.chunking_utils import chunk_artifacts_exist, clear_chunk_artifacts, export_chunk_artifacts
+from src.shared.scifact import VALID_VERDICTS
 
 # Supported values for each axis
 CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
@@ -24,71 +25,9 @@ MODELS = (
     "llama-3.1-70b",
 )
 
-# SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
-# 1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
-# 2. An explanation justifying your verdict (2-3 sentences)
-# 3. Which evidence passages you relied on
+DEFAULT_AGENT_CHUNKING_STRATEGY = "recursive"
 
-# Respond ONLY with valid JSON matching this schema:
-# {
-#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-#     "explanation": "Your explanation here",
-#     "evidence": [
-#         {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
-#     ]
-# }"""
-# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
-# Focus strictly on the 'Disease' and the 'Population' mentioned.
-
-# For each claim, follow this verification logic:
-# 1. Extract Claim Entities: [Disease/Condition] and [Population/Group].
-# 2. Scan Evidence: Does the evidence explicitly name the SAME Disease and SAME Population?
-# 3. Identity Gap: If the evidence uses broader terms (e.g., 'vaccination' vs 'flu vaccine' or 'adults' vs 'elderly'), you must flag this as a 'MISMATCH' or 'TOO GENERAL'.
-
-# Respond ONLY with valid JSON:
-# {
-#     "entity_verification": {
-#         "claim": {"disease": "...", "population": "..."},
-#         "evidence_match": {
-#             "disease_matched": true/false,
-#             "population_matched": true/false,
-#             "notes": "Explain if the evidence is talking about a different or more general group/disease."
-#         }
-#     },
-#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-#     "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
-#     "evidence": [
-#         {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
-#     ]
-# }"""
-
-
-# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
-# Focus strictly on the 'Disease' and the 'Population' mentioned.
-
-# Verification & Weighting Logic:
-# 1. Extract Claim Entities: [Disease] and [Population].
-# 2. Prioritize Specificity: Evidence matching BOTH entities explicitly (e.g., 'Flu vaccine' AND 'elderly') is HIGH-PRIORITY.
-# 3. Penalty for Ambiguity: If evidence uses general terms (e.g., 'vaccination' instead of 'flu vaccine'), you MUST downgrade its importance. It cannot be used as the sole basis for SUPPORTED or UNSUPPORTED.
-# 4. Final Verdict: If the high-priority evidence is missing, the verdict should likely be INSUFFICIENT_EVIDENCE.
-
-# Respond ONLY with valid JSON:
-# {
-#     "entity_verification": {
-#          "claim": {"disease": "...", "population": "..."},
-#          "evidence_match": {
-#              "disease_matched": true/false,
-#              "population_matched": true/false,
-#              "notes": "Explain if the evidence is talking about a different or more general group/disease."
-#          }
-#      },
-#      "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-#      "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
-#      "evidence": [
-#          {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
-#      ]
-# }"""
-SYSTEM_PROMPT = """You are a scientific claim fact-checker. Given evidence passages from research abstracts, determine whether each claim is supported, contradicted, or lacks sufficient evidence.
+SYSTEM_PROMPT = """You are a scientific claim fact-checker. Given evidence passages from scientific abstracts, determine whether each claim is supported, contradicted, or lacks sufficient evidence.
 
 Verification Logic:
 1. Read the claim carefully. Identify the core scientific assertion.
@@ -104,7 +43,7 @@ Respond ONLY with valid JSON:
     "verdict": "SUPPORTED | UNSUPPORTED | INSUFFICIENT_EVIDENCE",
     "explanation": "2-3 sentences justifying your verdict based on the evidence.",
     "evidence": [
-        {"source": "PMID/Author", "passage": "key passage text", "relevance_score": 0.0-1.0}
+        {"source": "Doc ID", "passage": "key passage text", "relevance_score": 0.0-1.0}
     ]
 }"""
 
@@ -118,30 +57,20 @@ def get_collection(chunking_strategy: str, force_rebuild: bool = False):
     client = get_chroma_client()
     artifacts_ready = chunk_artifacts_exist(chunking_strategy)
 
-    print(f"[chunking] Preparing collection '{collection_name}' with strategy='{chunking_strategy}'")
-
     if force_rebuild:
-        print(f"[chunking] Force rebuild requested for strategy='{chunking_strategy}'")
         reset_collection(client, collection_name)
         clear_chunk_artifacts(chunking_strategy)
 
     collection = get_or_create_collection(client, collection_name=collection_name)
     if not force_rebuild and collection.count() > 0 and artifacts_ready:
-        print(
-            f"[chunking] Reusing cached collection '{collection_name}' "
-            f"({collection.count()} chunks already indexed)"
-        )
         return collection
 
     if collection.count() > 0:
-        print(f"[chunking] Resetting existing collection '{collection_name}' before rebuild")
         reset_collection(client, collection_name)
         collection = get_or_create_collection(client, collection_name=collection_name)
 
     corpus = load_corpus()
-    print(f"[chunking] Running strategy='{chunking_strategy}' on {len(corpus)} corpus articles")
     chunks = chunk_corpus(corpus, strategy=chunking_strategy)
-    print(f"[chunking] Generated {len(chunks)} chunks for strategy='{chunking_strategy}'")
     export_chunk_artifacts(
         strategy=chunking_strategy,
         chunks=chunks,
@@ -149,8 +78,12 @@ def get_collection(chunking_strategy: str, force_rebuild: bool = False):
         parameters={"chunking_strategy": chunking_strategy},
     )
     add_documents(collection, chunks)
-    print(f"[chunking] Indexed {len(chunks)} chunks into collection '{collection_name}'")
     return collection
+
+
+def get_agent_collection(force_rebuild: bool = False):
+    """Return the default indexed local corpus used by the multi-agent flows."""
+    return get_collection(DEFAULT_AGENT_CHUNKING_STRATEGY, force_rebuild=force_rebuild)
 
 
 def _sanitize_json(text: str) -> str:
@@ -231,6 +164,16 @@ def _fallback_from_verdict(content: str) -> dict | None:
 def _normalize_parsed_response(result: dict) -> dict:
     """Normalize LLM JSON into the project schema."""
     verdict = str(result.get("verdict", "")).strip().upper()
+    verdict_aliases = {
+        "REFUTED": "UNSUPPORTED",
+        "CONTRADICTED": "UNSUPPORTED",
+        "NOT_ENOUGH_INFO": "INSUFFICIENT_EVIDENCE",
+        "NEI": "INSUFFICIENT_EVIDENCE",
+    }
+    verdict = verdict_aliases.get(verdict, verdict)
+    if verdict not in VALID_VERDICTS:
+        raise ValueError(f"Unsupported verdict {verdict!r}. Expected one of {sorted(VALID_VERDICTS)}.")
+
     explanation = str(result.get("explanation", "") or "").strip()
     evidence_items = []
 
@@ -367,29 +310,23 @@ def _run_single_pass(
     """Single-pass: retrieve evidence + one LLM call for verdict."""
     if retrieval_method == "naive":
         from src.shared.vector_store import search
-        print(f"[retrieval] Running naive retrieval with chunking='{chunking_strategy}'")
         collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
         hits = search(collection, claim, top_k=5)
-        print(f"[retrieval] Naive retrieval returned {len(hits)} hits")
     else:
-        print(f"[retrieval] Running {retrieval_method} retrieval with chunking='{chunking_strategy}'")
         collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
 
         from src.retrieval.hybrid import retrieve_hybrid
         hits = retrieve_hybrid(claim, collection, top_k=10)
-        print(f"[retrieval] Hybrid retrieval returned {len(hits)} candidate hits")
 
         if retrieval_method == "hybrid_reranked":
             from src.retrieval.reranker import rerank
             hits = rerank(claim, hits, top_k=5)
-            print(f"[retrieval] Reranker kept {len(hits)} hits")
         else:
             hits = hits[:5]
-            print(f"[retrieval] Using top {len(hits)} hybrid hits without reranking")
 
     # Format evidence passages for the LLM
     passages = "\n\n".join(
-        f"[{i+1}] (PMID: {h['metadata'].get('pmid', 'N/A')}) {h['text']}"
+        f"[{i+1}] (Doc ID: {h['metadata'].get('doc_id', 'N/A')}) {h['text']}"
         for i, h in enumerate(hits)
     )
 

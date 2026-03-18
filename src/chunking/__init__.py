@@ -1,33 +1,50 @@
-"""Chunking strategies for corpus preparation.
+"""Chunking strategy dispatcher.
 
-Each strategy takes a list of corpus articles and returns chunked documents
-in a uniform format: list[dict] with keys (pmid, title, chunk_index, text, metadata).
+Strategies are imported lazily so fixed/section-aware runs do not need to load
+semantic or recursive chunking dependencies unless selected.
 """
 
-from src.chunking.fixed import chunk_corpus_fixed
-from src.chunking.semantic import chunk_corpus_semantic
-from src.chunking.section_aware import chunk_corpus_section_aware
-from src.chunking.recursive import chunk_corpus_recursive
+from __future__ import annotations
 
-STRATEGIES = {
-    "fixed": chunk_corpus_fixed,
-    "semantic": chunk_corpus_semantic,
-    "section_aware": chunk_corpus_section_aware,
-    "recursive": chunk_corpus_recursive,
-}
+from collections.abc import Callable
+
+StrategyFn = Callable[..., list[dict]]
+
+
+def _load_strategy(strategy: str) -> StrategyFn:
+    if strategy == "fixed":
+        from src.chunking.fixed import chunk_corpus_fixed
+
+        return chunk_corpus_fixed
+    if strategy == "semantic":
+        from src.chunking.semantic import chunk_corpus_semantic
+
+        return chunk_corpus_semantic
+    if strategy == "section_aware":
+        from src.chunking.section_aware import chunk_corpus_section_aware
+
+        return chunk_corpus_section_aware
+    if strategy == "recursive":
+        from src.chunking.recursive import chunk_corpus_recursive
+
+        return chunk_corpus_recursive
+    raise ValueError(f"Unknown chunking strategy: {strategy}. Choose from: {list_strategies()}")
+
+
+def list_strategies() -> tuple[str, ...]:
+    """Return supported chunking strategy names."""
+    return ("fixed", "semantic", "section_aware", "recursive")
 
 
 def chunk_corpus(corpus: list[dict], strategy: str = "fixed", **kwargs) -> list[dict]:
     """Chunk corpus using the specified strategy.
 
     Args:
-        corpus: List of article dicts with 'pmid', 'title', 'abstract'.
+        corpus: List of article dicts with 'doc_id', 'title', 'abstract'.
         strategy: One of 'fixed', 'semantic', 'section_aware', 'recursive'.
         **kwargs: Strategy-specific parameters.
 
     Returns:
-        List of chunk dicts with 'pmid', 'title', 'chunk_index', 'text'.
+        List of chunk dicts with 'doc_id', 'title', 'chunk_index', 'text'.
     """
-    if strategy not in STRATEGIES:
-        raise ValueError(f"Unknown chunking strategy: {strategy}. Choose from: {list(STRATEGIES.keys())}")
-    return STRATEGIES[strategy](corpus, **kwargs)
+    return _load_strategy(strategy)(corpus, **kwargs)
