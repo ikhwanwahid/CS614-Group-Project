@@ -173,7 +173,7 @@ def run_batch(
             print(f"[{experiment_id}] {i + 1}/{len(claims)}: {claim[:55]}... → {result['verdict']} ({elapsed:.2f}s)")
         except Exception as e:
             elapsed = time.perf_counter() - t0
-            print(f"[{experiment_id}] {i + 1}/{len(claims)}: {claim[:55]}... → ERROR ({elapsed:.2f}s)")
+            print(f"[{experiment_id}] {i + 1}/{len(claims)}: {claim[:55]}... → ERROR ({elapsed:.2f}s): {type(e).__name__}: {e}")
             results.append({
                 "claim": claim,
                 "verdict": "ERROR",
