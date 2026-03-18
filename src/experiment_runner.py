@@ -5,6 +5,7 @@ with full provenance, and supports resumption of interrupted runs.
 """
 
 import json
+import time
 import traceback
 from pathlib import Path
 
@@ -162,12 +163,17 @@ def run_batch(
         if claim in processed_claims:
             continue
 
+        t0 = time.perf_counter()
         try:
             result = run_experiment(claim, **pipeline_config)
             result["expected_verdict"] = expected_verdict
             result["correct"] = result["verdict"] == expected_verdict
             results.append(result)
+            elapsed = time.perf_counter() - t0
+            print(f"[{experiment_id}] {i + 1}/{len(claims)}: {claim[:55]}... → {result['verdict']} ({elapsed:.2f}s)")
         except Exception as e:
+            elapsed = time.perf_counter() - t0
+            print(f"[{experiment_id}] {i + 1}/{len(claims)}: {claim[:55]}... → ERROR ({elapsed:.2f}s)")
             results.append({
                 "claim": claim,
                 "verdict": "ERROR",
