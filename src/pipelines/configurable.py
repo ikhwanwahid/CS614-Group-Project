@@ -16,20 +16,103 @@ RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
 AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting")
 MODELS = ("claude-sonnet-4", "gpt-4o-mini", "claude-haiku", "llama-3.1-8b", "llama-3.1-8b-ft", "llama-3.1-70b")
 
-SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
-1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
-2. An explanation justifying your verdict (2-3 sentences)
-3. Which evidence passages you relied on
+# SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
+# 1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
+# 2. An explanation justifying your verdict (2-3 sentences)
+# 3. Which evidence passages you relied on
 
-Respond ONLY with valid JSON matching this schema:
+# Respond ONLY with valid JSON matching this schema:
+# {
+#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+#     "explanation": "Your explanation here",
+#     "evidence": [
+#         {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
+#     ]
+# }"""
+# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
+# Focus strictly on the 'Disease' and the 'Population' mentioned.
+
+# For each claim, follow this verification logic:
+# 1. Extract Claim Entities: [Disease/Condition] and [Population/Group].
+# 2. Scan Evidence: Does the evidence explicitly name the SAME Disease and SAME Population?
+# 3. Identity Gap: If the evidence uses broader terms (e.g., 'vaccination' vs 'flu vaccine' or 'adults' vs 'elderly'), you must flag this as a 'MISMATCH' or 'TOO GENERAL'.
+
+# Respond ONLY with valid JSON:
+# {
+#     "entity_verification": {
+#         "claim": {"disease": "...", "population": "..."},
+#         "evidence_match": {
+#             "disease_matched": true/false,
+#             "population_matched": true/false,
+#             "notes": "Explain if the evidence is talking about a different or more general group/disease."
+#         }
+#     },
+#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+#     "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
+#     "evidence": [
+#         {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
+#     ]
+# }"""
+
+
+# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
+# Focus strictly on the 'Disease' and the 'Population' mentioned.
+
+# Verification & Weighting Logic:
+# 1. Extract Claim Entities: [Disease] and [Population].
+# 2. Prioritize Specificity: Evidence matching BOTH entities explicitly (e.g., 'Flu vaccine' AND 'elderly') is HIGH-PRIORITY.
+# 3. Penalty for Ambiguity: If evidence uses general terms (e.g., 'vaccination' instead of 'flu vaccine'), you MUST downgrade its importance. It cannot be used as the sole basis for SUPPORTED or UNSUPPORTED.
+# 4. Final Verdict: If the high-priority evidence is missing, the verdict should likely be INSUFFICIENT_EVIDENCE.
+
+# Respond ONLY with valid JSON:
+# {
+#     "entity_verification": {
+#          "claim": {"disease": "...", "population": "..."},
+#          "evidence_match": {
+#              "disease_matched": true/false,
+#              "population_matched": true/false,
+#              "notes": "Explain if the evidence is talking about a different or more general group/disease."
+#          }
+#      },
+#      "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+#      "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
+#      "evidence": [
+#          {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
+#      ]
+# }"""
+SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
+Focus strictly on the 'Disease', 'Population', and the 'Intensity' of the claim.
+
+Verification & Weighting Logic:
+1. Extract Claim Entities & Modality: Identify [Disease], [Population], and [Intensity Modifiers] (e.g., look for absolute terms like 'prevents', 'cures', 'eliminates' vs. relative terms like 'reduces', 'manages', 'lowers risk').
+2. Prioritize Specificity: Evidence matching BOTH entities explicitly (e.g., 'Flu vaccine' AND 'elderly') is HIGH-PRIORITY.
+3. Penalty for Ambiguity: If evidence uses general terms (e.g., 'vaccination' instead of 'flu vaccine'), downgrade its importance. It cannot be used as the sole basis for SUPPORTED or UNSUPPORTED.
+4. Overstated Detection (Crucial): Compare the claim's intensity to the evidence's intensity. 
+   - If the claim uses absolute terms (e.g., "prevents hospitalization") but the evidence only demonstrates a partial effect (e.g., "reduces the risk/incidence of hospitalization"), the verdict MUST be OVERSTATED.
+   - If the claim implies a guarantee but the evidence only shows a statistical association, it is OVERSTATED.
+5. Final Verdict: If high-priority evidence is missing, use INSUFFICIENT_EVIDENCE.
+
+Respond ONLY with valid JSON:
 {
-    "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-    "explanation": "Your explanation here",
-    "evidence": [
-        {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
-    ]
+    "analysis": {
+         "claim_extraction": {
+             "disease": "...",
+             "population": "...",
+             "intensity_modifiers": "Identify the exact verbs/adverbs setting the claim's strength (e.g., 'prevents', 'reduces')."
+         },
+         "evidence_match": {
+             "disease_matched": true/false,
+             "population_matched": true/false,
+             "intensity_matched": true/false,
+             "notes": "Detail any entity gaps AND explain if the claim exaggerates the evidence (e.g., Claim says 'prevention', Evidence says 'reduction')."
+         }
+     },
+     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+     "explanation": "Justify the verdict. If OVERSTATED, explicitly state how the claim's absolute language exceeds the evidence's findings. If entities do not match exactly, explain the ambiguity.",
+     "evidence": [
+         {"source": "PMID/Author", "passage": "key passage demonstrating the actual effect/entities", "relevance_score": 0.0-1.0}
+     ]
 }"""
-
 
 def get_collection(chunking_strategy: str):
     """Get or create and populate a ChromaDB collection for the given chunking strategy."""
@@ -55,21 +138,106 @@ def _sanitize_json(text: str) -> str:
     return re.sub(r'\\(?=[^"\\bfnrtu/])', r'\\\\', text)
 
 
+def _extract_first_json_object(text: str) -> str | None:
+    """Return the first balanced top-level JSON object substring, if present."""
+    start = text.find("{")
+    if start == -1:
+        return None
+
+    depth = 0
+    in_string = False
+    escape = False
+
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start : i + 1]
+
+    return None
+
+
+def _repair_json_like(text: str) -> str:
+    """Repair common model output issues that violate strict JSON syntax."""
+    fixed = text
+    # Remove parenthetical commentary after primitive values, e.g. false (note...)
+    fixed = re.sub(
+        r'(:\s*(?:true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?))\s*\([^\n\r{}\[\]]*\)',
+        r"\1",
+        fixed,
+    )
+    # Quote bareword values that appear before a comma or closing brace.
+    fixed = re.sub(
+        r'(:\s*)([A-Za-z][A-Za-z0-9_\- ]+?)(\s*(?:,|\}))',
+        lambda m: f'{m.group(1)}"{m.group(2).strip()}"{m.group(3)}',
+        fixed,
+    )
+    return fixed
+
+
+def _fallback_from_verdict(content: str) -> dict | None:
+    """Fallback parser: recover verdict/explanation from non-JSON output."""
+    verdict_match = re.search(
+        r'"?verdict"?\s*[:=]\s*"?(SUPPORTED|UNSUPPORTED|OVERSTATED|INSUFFICIENT_EVIDENCE)"?',
+        content,
+        re.IGNORECASE,
+    )
+    if not verdict_match:
+        return None
+
+    verdict = verdict_match.group(1).upper()
+    explanation = ""
+    explanation_match = re.search(r'"?explanation"?\s*[:=]\s*"(.*?)"', content, re.DOTALL)
+    if explanation_match:
+        explanation = explanation_match.group(1).strip()
+
+    return {"verdict": verdict, "explanation": explanation, "evidence": []}
+
+
 def parse_json_response(content: str) -> dict:
     """Extract JSON from LLM response, handling markdown code blocks."""
-    for text in [content, _sanitize_json(content)]:
+    candidates = [content, _sanitize_json(content)]
+
+    match = re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, re.DOTALL)
+    if match:
+        raw = match.group(1)
+        candidates.extend([raw, _sanitize_json(raw)])
+
+    extracted = _extract_first_json_object(content)
+    if extracted:
+        candidates.extend([extracted, _sanitize_json(extracted), _repair_json_like(extracted), _sanitize_json(_repair_json_like(extracted))])
+
+    seen = set()
+    deduped = []
+    for text in candidates:
+        if text and text not in seen:
+            deduped.append(text)
+            seen.add(text)
+
+    for text in deduped:
         try:
             return json.loads(text)
         except json.JSONDecodeError:
             pass
-    match = re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, re.DOTALL)
-    if match:
-        raw = match.group(1)
-        for text in [raw, _sanitize_json(raw)]:
-            try:
-                return json.loads(text)
-            except json.JSONDecodeError:
-                pass
+
+    fallback = _fallback_from_verdict(content)
+    if fallback:
+        return fallback
+
     raise ValueError(f"(Failed to parse JSON response) {content}")
 
 
