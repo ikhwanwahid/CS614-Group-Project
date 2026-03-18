@@ -9,7 +9,6 @@ import traceback
 from pathlib import Path
 
 from src.pipelines.configurable import run_experiment
-from src.shared.scifact import expected_verdict_from_claim
 
 
 BEST_CHUNKING_STRATEGY = "recursive"
@@ -159,7 +158,7 @@ def run_batch(
 
     for i, item in enumerate(claims):
         claim = item["claim"]
-        expected_verdict = expected_verdict_from_claim(item)
+        expected_verdict = item.get("expected_verdict", "INSUFFICIENT_EVIDENCE")
         if claim in processed_claims:
             continue
 

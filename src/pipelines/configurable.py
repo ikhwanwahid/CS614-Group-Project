@@ -8,8 +8,8 @@ import json
 import re
 import time
 
-from src.shared.chunking_utils import chunk_artifacts_exist, clear_chunk_artifacts, export_chunk_artifacts
-from src.shared.scifact import VALID_VERDICTS
+from src.shared.chunking_utils import clear_chunk_artifacts, export_chunk_artifacts
+from src.shared.schema import VALID_VERDICTS
 
 # Supported values for each axis
 CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
@@ -55,19 +55,16 @@ def get_collection(chunking_strategy: str, force_rebuild: bool = False):
 
     collection_name = f"health_corpus_{chunking_strategy}"
     client = get_chroma_client()
-    artifacts_ready = chunk_artifacts_exist(chunking_strategy)
 
     if force_rebuild:
         reset_collection(client, collection_name)
         clear_chunk_artifacts(chunking_strategy)
 
     collection = get_or_create_collection(client, collection_name=collection_name)
-    if not force_rebuild and collection.count() > 0 and artifacts_ready:
-        return collection
 
-    if collection.count() > 0:
-        reset_collection(client, collection_name)
-        collection = get_or_create_collection(client, collection_name=collection_name)
+    # Skip chunking if ChromaDB already has data for this strategy
+    if not force_rebuild and collection.count() > 0:
+        return collection
 
     corpus = load_corpus()
     chunks = chunk_corpus(corpus, strategy=chunking_strategy)
