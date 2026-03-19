@@ -15,18 +15,27 @@ from src.shared.schema import VALID_VERDICTS
 CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
 RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
 AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting")
-MODELS = ("claude-sonnet-4", "gpt-4o-mini", "claude-haiku", "llama-3.1-8b", "llama-3.1-8b-ft", "llama-3.1-70b")
+MODELS = (
+    "claude-sonnet-4",
+    "gpt-4o-mini",
+    "claude-haiku",
+    "llama-3.1-8b",
+    "llama-3.1-8b-ft",
+    "llama-3.1-70b",
+)
 
-<<<<<<< HEAD
+DEFAULT_CHUNKING_STRATEGY = "recursive"
+DEFAULT_RETRIEVAL_METHOD = "hybrid_reranked"
+DEFAULT_AGENT_COLLECTION = "health_corpus"
+
 # ── Model resolution ──────────────────────────────────────────────────────────
 
 _MODEL_ID_MAP = {
-    "claude-sonnet-4":    "claude-sonnet-4-20250514",
-    "claude-haiku":       "claude-haiku-4-5-20251001",
-    "gpt-4o-mini":        "gpt-4o-mini",
-    "llama-3.1-8b":       "llama3.1:8b",
-    "llama-3.1-8b-ft":    "llama3.1:8b",   # fine-tuned adapter loaded separately
-    "llama-3.1-70b":      "llama3.1:70b",
+    "claude-sonnet-4":  "claude-sonnet-4-20250514",
+    "claude-haiku":     "claude-haiku-4-5-20251001",
+    "llama-3.1-8b":    "llama3.1:8b",
+    "llama-3.1-8b-ft": "llama3.1:8b",  # fine-tuned adapter loaded separately
+    "llama-3.1-70b":   "llama3.1:70b",
 }
 
 
@@ -36,85 +45,6 @@ def _resolve_model_id(model: str) -> str:
 
 
 # ── System prompt ─────────────────────────────────────────────────────────────
-
-=======
-# SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
-# 1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
-# 2. An explanation justifying your verdict (2-3 sentences)
-# 3. Which evidence passages you relied on
-
-# Respond ONLY with valid JSON matching this schema:
-# {
-#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-#     "explanation": "Your explanation here",
-#     "evidence": [
-#         {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
-#     ]
-# }"""
-# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
-# Focus strictly on the 'Disease' and the 'Population' mentioned.
-
-# For each claim, follow this verification logic:
-# 1. Extract Claim Entities: [Disease/Condition] and [Population/Group].
-# 2. Scan Evidence: Does the evidence explicitly name the SAME Disease and SAME Population?
-# 3. Identity Gap: If the evidence uses broader terms (e.g., 'vaccination' vs 'flu vaccine' or 'adults' vs 'elderly'), you must flag this as a 'MISMATCH' or 'TOO GENERAL'.
-
-# Respond ONLY with valid JSON:
-# {
-#     "entity_verification": {
-#         "claim": {"disease": "...", "population": "..."},
-#         "evidence_match": {
-#             "disease_matched": true/false,
-#             "population_matched": true/false,
-#             "notes": "Explain if the evidence is talking about a different or more general group/disease."
-#         }
-#     },
-#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-#     "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
-#     "evidence": [
-#         {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
-#     ]
-# }"""
-
-
-# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
-# Focus strictly on the 'Disease' and the 'Population' mentioned.
-
-# Verification & Weighting Logic:
-# 1. Extract Claim Entities: [Disease] and [Population].
-# 2. Prioritize Specificity: Evidence matching BOTH entities explicitly (e.g., 'Flu vaccine' AND 'elderly') is HIGH-PRIORITY.
-# 3. Penalty for Ambiguity: If evidence uses general terms (e.g., 'vaccination' instead of 'flu vaccine'), you MUST downgrade its importance. It cannot be used as the sole basis for SUPPORTED or UNSUPPORTED.
-# 4. Final Verdict: If the high-priority evidence is missing, the verdict should likely be INSUFFICIENT_EVIDENCE.
-
-# Respond ONLY with valid JSON:
-# {
-#     "entity_verification": {
-#          "claim": {"disease": "...", "population": "..."},
-#          "evidence_match": {
-#              "disease_matched": true/false,
-#              "population_matched": true/false,
-#              "notes": "Explain if the evidence is talking about a different or more general group/disease."
-#          }
-#      },
-#      "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-#      "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
-#      "evidence": [
-#          {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
-#      ]
-# }"""
->>>>>>> d8747033885e48da397e67fd4560abac72d8bc80
-SYSTEM_PROMPT = """You are a scientific claim fact-checker. Given evidence passages from research abstracts, determine whether each claim is supported, contradicted, or lacks sufficient evidence.
-MODELS = (
-    "claude-sonnet-4",
-    "claude-sonnet-4-20250514",
-    "gpt-4o-mini",
-    "claude-haiku",
-    "llama-3.1-8b",
-    "llama-3.1-8b-ft",
-    "llama-3.1-70b",
-)
-
-DEFAULT_AGENT_CHUNKING_STRATEGY = "recursive"
 
 SYSTEM_PROMPT = """You are a scientific claim fact-checker. Given evidence passages from scientific abstracts, determine whether each claim is supported, contradicted, or lacks sufficient evidence.
 
@@ -136,20 +66,20 @@ Respond ONLY with valid JSON:
     ]
 }"""
 
-<<<<<<< HEAD
 
-# ── ChromaDB collection helper ────────────────────────────────────────────────
+# ── ChromaDB collection helpers ───────────────────────────────────────────────
 
-=======
->>>>>>> d8747033885e48da397e67fd4560abac72d8bc80
-def get_collection(chunking_strategy: str):
-def get_collection(chunking_strategy: str, force_rebuild: bool = False):
+def get_collection(
+    chunking_strategy: str,
+    force_rebuild: bool = False,
+    collection_name: str | None = None,
+):
     """Get or create and populate a ChromaDB collection for the given chunking strategy."""
     from src.shared.vector_store import add_documents, get_chroma_client, get_or_create_collection, reset_collection
     from src.shared.corpus_loader import load_corpus
     from src.chunking import chunk_corpus
 
-    collection_name = f"health_corpus_{chunking_strategy}"
+    collection_name = collection_name or f"health_corpus_{chunking_strategy}"
     client = get_chroma_client()
 
     if force_rebuild:
@@ -174,12 +104,16 @@ def get_collection(chunking_strategy: str, force_rebuild: bool = False):
     return collection
 
 
-# ── JSON parsing helpers (unchanged) ─────────────────────────────────────────
-
 def get_agent_collection(force_rebuild: bool = False):
     """Return the default indexed local corpus used by the multi-agent flows."""
-    return get_collection(DEFAULT_AGENT_CHUNKING_STRATEGY, force_rebuild=force_rebuild)
+    return get_collection(
+        DEFAULT_CHUNKING_STRATEGY,
+        force_rebuild=force_rebuild,
+        collection_name=DEFAULT_AGENT_COLLECTION,
+    )
 
+
+# ── JSON parsing helpers ──────────────────────────────────────────────────────
 
 def _sanitize_json(text: str) -> str:
     """Fix common invalid JSON escapes produced by LLMs (e.g. \\%)."""
@@ -221,20 +155,18 @@ def _extract_first_json_object(text: str) -> str | None:
 
 def _repair_json_like(text: str) -> str:
     """Repair common model output issues that violate strict JSON syntax."""
-    fixed = text
     # Remove parenthetical commentary after primitive values, e.g. false (note...)
-    fixed = re.sub(
-        r'(:\s*(?:true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?))\s*\([^\n\r{}\[\]]*\)',
+    text = re.sub(
+        r'(:\s*(?:true|false|null|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?))'  r'\s*\([^\n\r{}\[\]]*\)',
         r"\1",
-        fixed,
+        text,
     )
     # Quote bareword values that appear before a comma or closing brace.
-    fixed = re.sub(
+    return re.sub(
         r'(:\s*)([A-Za-z][A-Za-z0-9_\- ]+?)(\s*(?:,|\}))',
         lambda m: f'{m.group(1)}"{m.group(2).strip()}"{m.group(3)}',
-        fixed,
+        text,
     )
-    return fixed
 
 
 def _fallback_from_verdict(content: str) -> dict | None:
@@ -265,6 +197,7 @@ def _normalize_parsed_response(result: dict) -> dict:
         "NOT_ENOUGH_INFO": "INSUFFICIENT_EVIDENCE",
         "NEI": "INSUFFICIENT_EVIDENCE",
     }
+    # Keep the shared label space unchanged so historical experiment outputs remain comparable.
     verdict = verdict_aliases.get(verdict, verdict)
     if verdict not in VALID_VERDICTS:
         raise ValueError(f"Unsupported verdict {verdict!r}. Expected one of {sorted(VALID_VERDICTS)}.")
@@ -327,8 +260,8 @@ def parse_json_response(content: str) -> dict:
 
 def run_experiment(
     claim: str,
-    chunking_strategy: str = "fixed",
-    retrieval_method: str = "naive",
+    chunking_strategy: str = DEFAULT_CHUNKING_STRATEGY,
+    retrieval_method: str = DEFAULT_RETRIEVAL_METHOD,
     agent_architecture: str = "single_pass",
     model: str = "claude-sonnet-4",
     force_rebuild_chunks: bool = False,
@@ -406,36 +339,22 @@ def _run_single_pass(
     model: str,
     force_rebuild_chunks: bool = False,
 ) -> dict:
-    """Single-pass: retrieve evidence + one LLM call for verdict.
-
-    For naive retrieval, delegates to p1_naive_single which already handles
-    model routing via call_llm.  For hybrid/reranked, builds the evidence
-    block here and calls call_llm directly with the resolved model ID.
-    """
+    """Single-pass: retrieve evidence locally, then make one verdict LLM call."""
     model_id = _resolve_model_id(model)
+    collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
 
     if retrieval_method == "naive":
-        from src.pipelines.p1_naive_single.pipeline import run as run_p1
-        result = run_p1(claim, model=model_id)
-        return {
-            "verdict": result["verdict"],
-            "explanation": result["explanation"],
-            "evidence": result["evidence"],
-        }
+        from src.retrieval.naive import retrieve
 
-    # ── Hybrid / reranked retrieval ───────────────────────────────────────────
-    collection = get_collection(chunking_strategy)
-        from src.shared.vector_store import search
-        collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
-        hits = search(collection, claim, top_k=5)
+        hits = retrieve(claim, collection=collection, top_k=5)
     else:
-        collection = get_collection(chunking_strategy, force_rebuild=force_rebuild_chunks)
-
         from src.retrieval.hybrid import retrieve_hybrid
+
         hits = retrieve_hybrid(claim, collection, top_k=10)
 
         if retrieval_method == "hybrid_reranked":
             from src.retrieval.reranker import rerank
+
             hits = rerank(claim, hits, top_k=5)
         else:
             hits = hits[:5]
@@ -450,8 +369,6 @@ def _run_single_pass(
     response = call_llm(prompt, system=SYSTEM_PROMPT, model=model_id)
 
     result_data = parse_json_response(response["content"])
-    if "verdict" not in result_data:
-        raise KeyError(f"LLM response missing 'verdict' key: {result_data}")
     return {
         "verdict": result_data["verdict"],
         "explanation": result_data.get("explanation", ""),
@@ -464,20 +381,23 @@ def _run_single_pass(
 
 
 def _run_strands_multi(claim: str, model: str) -> dict:
-    """Strands 4-agent sequential pipeline (uses Bedrock internally)."""
+    """Run the current Strands multi-agent pipeline against the local corpus."""
     from src.agents.strands.orchestrator import run_pipeline
+
+    # The current Strands agent stack resolves its own Bedrock model internally.
+    get_agent_collection()
     raw = run_pipeline(claim)
     return raw["verdict"]
 
 
 def _run_langgraph_multi(claim: str, model: str) -> dict:
-    """LangGraph graph-based multi-agent pipeline.
-
-    Accepts any model supported by call_llm (Anthropic, OpenAI, Ollama).
-    The model alias is resolved to a provider model ID and injected into
-    graph state via the special '_model' key, which each node reads.
-    """
-    from src.agents.langgraph.graph import build_graph
+    """Run the LangGraph multi-agent pipeline when the graph is implemented."""
+    try:
+        from src.agents.langgraph.graph import build_graph
+    except ImportError as exc:
+        raise NotImplementedError(
+            "langgraph_multi is not available: src.agents.langgraph.graph.build_graph is not implemented."
+        ) from exc
 
     model_id = _resolve_model_id(model)
     graph = build_graph()
@@ -494,16 +414,16 @@ def _run_langgraph_multi(claim: str, model: str) -> dict:
 
 
 def _run_strands_rerouting(claim: str, model: str) -> dict:
-    """Strands multi-agent with adaptive rerouting (evidence gap loop)."""
-    from src.agents.strands.orchestrator_rerouting import run_pipeline_rerouting
+    """Backward-compatible alias to the current gated Strands pipeline."""
+    from src.agents.strands.orchestrator_gated import run_pipeline_with_gating
 
-    raw = run_pipeline_rerouting(claim)
+    # The current gated Strands path also resolves its model internally.
+    get_agent_collection()
+    raw = run_pipeline_with_gating(claim)
     verdict = raw["verdict"]
 
     return {
         "verdict": verdict.get("verdict", "INSUFFICIENT_EVIDENCE"),
         "explanation": verdict.get("explanation", ""),
         "evidence": verdict.get("evidence", []),
-        # Pass rerouting metadata up so it lands in the experiment output
-        "rerouting_loops": raw.get("rerouting_loops", 1),
     }
