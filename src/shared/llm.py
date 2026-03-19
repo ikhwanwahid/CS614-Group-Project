@@ -38,7 +38,8 @@ def _infer_provider(model: str) -> str:
 def get_llm_client(provider: str = "anthropic"):
     """Get the LLM client for the specified provider."""
     if provider == "anthropic":
-        return Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+        return Anthropic(api_key=api_key) if api_key else Anthropic()
     elif provider == "openai":
         try:
             from openai import OpenAI
