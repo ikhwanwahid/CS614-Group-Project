@@ -10,20 +10,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SYSTEM_PROMPT = """You are a medical claim decomposition specialist. Your task is to break down
-health claims into specific, verifiable sub-claims. For each sub-claim, generate a targeted
-PubMed search query that would find relevant evidence.
+SYSTEM_PROMPT = """You are a scientific claim decomposition specialist. Your task is to break down
+scientific claims into specific, verifiable sub-claims. For each sub-claim, generate a targeted
+search query that would find relevant evidence in a scientific corpus.
 
 Guidelines:
 - Decompose into 2-4 sub-claims depending on complexity
 - Each sub-claim should be independently verifiable
-- Search queries should use medical terminology and be specific
+- Search queries should use scientific terminology and be specific
 - Consider: mechanism claims, population scope, strength of effect, and temporal claims"""
 
 
 class SubClaim(BaseModel):
     sub_claim: str = Field(description="A specific, verifiable sub-claim")
-    query: str = Field(description="A targeted PubMed search query for this sub-claim")
+    query: str = Field(description="A targeted search query for this sub-claim")
 
 
 class ParsedClaimsOutput(BaseModel):
@@ -45,10 +45,10 @@ def create_agent() -> Agent:
 
 
 def parse_claim(claim: str) -> ParsedClaimsOutput:
-    """Decompose a health claim into sub-claims with search queries."""
+    """Decompose a scientific claim into sub-claims with search queries."""
     agent = create_agent()
     result = agent(
-        f"Decompose this health claim into verifiable sub-claims: {claim}",
+        f"Decompose this scientific claim into verifiable sub-claims: {claim}",
         structured_output_model=ParsedClaimsOutput,
     )
     return result.structured_output

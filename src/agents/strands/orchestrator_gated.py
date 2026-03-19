@@ -22,7 +22,7 @@ def _format_local_evidence(local_hits: dict[str, list[dict]]) -> str:
     for sub_claim, hits in local_hits.items():
         passages = [
             {
-                "source": f"PMID:{h['metadata']['pmid']}",
+                "source": h["metadata"].get("doc_id", "N/A"),
                 "title": h["metadata"]["title"],
                 "passage": h["text"],
                 "relevance_score": round(1.0 - h["distance"], 3),

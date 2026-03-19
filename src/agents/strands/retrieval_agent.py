@@ -12,16 +12,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.shared.vector_store import get_chroma_client, get_or_create_collection, search
-from src.retrieval.pubmed_search import search_pubmed
 
-SYSTEM_PROMPT = """You are a medical evidence retrieval specialist. For each sub-claim provided,
-use the available tools to find relevant evidence from both the local medical corpus and PubMed.
+SYSTEM_PROMPT = """You are a scientific evidence retrieval specialist. For each sub-claim provided,
+use the available tools to find relevant evidence from the local scientific corpus.
 
 Instructions:
 1. For each sub-claim, call search_local_corpus with the provided query
-2. Also call search_pubmed_api with the query for additional evidence
-3. Review all retrieved passages and select the most relevant ones
-4. Return the top 3 most relevant passages per sub-claim, ranked by relevance"""
+2. Review all retrieved passages and select the most relevant ones
+3. Return the top 3 most relevant passages per sub-claim, ranked by relevance"""
 
 
 @tool
@@ -39,7 +37,7 @@ def search_local_corpus(query: str) -> str:
     hits = search(collection, query, top_k=5)
     passages = [
         {
-            "source": f"PMID:{h['metadata']['pmid']}",
+            "source": h["metadata"].get("doc_id", "N/A"),
             "title": h["metadata"]["title"],
             "passage": h["text"],
             "relevance_score": round(1.0 - h["distance"], 3),
@@ -49,34 +47,8 @@ def search_local_corpus(query: str) -> str:
     return json.dumps({"query": query, "source": "local_corpus", "passages": passages})
 
 
-@tool
-def search_pubmed_api(query: str) -> str:
-    """Search PubMed via the E-utilities API for additional medical evidence.
-
-    Args:
-        query: The PubMed search query to find relevant medical literature.
-
-    Returns:
-        JSON string with retrieved evidence from PubMed.
-    """
-    try:
-        articles = search_pubmed(query, max_results=5)
-        passages = [
-            {
-                "source": f"PMID:{a['pmid']}",
-                "title": a["title"],
-                "passage": a["abstract"][:500],
-                "relevance_score": 0.5,
-            }
-            for a in articles
-        ]
-        return json.dumps({"query": query, "source": "pubmed_api", "passages": passages})
-    except Exception as e:
-        return json.dumps({"query": query, "source": "pubmed_api", "passages": [], "error": str(e)})
-
-
 class EvidencePassage(BaseModel):
-    source: str = Field(description="PMID or source identifier")
+    source: str = Field(description="Doc ID or source identifier")
     title: str = Field(description="Article title")
     passage: str = Field(description="Relevant text passage")
     relevance_score: float = Field(description="Relevance score 0.0-1.0")
@@ -104,7 +76,7 @@ def create_agent() -> Agent:
     return Agent(
         model=get_model(),
         system_prompt=SYSTEM_PROMPT,
-        tools=[search_local_corpus, search_pubmed_api],
+        tools=[search_local_corpus],
     )
 
 
@@ -117,7 +89,7 @@ def retrieve_evidence(sub_claims: list[dict]) -> RetrievalOutput:
     agent = create_agent()
     prompt = (
         "Retrieve evidence for each of the following sub-claims. "
-        "For each one, search both the local corpus and PubMed, then rank and return the top 3 passages.\n\n"
+        "For each one, search the local corpus and return the top 3 most relevant passages.\n\n"
     )
     for i, sc in enumerate(sub_claims, 1):
         prompt += f"{i}. Sub-claim: {sc['sub_claim']}\n   Query: {sc['query']}\n"
