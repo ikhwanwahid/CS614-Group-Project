@@ -25,7 +25,7 @@ MODELS = (
 )
 
 DEFAULT_CHUNKING_STRATEGY = "recursive"
-DEFAULT_RETRIEVAL_METHOD = "hybrid_reranked"
+DEFAULT_RETRIEVAL_METHOD = "naive"
 DEFAULT_AGENT_COLLECTION = "health_corpus"
 
 # ── Model resolution ──────────────────────────────────────────────────────────

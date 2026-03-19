@@ -13,7 +13,7 @@ from src.pipelines.configurable import run_experiment
 
 
 BEST_CHUNKING_STRATEGY = "recursive"
-BEST_RETRIEVAL_METHOD = "hybrid_reranked"
+BEST_RETRIEVAL_METHOD = "naive"
 
 
 # Default experiment configurations for chunking-first evaluation.
