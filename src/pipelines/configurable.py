@@ -16,6 +16,7 @@ RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
 AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting")
 MODELS = ("claude-sonnet-4", "gpt-4o-mini", "claude-haiku", "llama-3.1-8b", "llama-3.1-8b-ft", "llama-3.1-70b")
 
+<<<<<<< HEAD
 # ── Model resolution ──────────────────────────────────────────────────────────
 
 _MODEL_ID_MAP = {
@@ -35,6 +36,72 @@ def _resolve_model_id(model: str) -> str:
 
 # ── System prompt ─────────────────────────────────────────────────────────────
 
+=======
+# SYSTEM_PROMPT = """You are a health claim fact-checker. Given the following evidence passages and a health claim, provide:
+# 1. A verdict: SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE
+# 2. An explanation justifying your verdict (2-3 sentences)
+# 3. Which evidence passages you relied on
+
+# Respond ONLY with valid JSON matching this schema:
+# {
+#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+#     "explanation": "Your explanation here",
+#     "evidence": [
+#         {"source": "PMID or author reference", "passage": "key passage text", "relevance_score": 0.0-1.0}
+#     ]
+# }"""
+# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
+# Focus strictly on the 'Disease' and the 'Population' mentioned.
+
+# For each claim, follow this verification logic:
+# 1. Extract Claim Entities: [Disease/Condition] and [Population/Group].
+# 2. Scan Evidence: Does the evidence explicitly name the SAME Disease and SAME Population?
+# 3. Identity Gap: If the evidence uses broader terms (e.g., 'vaccination' vs 'flu vaccine' or 'adults' vs 'elderly'), you must flag this as a 'MISMATCH' or 'TOO GENERAL'.
+
+# Respond ONLY with valid JSON:
+# {
+#     "entity_verification": {
+#         "claim": {"disease": "...", "population": "..."},
+#         "evidence_match": {
+#             "disease_matched": true/false,
+#             "population_matched": true/false,
+#             "notes": "Explain if the evidence is talking about a different or more general group/disease."
+#         }
+#     },
+#     "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+#     "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
+#     "evidence": [
+#         {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
+#     ]
+# }"""
+
+
+# SYSTEM_PROMPT = """You are a rigorous health claim fact-checker. 
+# Focus strictly on the 'Disease' and the 'Population' mentioned.
+
+# Verification & Weighting Logic:
+# 1. Extract Claim Entities: [Disease] and [Population].
+# 2. Prioritize Specificity: Evidence matching BOTH entities explicitly (e.g., 'Flu vaccine' AND 'elderly') is HIGH-PRIORITY.
+# 3. Penalty for Ambiguity: If evidence uses general terms (e.g., 'vaccination' instead of 'flu vaccine'), you MUST downgrade its importance. It cannot be used as the sole basis for SUPPORTED or UNSUPPORTED.
+# 4. Final Verdict: If the high-priority evidence is missing, the verdict should likely be INSUFFICIENT_EVIDENCE.
+
+# Respond ONLY with valid JSON:
+# {
+#     "entity_verification": {
+#          "claim": {"disease": "...", "population": "..."},
+#          "evidence_match": {
+#              "disease_matched": true/false,
+#              "population_matched": true/false,
+#              "notes": "Explain if the evidence is talking about a different or more general group/disease."
+#          }
+#      },
+#      "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
+#      "explanation": "If entities do not match exactly, explain that the evidence is not specific enough to support the claim.",
+#      "evidence": [
+#          {"source": "PMID/Author", "passage": "text", "relevance_score": 0.0-1.0}
+#      ]
+# }"""
+>>>>>>> d8747033885e48da397e67fd4560abac72d8bc80
 SYSTEM_PROMPT = """You are a scientific claim fact-checker. Given evidence passages from research abstracts, determine whether each claim is supported, contradicted, or lacks sufficient evidence.
 
 Verification Logic:
@@ -55,9 +122,12 @@ Respond ONLY with valid JSON:
     ]
 }"""
 
+<<<<<<< HEAD
 
 # ── ChromaDB collection helper ────────────────────────────────────────────────
 
+=======
+>>>>>>> d8747033885e48da397e67fd4560abac72d8bc80
 def get_collection(chunking_strategy: str):
     """Get or create and populate a ChromaDB collection for the given chunking strategy."""
     from src.shared.vector_store import get_chroma_client, get_or_create_collection, add_documents

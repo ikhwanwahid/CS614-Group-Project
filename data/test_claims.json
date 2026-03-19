@@ -1,1602 +1,2830 @@
 [
   {
-    "claim": "Vaccines cause autism",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "poc_1"
-  },
-  {
-    "claim": "The MMR vaccine is linked to autism in children",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "poc_2"
-  },
-  {
-    "claim": "Vitamin D supplements prevent COVID infection",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "poc_3"
-  },
-  {
-    "claim": "Intermittent fasting reverses Type 2 diabetes",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "poc_4"
-  },
-  {
-    "claim": "mRNA vaccines alter your DNA",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "poc_5"
-  },
-  {
-    "claim": "COVID vaccines are effective against all variants",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "hard",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "poc_6"
-  },
-  {
-    "claim": "Flu vaccines reduce hospitalisation in elderly patients",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "poc_7"
-  },
-  {
-    "claim": "This Blood Test Could Help Predict If A Pregnancy Is At Risk For Premature Labor",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "9364"
-  },
-  {
-    "claim": "Alissa Keny-Guyer Says \"in Oregon only 41 percent of adults have ever been tested\" for HIV.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "20580"
-  },
-  {
-    "claim": "Rhode Island law aims to prevent suicides at public colleges.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "6151"
-  },
-  {
-    "claim": "U.S. coronavirus supply spree sparks outrage among allies.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "8642"
-  },
-  {
-    "claim": "Coronavirus strain COVID-19 can be treated by drinking warm water, among several other claims made online.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "37578"
-  },
-  {
-    "claim": "Indiana University cleaning mold inside residence quadrangle.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "4269"
-  },
-  {
-    "claim": "FDA approves new drug that prevents migraines without side effects",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "9370"
-  },
-  {
-    "claim": "Blogger Says the Vatican reports that Pope Francis tested negative for the coronavirus before a second test came back positive.",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26748"
-  },
-  {
-    "claim": "Heparin recalled in France, Italy, Denmark: report.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "8855"
-  },
-  {
-    "claim": "Injected Drug Reduces Risk of Fracture among Women with Osteoporosis",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "9270"
-  },
-  {
-    "claim": "If someone with the new coronavirus sneezes, it travels about 10 feet before it drops to the ground and is no longer airborne",
+    "claim": "The ureABIEFGH gene cluster is induced by nickel (II) ion.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "41069"
+    "source": "scifact",
+    "source_id": "1281",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "A Tennessee boy died in the arms of a local man portraying Santa Claus during a hospital visit.",
+    "claim": "Acute ablation of Snail in the embryonic cortex affects the proliferation and number of embryonic cortical precursors.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34491"
+    "source": "scifact",
+    "source_id": "81",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "An immigrant put peanut butter in a little girl's sandwich causing her to have an allergic reaction.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34429"
-  },
-  {
-    "claim": "Proper exercise can reverse damage from heart aging",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "9048"
-  },
-  {
-    "claim": "Monarch butterflies are becoming extinct\" because of increased use of crops genetically modified to withstand pesticides.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "15898"
-  },
-  {
-    "claim": " Several emails circulating about the Obama administration\u2019s proposed Universal Health Care bill.\u00a0\u00a0 One concern is that the passage of this bill will levy an additional capital gains tax on the sales of homes of 3.8%. ",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "37068"
-  },
-  {
-    "claim": "Polysorbate 80 and 20 are in vaccines and cause cancer in animals and are linked to autoimmune issues and infertility.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "41320"
-  },
-  {
-    "claim": "A daily regimen of ingesting gin-soaked raisins will help relieve arthritis symptoms.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34704"
-  },
-  {
-    "claim": "Spending on mental health went up by \u00a3575 million last year.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "41644"
-  },
-  {
-    "claim": "Discovery offers prospect of shorter treatment and cure for chronic myelogenous leukemia",
+    "claim": "Tirasemtiv has no effect on fast-twitch muscle.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9253"
+    "source": "scifact",
+    "source_id": "1303",
+    "evidence_doc_id": "12631697",
+    "evidence_sentences": [
+      1
+    ]
   },
   {
-    "claim": "Medicare 5-year cancer bill tops $21.1 bln: study.",
+    "claim": "CDK6 shows improved binding to loss-of-function variants of p18 INK4C.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "205",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "The deregulated and prolonged activation of monocytes has deleterious effects in inflammatory diseases.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1213",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "There is an inverse relationship between hip fractures and statin use.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "8815"
+    "source": "scifact",
+    "source_id": "1290",
+    "evidence_doc_id": "4687948",
+    "evidence_sentences": [
+      7
+    ]
   },
   {
-    "claim": "Five minutes in the green can boost self esteem.",
+    "claim": "Assembly of invadopodia is triggered by focal generation of phosphatidylinositol-3,4-biphosphate and the activation of the nonreceptor tyrosine kinase Src.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "7848"
+    "source": "scifact",
+    "source_id": "133",
+    "evidence_doc_id": "16280642",
+    "evidence_sentences": [
+      3,
+      4
+    ]
   },
   {
-    "claim": "ATTC VR-84 is a patent for Zika virus that comes from the Rockefeller Foundation.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "41091"
+    "claim": "There is no known interaction between Pioneer factor OCT3/4 and major chromatin remodeling factors.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1294",
+    "evidence_doc_id": "2078658",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "Swiss police arrest \"healer\" accused of infecting 16 with HIV.",
+    "claim": "Hypocretin neurones suppress panicprone state in rats.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "537",
+    "evidence_doc_id": "16056514",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Sequence conservation in gene regulatory regions between species is a high-accuracy predictor of conserved functionality.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1074",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Lamins are found within the inner layer of the nuclear membrane of all cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "687",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "The proportion of people with visual difficulty is two times higher in low-income countries than in high-income countries.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1257",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Expression of oncolytic virus antigens as peptides permits additional protection against relapse.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "404",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "A total of 1,000 people in the UK are asymptomatic carriers of vCJD infection.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "48",
+    "evidence_doc_id": "13734012",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Golli-deficient T-cells prefer to differentiate into an anergic phenotype in the adaptive immune response when there are increased levels of Ca2+ in the cytosol.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "478",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Arginine 90 in p150n is important for interaction with EB1.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "127",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Downregulation and mislocalization of Scribble prevents cell transformation and mammary tumorigenesis.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "354",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Febrile seizures increase the threshold for development of epilepsy.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "410",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Satellite cell dysfunction is a key factor in sarcopenia development.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1065",
+    "evidence_doc_id": "20418809",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Higher plasma levels of I-carnitine, when associated with trimethylamine N-oxide, are negatively correlated with cardiovascular events in humans.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "523",
+    "evidence_doc_id": "14803797",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "The one-child policy has created a hospitable environment for female infants.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1246",
+    "evidence_doc_id": "7662395",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Pharmacist attendance at ward rounds increases adverse events in wards.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "940",
+    "evidence_doc_id": "12258338",
+    "evidence_sentences": [
+      11
+    ]
+  },
+  {
+    "claim": "The DESMOND program demonstrates no significant impact on biochemical outcomes.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "2530"
+    "source": "scifact",
+    "source_id": "1157",
+    "evidence_doc_id": "12584053",
+    "evidence_sentences": [
+      9
+    ]
   },
   {
-    "claim": "FDA Panel Backs Novartis Drug For Treating Parkinson\u2019s Dementia",
+    "claim": "Taxation of sugar-sweetened beverages had no effect on the incidence rate of type II diabetes in India.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "11025"
+    "source": "scifact",
+    "source_id": "1144",
+    "evidence_doc_id": "10071552",
+    "evidence_sentences": [
+      4
+    ]
   },
   {
-    "claim": "Tracking the risks and rewards of transcranial magnetic stimulation",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "9653"
-  },
-  {
-    "claim": "Weight loss can be boosted fivefold thanks to novel mental imagery technique",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "8958"
-  },
-  {
-    "claim": "Nathan Phillips falsely claimed to be a U.S. military veteran who served in the Vietnam War.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34219"
-  },
-  {
-    "claim": "Drinking one diet drink a day triples a person's risk of dementia and strokes.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "34241"
-  },
-  {
-    "claim": "Easy Nondrug Help Aids ADHD Kids",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "11346"
-  },
-  {
-    "claim": "Study suggests a second LDL test",
+    "claim": "1 in 5 million in UK have abnormal PrP positivity.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "11523"
+    "source": "scifact",
+    "source_id": "2",
+    "evidence_doc_id": "13734012",
+    "evidence_sentences": [
+      4
+    ]
   },
   {
-    "claim": "Prospective new gang members are being initiated by killing the drivers of cars who flash their headlights at them.",
+    "claim": "Repressing IL-18 has negative effects on atherosclerotic lesion composition and progression.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "33459"
+    "source": "scifact",
+    "source_id": "1042",
+    "evidence_doc_id": "17421851",
+    "evidence_sentences": [
+      6
+    ]
   },
   {
-    "claim": "Girl Scouts USA\u2019s curriculum \"promotes Margaret Sanger, founder of Planned Parenthood, Betty Friedan, founder of NARAL Prochoice, and other pro-abortion women as icons for our children to emulate.",
+    "claim": "DUSP4 downregulation deactivates the Ras-ERK pathway",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "17376"
+    "source": "scifact",
+    "source_id": "308",
+    "evidence_doc_id": "7821634",
+    "evidence_sentences": [
+      4,
+      5
+    ]
   },
   {
-    "claim": "After prohibition ended, police deaths didn't reach 200 a year again until the year Nixon declared war on drugs.",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "12586"
-  },
-  {
-    "claim": "Yoga and Stretching Equally Effective for Back Pain",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "11565"
-  },
-  {
-    "claim": "Tidy Cats Lightweight brand cat litter causes breathing problems in cats.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "34655"
-  },
-  {
-    "claim": " President Donald Trump allowed the use of chlorpyrifos in chemical pesticides because Dow Chemical paid him $1 million. ",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "38119"
-  },
-  {
-    "claim": "Combination approach shows promise for beating advanced melanoma",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "8966"
-  },
-  {
-    "claim": "The FDA has updated its warnings for \u2014 and recommended limitations on \u2014 prescribing a class of antibiotics called fluoroquinolones, citing potentially irreversible side-effects including tendon damage and rupture.",
+    "claim": "Active Ly49Q induces neutrophil polarization.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "27567"
+    "source": "scifact",
+    "source_id": "76",
+    "evidence_doc_id": "5531479",
+    "evidence_sentences": [
+      1
+    ]
   },
   {
-    "claim": "\u201cDoes the #DemConvention know @NYGovCuomo forced nursing homes across NY to take in COVID positive patients and planted the seeds of infection that killed thousands of grandmothers and grandfathers?\u201d",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "25711"
+    "claim": "The PPR MDA5 has two N-terminal CARD domains.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1175",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Bodycad Announces First Use of Its Unicompartmental Knee System in Patients",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "9089"
-  },
-  {
-    "claim": "UK authorities release confiscated cannabis after boy hospitalized.",
+    "claim": "Suboptimal nutrition is a leading cause of premature death",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "substance_use",
-    "source": "PUBHEALTH",
-    "source_id": "2254"
+    "source": "scifact",
+    "source_id": "1109",
+    "evidence_doc_id": "13770184",
+    "evidence_sentences": [
+      13
+    ]
   },
   {
-    "claim": "Evofem's birth control gel meets main study goal; shares rise",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "9304"
+    "claim": "Physical injury represses transgultaminase activity.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "949",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "The death from influenza of eight mostly vaccinated people over 65 in California's Santa Barbara County during the 2017-2018 flu season proves that you shouldn\u2019t get the flu shot.",
+    "claim": "A country's Vaccine Alliance (GAVI) eligibility is not indictivate of accelerated adoption of the Hub vaccine.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "30705"
+    "source": "scifact",
+    "source_id": "32",
+    "evidence_doc_id": "12428497",
+    "evidence_sentences": [
+      8
+    ]
   },
   {
-    "claim": "A teenage schoolgirl in Texas became pregnant through a flu vaccination.",
+    "claim": "HNF4A mutations can cause diabetes in mutant carriers by the age of 14 years",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "491",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Mice defective for deoxyribonucleic acid (DNA) polymerase I (polI) reveal increased sensitivity to ionizing radiation (IR).",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "775",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "N348I mutations reduce resistance to nevirapine.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "30893"
+    "source": "scifact",
+    "source_id": "825",
+    "evidence_doc_id": "15319019",
+    "evidence_sentences": [
+      13
+    ]
   },
   {
-    "claim": "Spain overtakes Italy in coronavirus cases, death rate slows.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "7959"
-  },
-  {
-    "claim": "Grocery store chain H-E-B's \"hurricane emergency supplies\" included a limit of two on brisket, due to projected storms in Texas.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "37924"
-  },
-  {
-    "claim": "The stimulus includes \"$219,000 to study the sex lives of female college freshmen.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "24247"
-  },
-  {
-    "claim": "Medicating Children With ADHD Keeps Them Safer",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "9581"
-  },
-  {
-    "claim": "Scientists look to stem cells to mend broken hearts",
+    "claim": "Breast cancer development is determined exclusively by genetic factors.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "9960"
+    "source": "scifact",
+    "source_id": "185",
+    "evidence_doc_id": "18340282",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "\u201cSpiral\u201d CT scans reduce smoker deaths: study",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "substance_use",
-    "source": "PUBHEALTH",
-    "source_id": "11470"
-  },
-  {
-    "claim": "Facebook post Says \"there is no\" COVID-19 virus.",
+    "claim": "Female carriers of the Apolipoprotein E4 (APOE4) allele have shorter lifetime exposure to estrogen due to a decreased reproductive period.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26635"
+    "source": "scifact",
+    "source_id": "417",
+    "evidence_doc_id": "6309659",
+    "evidence_sentences": [
+      12
+    ]
   },
   {
-    "claim": "New blood test may predict cardiovascular events in patients with or without coronary artery disease, research shows",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "9177"
-  },
-  {
-    "claim": "\u201cWhile California is dying \u2026 Gavin (Newsom) is vacationing in Stevensville, MT!\u201d",
+    "claim": "Mathematical models predict that using Artemisinin-based combination therapy over nongametocytocidal drugs have a dramatic impact in reducing malaria transmission.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26248"
+    "source": "scifact",
+    "source_id": "759",
+    "evidence_doc_id": "1805641",
+    "evidence_sentences": [
+      13
+    ]
   },
   {
-    "claim": "Two-fifths of U.S. adults care for sick, elderly relatives.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "2494"
-  },
-  {
-    "claim": "Clout-chasing teenagers are participating in the \"coronavirus challenge\" on TikTok, Instagram, and other social media platforms, sharing attempts to infect themselves and contract COVID-19.",
+    "claim": "Cancer-associated fibroblasts (CAFs) interact with cancer cells to mediate formation and activation of CAFs.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "37518"
+    "source": "scifact",
+    "source_id": "226",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Using PET Scans to Discover Early Signs of Alzheimer\u2019s",
+    "claim": "Tuberculosis incidence occurs at higher rates in more sparsely populated areas in the UK.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "11172"
+    "source": "scifact",
+    "source_id": "1327",
+    "evidence_doc_id": "24241932",
+    "evidence_sentences": [
+      6
+    ]
   },
   {
-    "claim": "A coronavirus-related health advisory graphic issued by the World Health Organization warned against unprotected sex with farm animals.",
+    "claim": "Statins decrease blood cholesterol.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1099",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "NR5A2 does not play a role in development of endometrial tissues.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "35014"
+    "source": "scifact",
+    "source_id": "835",
+    "evidence_doc_id": "15928989",
+    "evidence_sentences": [
+      5,
+      6
+    ]
   },
   {
-    "claim": "For Cold Virus, Zinc May Edge Out Even Chicken Soup",
+    "claim": "A breast cancer patient's capacity to metabolize tamoxifen influences treatment outcome.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "30",
+    "evidence_doc_id": "24341590",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Mitochondria are uninvolved in apoptosis.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "9895"
+    "source": "scifact",
+    "source_id": "793",
+    "evidence_doc_id": "8551160",
+    "evidence_sentences": [
+      1
+    ]
   },
   {
-    "claim": "New Blood Test May Rule Out Heart Attacks More Quickly",
+    "claim": "Including pharmacists in rounding teams does not alter the incidence of adverse drug events (ADEs).",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "9832"
+    "source": "scifact",
+    "source_id": "600",
+    "evidence_doc_id": "12258338",
+    "evidence_sentences": [
+      11
+    ]
   },
   {
-    "claim": "\u00a0\u00a0     Kayla Mueller, the 26-year-old woman who died while being held hostage   by the Islamic State terrorist group, \u201cdeserves no tears\u201d because she   supported terrorist groups.       ",
+    "claim": "Rapid up-regulation and higher basal expression of interferon-induced genes increase survival of granule cell neurons that are infected by West Nile virus.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1020",
+    "evidence_doc_id": "9433958",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Removal of H3K9me3 by ectopic expression of other H3K9 demethylases decreases reprogramming efficiency in SCNT experiments.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "39772"
+    "source": "scifact",
+    "source_id": "1034",
+    "evidence_doc_id": "4547102",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "More support for osteoporosis drugs",
+    "claim": "7-day-old adult Caenorhabditis elegans exhibit approximately 75% of the learning capacity seen in 1-day old adults.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "20",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Amitriptyline is an effective treatment for chronic tension-type headaches.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "9676"
+    "source": "scifact",
+    "source_id": "108",
+    "evidence_doc_id": "6191684",
+    "evidence_sentences": [
+      7
+    ]
   },
   {
-    "claim": "Quotes Sen. Lindsey Graham as saying President Trump \u201cprobably knows more about medicine and specifically viruses than any of the so-called scientists at the NIH and CDC.\u201d",
+    "claim": "The NF-\u03baB essential modulator gene prevents intestinal inflammation by inhibiting receptor-interacting protein (RIP) kinase 1 kinase activity-mediated epithelial cell death.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1171",
+    "evidence_doc_id": "18956141",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Bariatric surgery increases rates of colorectal cancer.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "164",
+    "evidence_doc_id": "5824985",
+    "evidence_sentences": [
+      11
+    ]
+  },
+  {
+    "claim": "In breast cancer, the loss of myoepithelial cells slows the transition of ductal carcinoma in situ to invasive carcinoma.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26749"
+    "source": "scifact",
+    "source_id": "571",
+    "evidence_doc_id": "20333864",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "Disability rights advocates sue Montana over Medicaid cuts.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "3868"
+    "claim": "Individuals with low serum vitamin D concentrations have increased risk of multiple sclerosis.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "623",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Nurse\u2019s kidney donation triggers bi-state transplant chain.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "7002"
-  },
-  {
-    "claim": "Spanking kids can cause long-term harm: Canada study.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "1885"
-  },
-  {
-    "claim": "In Early Trial, Targeted Therapy Fights Advanced Melanoma",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "10897"
-  },
-  {
-    "claim": "HIV-positive basketball star Earvin \"Magic\" Johnson donated blood to patients with leukemia. ",
+    "claim": "Replacement of histone H2A with H2A.Z slows gene activation in yeasts by stabilizing +1 nucleosomes.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "33361"
+    "source": "scifact",
+    "source_id": "1041",
+    "evidence_doc_id": "25254425",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "Quick brain scan could screen for autism",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "10437"
-  },
-  {
-    "claim": "Marco Rubio thinks that government shouldn't be in the health care business at all.",
+    "claim": "There is no increased risk of hypospadias with clomiphene.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "24129"
+    "source": "scifact",
+    "source_id": "1293",
+    "evidence_doc_id": "43329366",
+    "evidence_sentences": [
+      1
+    ]
   },
   {
-    "claim": "New law would let Uruguayans grow marijuana at home, in clubs.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "substance_use",
-    "source": "PUBHEALTH",
-    "source_id": "2585"
-  },
-  {
-    "claim": "FDA authorizes marketing of first blood test to aid in the evaluation of concussion in adults",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "9034"
-  },
-  {
-    "claim": "Russian president Vladimir Putin slammed Western countries for using GMOs and vaccines that slow evolution.",
+    "claim": "A deficiency of vitamin B12 decreases blood levels of homocysteine.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "34546"
+    "source": "scifact",
+    "source_id": "35",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "A Harvard study proved that \u201cunvaccinated children pose no risk\u201d to other kids.",
+    "claim": "Hematopoietic Stem Cell purification reaches purity rates above 90%.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "509",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "CHOP is a general endoplasmic reticulum stress marker.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "209",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Bone marrow cells contribute to adult macrophage compartments.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "29204"
+    "source": "scifact",
+    "source_id": "183",
+    "evidence_doc_id": "12827098",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "Public warned of possible measles exposure in Pennsylvania.",
+    "claim": "Kir7.1 modulates channel activity by the G protein-coupled melanocortin-4 receptor (MC4R) in the paraventricular nucleus of the hypothalamus.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "4019"
+    "source": "scifact",
+    "source_id": "666",
+    "evidence_doc_id": "4469125",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "North Carolina fair bans mist fans as health measure.",
+    "claim": "CDK6 shows impaired binding to loss-of-function variants of p18 INK4C.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "204",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "GATA-3 is important for hematopoietic stem cell (HSC) function.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "5900"
+    "source": "scifact",
+    "source_id": "443",
+    "evidence_doc_id": "10165258",
+    "evidence_sentences": [
+      4,
+      5,
+      6
+    ]
   },
   {
-    "claim": "France's coronavirus death rate accelerates, cases near 100,000.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "8606"
-  },
-  {
-    "claim": "Immunotherapy Drug Becomes First Therapy Approved by FDA for Rare Skin Cancer",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9990"
-  },
-  {
-    "claim": "Planned Parenthood: States should oppose Trump \u2018gag rule\u2019.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "5783"
-  },
-  {
-    "claim": "Sanofi's Lantus insulin favored over rival: study.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "8852"
-  },
-  {
-    "claim": "VA will provide in-home care for Iraq veteran.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "4638"
-  },
-  {
-    "claim": "EPA watchdog: Health monitoring after Harvey was lacking.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "3156"
-  },
-  {
-    "claim": "Concussions in kids are detectable by blood test",
+    "claim": "PKG-la does not have a large impact on expression of spinal long term potentiation in PGK-la knockout mice.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "10093"
+    "source": "scifact",
+    "source_id": "910",
+    "evidence_doc_id": "11254556",
+    "evidence_sentences": [
+      5
+    ]
   },
   {
-    "claim": "Florida\u2019s hepatitis A outbreak prompts vaccine push.",
+    "claim": "Pioglitazone use is significantly associated with an increased risk of pancreatic cancer.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "4812"
+    "source": "scifact",
+    "source_id": "953",
+    "evidence_doc_id": "3355397",
+    "evidence_sentences": [
+      12
+    ]
   },
   {
-    "claim": "Scarless weight-loss surgery: pacemaker for your hunger",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "10453"
-  },
-  {
-    "claim": "Women\u2019s menstrual cycles synchronize when they live or work in close proximity to one another.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34418"
-  },
-  {
-    "claim": "Republicans \u201chave shown themselves willing to cut millions off their health insurance and eliminate preexisting condition protections for millions more, even in the middle of this public health crisis.",
+    "claim": "Mutant mice lacking SVCT2 have severely reduced ascorbic acid levels in both brain and adrenals.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26465"
+    "source": "scifact",
+    "source_id": "812",
+    "evidence_doc_id": "19799455",
+    "evidence_sentences": [
+      4,
+      6
+    ]
   },
   {
-    "claim": "Alzheimer\u2019s May Show Up in Saliva",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "9763"
+    "claim": "The arm density of TatAd complexes is due to structural rearrangements within Class1 TatAd complexes such as the 'charge zipper mechanism'.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1194",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "On-and-off fasting helps fight obesity",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "9077"
+    "claim": "High levels of copeptin decrease risk of diabetes.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "517",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Stanford team finds blood test to help identify Alzheimer\u2019s disease",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "10198"
-  },
-  {
-    "claim": "Leticia Van de Putte \"voted to give illegal immigrants in this country free health care--not emergency health care but total free health care.",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "16390"
-  },
-  {
-    "claim": "A medical examiner's conclusion that Health and Human Services drug pricing adviser Daniel Best died of multiple blunt force injuries contradicts the official ruling that he committed suicide.",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "30045"
-  },
-  {
-    "claim": "A meme showing a mug shot of U.S. Rep. Matt Gaetz suggests that the congressman has had \u201cseven DUIs\u201d and is responsible for the \u201csuspicious\u201d death of his college roommate. ",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "29138"
-  },
-  {
-    "claim": "Shows a waitress saying, \"I lost my job. But I'll sleep better knowing\u201d that the coronavirus relief bill included funding for the Kennedy Center, refugee resettlement, PBS, and congressional salaries: \u201cThanks, Democrats\u201d",
-    "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26572"
-  },
-  {
-    "claim": "Greece quarantines second migrant camp after COVID-19 case confirmed.",
+    "claim": "RAD52 is involved in break-induced DNA replication (BIR).",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "8327"
+    "source": "scifact",
+    "source_id": "1003",
+    "evidence_doc_id": "14332945",
+    "evidence_sentences": [
+      6
+    ]
   },
   {
-    "claim": "In July 2020, U.S. Education Secretary Betsy DeVos said \"only\" .02% of the country's K-12 school students \u2014 totaling 14,740 children and teens \u2014 are likely to die from COVID-19 when and if schools fully reopen.",
+    "claim": "Insomnia can be effectively treated with cognitive behavioral therapy.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "641",
+    "evidence_doc_id": "5912283",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "Infection of human T-cell lymphotropic virus type 1 is most frequent in individuals of African origin.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "628",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Environmental factors can influence the development of breast cancer.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "381",
+    "evidence_doc_id": "18340282",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Glycan adaptation is rarely observed in the B-cell repertoire.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "474",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "CR is associated with higher methylation age.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "35599"
+    "source": "scifact",
+    "source_id": "212",
+    "evidence_doc_id": "22038539",
+    "evidence_sentences": [
+      1
+    ]
   },
   {
-    "claim": "The COVID-19 pandemic was planned by the Rockefeller Foundation in \"Operation Lockstep.",
+    "claim": "Pioglitazone use is not associated with an increased risk of prostate cancer.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "35583"
+    "source": "scifact",
+    "source_id": "952",
+    "evidence_doc_id": "3355397",
+    "evidence_sentences": [
+      12
+    ]
   },
   {
-    "claim": "The New England Journal of Medicine released a survey the week that President Obama signed Obamacare stating that over 30 percent of American physicians would leave the profession if the government took over health care.",
+    "claim": "In breast cancer, the loss of myoepithelial cells promotes the transition of ductal carcinoma in situ to invasive carcinoma.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "570",
+    "evidence_doc_id": "20333864",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Mice defective for deoxyribonucleic acid (DNA) polymerase m (polm) fail to reveal increased sensitivity to ionizing radiation (IR).",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "776",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "The removal of reactive oxygen species by activated oncogenes contributes to the increased genomic instability of leukaemia cells.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "24117"
+    "source": "scifact",
+    "source_id": "1261",
+    "evidence_doc_id": "13023410",
+    "evidence_sentences": [
+      0,
+      1
+    ]
   },
   {
-    "claim": "Increasing numbers of vaccines are associated with increasing rates of autism.",
+    "claim": "All hematopoietic stem cells segregate their chromosomes randomly.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "100",
+    "evidence_doc_id": "4381486",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "The extracellular domain of TMEM27 is cleaved in human beta cells.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1216",
+    "evidence_doc_id": "24142891",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Radioiodine treatment of non-toxic multinodular goitre increases thyroid volume.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "41208"
+    "source": "scifact",
+    "source_id": "1011",
+    "evidence_doc_id": "9745001",
+    "evidence_sentences": [
+      6
+    ]
   },
   {
-    "claim": "Death and disease from leptospirosis is spread by rat urine on soda cans.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "29051"
+    "claim": "Female carriers of the Apolipoprotein E4 (APOE4) allele have increased risk for dementia.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "415",
+    "evidence_doc_id": "6309659",
+    "evidence_sentences": [
+      12
+    ]
   },
   {
-    "claim": "Event 201 \u201cgave out stuffed souvenir coronavirus toys\u201d to \u201ccommemorate\u201d Novel coronavirus outbreak",
+    "claim": "The availability of safe places to study is effective at decreasing homelessness.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1196",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Decrease of p62 in prostate tumor stroma results in defective autophagy.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "315",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Risedronate increases risk of vertebral and non-vertebral fractures.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26961"
+    "source": "scifact",
+    "source_id": "1050",
+    "evidence_doc_id": "19878070",
+    "evidence_sentences": [
+      8,
+      10
+    ]
   },
   {
-    "claim": "A Texas girl required surgery after she swallowed part of a fidget spinner while cleaning it.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "27545"
-  },
-  {
-    "claim": "Wyeth Wins U.S. OK to Sell Pristiq for Depression.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "8894"
-  },
-  {
-    "claim": "New Chemo Drug May Benefit Some Breast Cancer Patients",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "10349"
-  },
-  {
-    "claim": "Virginia psychiatric hospitals run short on open beds.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "3913"
-  },
-  {
-    "claim": "Eating more fish could prevent Parkinson's disease",
+    "claim": "Normal expression of RUNX1 has tumor-promoting effects.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "9008"
+    "source": "scifact",
+    "source_id": "859",
+    "evidence_doc_id": "1982286",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "A Twitter user responded to Stephen King's assertion the COVID-19 pandemic was \"not like The Stand,\" sincerely asking King if he \"even read\" a book he actually wrote.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "37554"
-  },
-  {
-    "claim": "Proposed tax changes are a \"handout\" to BP.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "23421"
-  },
-  {
-    "claim": "O\u2019Rourke offers blue vision for red Texas during Nelson show.",
+    "claim": "Induced hepatic stem cells possess the potential to differentiate into cholangiocytic cells.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "3317"
+    "source": "scifact",
+    "source_id": "624",
+    "evidence_doc_id": "20033112",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "After passing a bill to make consuming raw milk legal in the state, several members of the West Virginia legislature fell ill due to drinking raw milk to celebrate the bill becoming law.",
+    "claim": "Urbanization is an important risk factor related to the transmission of dengue fever.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34427"
+    "source": "scifact",
+    "source_id": "1353",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "We\u2019ve got an average of 5,600 soldiers committing suicide. That\u2019s about 20 a day.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "16938"
-  },
-  {
-    "claim": "I just want to assure [you] we're not talking about cutting Medicare benefits.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "24592"
-  },
-  {
-    "claim": "Christine Blasey Ford committed perjury by identifying herself as a 'research psychologist' in her Senate committee testimony.",
+    "claim": "Taking 400mg of \u03b1-tocopheryl acetate helps to prevent prostate cancer.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "30134"
+    "source": "scifact",
+    "source_id": "1140",
+    "evidence_doc_id": "12009265",
+    "evidence_sentences": [
+      9
+    ]
   },
   {
-    "claim": "FDA gives fast track status to AstraZeneca's diabetes drug Farxiga.",
+    "claim": "Concentrations of SNV and CNV in stem-cell regulatory elements and binding sites of transcription factors in iPSC-lines are distinct from their founding cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "281",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "2170"
+    "source": "scifact",
+    "source_id": "3",
+    "evidence_doc_id": "14717500",
+    "evidence_sentences": [
+      2,
+      5
+    ]
   },
   {
-    "claim": "Nanoparticles loaded with component of common spice kill cancer cells",
+    "claim": "Human embryonic stem cells give rise to cell types from all three embryonic germ layers.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "529",
+    "evidence_doc_id": "10546779",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Treatment with a protein named FN restores regenerative abilities of aged muscles.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1324",
+    "evidence_doc_id": "19912367",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "BiP is a general endoplasmic reticulum stress marker.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "176",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "There is a relation between Erythromycin use and hypertrophic pyloric stenosis.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1289",
+    "evidence_doc_id": "21239672",
+    "evidence_sentences": [
+      9
+    ]
+  },
+  {
+    "claim": "Deltex interacts with eIF3. There is no known interaction between Deltex and elF3",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "easy",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9113"
+    "source": "scifact",
+    "source_id": "331",
+    "evidence_doc_id": "9505448",
+    "evidence_sentences": [
+      6
+    ]
   },
   {
-    "claim": "The Obama administration left Trump with a \u201cstockpile with a cupboard that was bare.\u201d",
+    "claim": "Gpr124 increases BBB breakdown in mouse models of ischemic stroke.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26527"
+    "source": "scifact",
+    "source_id": "479",
+    "evidence_doc_id": "6325527",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "Test may help predict colon cancer recurrence risk",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9853"
-  },
-  {
-    "claim": "Small increases in physical activity reduce immobility, disability risks in older adults",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "9093"
-  },
-  {
-    "claim": "Fiancee sues over principal\u2019s death in bone marrow procedure.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "5230"
-  },
-  {
-    "claim": "A female mortuary worker was arrested after becoming pregnant by one of the corpses she was preparing for burial.",
+    "claim": "Physical activity does not improve cognitive function in individuals with Alzheimers.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "31582"
+    "source": "scifact",
+    "source_id": "944",
+    "evidence_doc_id": "1642727",
+    "evidence_sentences": [
+      9
+    ]
   },
   {
-    "claim": "A photograph shows two children holding a 'F*CK Donald Trump' sign at a Chicago rally.",
+    "claim": "Mitochondria play a major role in energy production.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "797",
+    "evidence_doc_id": "8551160",
+    "evidence_sentences": [
+      0
+    ]
+  },
+  {
+    "claim": "Approximately 250,000 people are infected with human T-cell lymphotropic virus type 1 in the United Kingdom.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "34626"
+    "source": "scifact",
+    "source_id": "126",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Policies that legalize recreational marijuana exacerbate America\u2019s opioid addiction epidemic.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "34442"
-  },
-  {
-    "claim": "Preventive care does not save the government money.",
+    "claim": "Walking in traffic areas in London did not improve lung function in elderly adults.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "24588"
+    "source": "scifact",
+    "source_id": "1372",
+    "evidence_doc_id": "21003930",
+    "evidence_sentences": [
+      10
+    ]
   },
   {
-    "claim": "Kentucky reports 4 adults have died of the flu this season.",
+    "claim": "mcm 5 s 2 U is required for proper decoding of NNR codons in eukaryotes.",
     "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "3954"
+    "source": "scifact",
+    "source_id": "1390",
+    "evidence_doc_id": "2890952",
+    "evidence_sentences": [
+      0
+    ]
   },
   {
-    "claim": "The symptoms of Covid-19 are a sore throat lasting 3 or 4 days. The virus then blends into nasal fluid, enters the trachea and then the lungs causing pneumonia. With pneumonia comes high fever and difficulty breathing. The nasal congestion feels like you're drowning",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "hard",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "41048"
-  },
-  {
-    "claim": "Older emphysema drug linked to heart deaths.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "easy",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "8748"
-  },
-  {
-    "claim": "Novartis faces shareholder criticism over drug prices at AGM.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "381"
-  },
-  {
-    "claim": "Scientists solve the mystery of the dragon with transparent teeth.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "2229"
-  },
-  {
-    "claim": "Jury clears J&J of liability in New Jersey talc cancer case.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "7656"
-  },
-  {
-    "claim": "Gilead wins OK to promote drug for hepatitis B.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "8784"
-  },
-  {
-    "claim": "FDA Probes Safety of Popular Heart Stent",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "11046"
-  },
-  {
-    "claim": "Hormone patch shows benefit over pill",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "11582"
-  },
-  {
-    "claim": "The number of inmates since 2000 on death row dying of natural causes has now surpassed the number of inmates executed.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "nuanced",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "22717"
-  },
-  {
-    "claim": "Two studies in Africa link male circumcision to lower risk of HIV",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "11593"
-  },
-  {
-    "claim": "Adult swaddling therapy fad hits Tokyo.",
-    "expected_verdict": "SUPPORTED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "1537"
-  },
-  {
-    "claim": "Just 30 minutes a day: Regular exercise relieves asthma symptoms",
+    "claim": "In S. cerevisiae, the absence of RNA surveillance pathways reduces sensitivity to high iron conditions.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "11534"
+    "source": "scifact",
+    "source_id": "566",
+    "evidence_doc_id": "16120395",
+    "evidence_sentences": [
+      1,
+      2
+    ]
   },
   {
-    "claim": "Cancer and matters to do with kidney failure kill more people in Kenya today than malaria, tuberculosis and AIDS combined.",
+    "claim": "Alirocumab treatment reduces apo(a) fractional clearance rate.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "13337"
+    "source": "scifact",
+    "source_id": "98",
+    "evidence_doc_id": "6540064",
+    "evidence_sentences": [
+      9,
+      10
+    ]
   },
   {
-    "claim": "New Brain Scan May Predict Alzheimer\u2019s",
+    "claim": "Ubiquitin ligase UBC13 generates a K63-linked polyubiquitin moiety at PCNA K164.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1337",
+    "evidence_doc_id": "20231138",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Histone demethylase recruitment and a transient decrease in histone methylation is necessary for ligand-dependent induction of transcription by nuclear receptors.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "525",
+    "evidence_doc_id": "13639330",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Genes regulated by Esrrb transcription factor are sensitive to Mbd3 function.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "456",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Mice that lack Interferon-\u03b3 or its receptor are highly susceptible to experimental autoimmune myocarditis.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "780",
+    "evidence_doc_id": "8246922",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "Ca2+ cycling is a UCP1-independent thermogenic mechanism.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "222",
+    "evidence_doc_id": "19205437",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "The latent infection of myeloid cells with human cytomegalovirus induces a number of changes in gene expression.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1224",
+    "evidence_doc_id": "21932050",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Immune complex triggered cell death leads to extracellular release of nuclear DNA.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "555",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Hyperfibrinogenemia increases rates of femoropopliteal bypass thrombosis.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "533",
+    "evidence_doc_id": "12991445",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "The US health care system can save up to $5 billion if 7% of patients waiting for kidney transplants participate in the optimized national kidney paired donation program.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "nuanced",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "11050"
+    "source": "scifact",
+    "source_id": "1184",
+    "evidence_doc_id": "16737210",
+    "evidence_sentences": [
+      10
+    ]
   },
   {
-    "claim": "A ban on smoking in cars when children are present took effect on 30 January 2018.",
+    "claim": "Gene expression does not vary appreciably across genetically identical cells.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "32675"
+    "source": "scifact",
+    "source_id": "452",
+    "evidence_doc_id": "12804937",
+    "evidence_sentences": [
+      0
+    ]
   },
   {
-    "claim": "Viral image says John F. Kennedy \"smoked cannabis in the White House, while president, because he suffered from severe back pain and Addison's disease.\"",
+    "claim": "The first MBT repeat of the four malignant brain tumor (4MBT) domain of Drosophila's Sfmbt and of the orthologous mammalian L3MBTL2 is required for the interaction with the spacer region of Drosophila's Pleiohomeotic (Pho) or its human ortholog YY1.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1218",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Albendazole is used to treat soil-transmitted helminths.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "95",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "In British Men, haplogroup I decreases risk of cardiovascular disease.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "nuanced",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "26931"
+    "source": "scifact",
+    "source_id": "563",
+    "evidence_doc_id": "2867345",
+    "evidence_sentences": [
+      7
+    ]
   },
   {
-    "claim": "\"A \"\"hidden\"\" provision in the health care law taxes sporting goods as medical devices.\"",
+    "claim": "The mean suicide rate in women is lower after miscarriage than live birth.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "fitness",
-    "source": "PUBHEALTH",
-    "source_id": "18130"
+    "source": "scifact",
+    "source_id": "1228",
+    "evidence_doc_id": "25641414",
+    "evidence_sentences": [
+      7
+    ]
   },
   {
-    "claim": "CURE FOR CANCER? FDA ANNOUNCES NEW AGGRESSIVE DRUG ATTACKING ORIGINATING GENES",
+    "claim": "ERAP1 SNPs are epistatic to HLA alleles for ankylosing spondylitis.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "366",
+    "evidence_doc_id": "13956305",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "RUNX1 is downregulated or mutated in TLX1 T-ALL.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1009",
+    "evidence_doc_id": "1982286",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "PRC1-bound plasmids sediment at a slower rate in unbound plasmids than in sucrose gradients.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "916",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Sympathetic nerve activity is reduced throughout normal pregnancy.",
     "expected_verdict": "UNSUPPORTED",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9310"
+    "source": "scifact",
+    "source_id": "1120",
+    "evidence_doc_id": "5323845",
+    "evidence_sentences": [
+      4
+    ]
   },
   {
-    "claim": "In Small Test, Experimental Prostate Drug Shows Promise",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "easy",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "11516"
-  },
-  {
-    "claim": "FDA approves Intrarosa for postmenopausal women experiencing pain during sex",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "9228"
-  },
-  {
-    "claim": "Screening MRI benefits women at average risk of breast cancer",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9185"
-  },
-  {
-    "claim": "\u201cWith regard to the cost, let me be very clear: HHS has designated the coronavirus test as an essential health benefit. That means, by definition, it's covered in the private health insurance of every American, as well as covered by Medicare and Medicaid.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "26730"
-  },
-  {
-    "claim": "The alternative infertility treatment that's helping some women get pregnant",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "9704"
-  },
-  {
-    "claim": "Online cognitive behavioral therapy for insomnia is effective for military",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "9133"
-  },
-  {
-    "claim": "Panel calls for vaccine for adult smokers",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "easy",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "10466"
-  },
-  {
-    "claim": "Pfizer data on failed cholesterol drug offers hope",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "medications",
-    "source": "PUBHEALTH",
-    "source_id": "11515"
-  },
-  {
-    "claim": "College studies may reduce risk of dementia for older adults, research finds",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "10389"
-  },
-  {
-    "claim": "Johns Hopkins team identifies promising diagnostic tool for Alzheimer's disease",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "8939"
-  },
-  {
-    "claim": "Study offers potential breakthrough in care of children with autism",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "9869"
-  },
-  {
-    "claim": "How six cups of ground coffee can improve nose, throat surgery",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "9130"
-  },
-  {
-    "claim": "Low-dose lithium reduces side effects from most common treatment for Parkinson's disease",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "9854"
-  },
-  {
-    "claim": "On using embryonic stem cells for medical research.",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "21075"
-  },
-  {
-    "claim": "Ultrasound of Neck Arteries May Help Gauge Stroke Risk",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "11536"
-  },
-  {
-    "claim": "Drug Duo May Help Fight Aggressive Form of Breast Cancer",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "nuanced",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "9813"
-  },
-  {
-    "claim": "Experts Issue New Guidelines on Breast Cancer Drugs",
-    "expected_verdict": "OVERSTATED",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "11020"
-  },
-  {
-    "claim": "You should gargle as a prevention with salt in warm water.",
+    "claim": "Flexible molecules experience less steric hindrance in the tumor microenviroment than rigid molecules.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "41040"
+    "source": "scifact",
+    "source_id": "422",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Mr. Rogers' car was returned after the thieves who stole it realized it was his.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34696"
+    "claim": "Articles published in open access format are less likely to be cited than traditional journals.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "129",
+    "evidence_doc_id": "27768226",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "Under the current system, people on a work, study or family visa incur average NHS costs of \u00a3625 per year.",
+    "claim": "Low expression of miR7a does not repress target genes or exert a biological function in testis.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "40837"
+    "source": "scifact",
+    "source_id": "714",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "A Harvard study proved instant noodles and ramen can cause irreversible damage to your body.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "34599"
+    "claim": "Hypothalamic glutamate neurotransmission is unrelated to energy balance.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "541",
+    "evidence_doc_id": "45154987",
+    "evidence_sentences": [
+      7
+    ]
   },
   {
-    "claim": "Benefits of the power of a supplement called \u201cInteligen\u201d to increase intelligence have been trumpeted by the likes of CNN\u2019s Anderson Cooper and Stephen Hawking.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "38436"
+    "claim": "Insulin effects appetite via ventral tegmental neurons.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "643",
+    "evidence_doc_id": "15535511",
+    "evidence_sentences": [
+      3,
+      5
+    ]
   },
   {
-    "claim": "A study has proved that pineapple juice is five times more effective than cough syrup.",
+    "claim": "Rapamycin increases the concentration of triacylglycerols in fruit flies.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34682"
+    "source": "scifact",
+    "source_id": "1016",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "A Kentucky food stamp recipient has more than $5,000 in unused food stamp benefits and is thus abusing the system.",
+    "claim": "B3-Galectin increases cell resistance to tyrosine kinase inhibitors (TKIs) by engaging the alternate KRAS-RalB signaling complex downstream of EGFR.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "34575"
+    "source": "scifact",
+    "source_id": "154",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Indonesian teenagers are smoking pads and tampons for a buzz.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "substance_use",
-    "source": "PUBHEALTH",
-    "source_id": "36630"
+    "claim": "V-9302 inhibits antitumor responses by decreasing cell death and oxidative stress.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1355",
+    "evidence_doc_id": "5256564",
+    "evidence_sentences": [
+      4
+    ]
   },
   {
-    "claim": "All of the patients in the intensive care unit of a Puerto Rican hospital were killed by Hurricane Maria.",
+    "claim": "Sudden death can occur in patients with orthostatic hypertension without cardiac conduction abnormalities.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34349"
+    "source": "scifact",
+    "source_id": "1112",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Neomycin sulphate, an antibiotic, is in vaccines and can lead to epilepsy, brain damage and allergic reactions.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "41318"
+    "claim": "The proliferative capacity of neural progenitors differs across species.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1254",
+    "evidence_doc_id": "16939583",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "A video from the Christian   Broadcasting Network (CBN)   television network reports on a Florida physician who is promoting the   use of pure coconut oil as possible treatment for Alzheimer\u2019s symptoms.   She tells the story of helping her own husband overcome some Alzheimer\u2019s   symptoms.",
+    "claim": "Low expression of miR7a does represses target genes and exerts a biological function in ovaries.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "40332"
+    "source": "scifact",
+    "source_id": "715",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Various causes of death claimed specific numbers of American lives in 2018.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "36582"
+    "claim": "The NF-\u03baB essential modulator gene induces intestinal inflammation by promoting receptor-interacting protein (RIP) kinase 1 kinase activity-mediated epithelial cell death.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1170",
+    "evidence_doc_id": "18956141",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "People who confronted an elderly woman as she attempted to cross a street using a walker were allied with anti-fascist (or \"antifa\") movements.",
+    "claim": "ITAM phosphorylation allows for the transfer of the T cell receptor (TCR) signal from the echo-domain to the cytoplasmic tail of the T cell receptor (TCR).",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "36135"
+    "source": "scifact",
+    "source_id": "550",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "EMS workers in New York City and on Long Island are receiving binding orders not to transport patients in cardiac arrest or those they are unable to resuscitate outside the hospital during the COVID-19 pandemic, effective as of April 2 2020.",
+    "claim": "Mutations in G-Beta protein GNB2 are present in many cancers, resulting in loss of interaction with G-alpha subunits and concomitant activation of AKT pathway.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "37507"
+    "source": "scifact",
+    "source_id": "814",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Cream of tartar is an effective treatment for migraine headaches.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "34246"
+    "claim": "High levels of CRP lead to a higher risk of exacerbations in chronic obstructive pulmonary disease (COPD).",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "515",
+    "evidence_doc_id": "29564505",
+    "evidence_sentences": [
+      8
+    ]
   },
   {
-    "claim": "\"Legendary performer David Bowie had a one-on-one meeting with one autistic child when the film \"\"Labyrinth\"\" originally premiered.\"",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "36050"
+    "claim": "The DESMOND program caused substantial weight loss in most participants.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1156",
+    "evidence_doc_id": "12584053",
+    "evidence_sentences": [
+      13
+    ]
   },
   {
-    "claim": "Hillary Clinton\u2019s campaign used a body double after Clinton suffered a medical episode at a 9/11 ceremony in New York.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "36856"
+    "claim": "HAND2 methylation is a key step in early endometrial carcinogenesis.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "488",
+    "evidence_doc_id": "1780819",
+    "evidence_sentences": [
+      4
+    ]
   },
   {
-    "claim": "Prayer requests for a boy named Dakota who was suffering from continuous seizures and was\u00a0airlifted to a hospital in Dallas made the rounds on social media in December 2016 and May 2017.",
+    "claim": "The PRR MDA5 has a central DExD/H RNA helices domain.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "38297"
+    "source": "scifact",
+    "source_id": "1179",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "Wash your hands frequently as the virus can only live on your hands for 5-10 minutes.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "41039"
+    "claim": "Combination nicotine replacement therapies with varenicline or bupropion are more effective after 12 weeks of reatment compared to varenicline monotherapy.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "272",
+    "evidence_doc_id": "11614737",
+    "evidence_sentences": [
+      8
+    ]
   },
   {
-    "claim": "The number of hospital beds for people with acute mental health conditions has fallen by 30%.",
+    "claim": "Obesity decreases life quality.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "mental_health",
-    "source": "PUBHEALTH",
-    "source_id": "40826"
+    "source": "scifact",
+    "source_id": "871",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "A young couple unable to conceive a child visited a fertility doctor, who discovered that they were engaging solely in anal sex.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "34258"
+    "claim": "AMP-activated protein kinase (AMPK) activation increases inflammation-related fibrosis in the lungs.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "54",
+    "evidence_doc_id": "49556906",
+    "evidence_sentences": [
+      5
+    ]
   },
   {
-    "claim": "A baby died at an unnamed medical facility because its parents refused to allow a black nurse to care for the child.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "maternal_child",
-    "source": "PUBHEALTH",
-    "source_id": "34656"
+    "claim": "Subcutaneous fat depots undergo extensive browning processes after cold exposure.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1107",
+    "evidence_doc_id": "20532591",
+    "evidence_sentences": [
+      3
+    ]
   },
   {
-    "claim": "FBI agent Peter Strzok II grew up in Iran; had a father who engaged in clandestine activities overseas under the guise of doing charitable work; served as a \"Middle East intel operative\" in the Obama administration; and was a CIA agent \"placed\" in the FBI to help Hillary Clinton win the presidency.",
+    "claim": "Persister cells provide relapse resistance in cancer patients.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34271"
+    "source": "scifact",
+    "source_id": "938",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
   },
   {
-    "claim": "An angry mother delivered a scathing response to school officials after her daughter was punished for punching a classmate who snapped her bra.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "35949"
+    "claim": "The RANK-RANK-Ligand (RANKL) pathway is involved in the development of Aire-expressing medullary thymic epithelial cells (mTECs).",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1181",
+    "evidence_doc_id": "301838",
+    "evidence_sentences": [
+      1
+    ]
   },
   {
-    "claim": "A drop of 21 million cellphone subscribers in China in early 2020 documents that the death toll from COVID-19 was vastly underreported in that country.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "35269"
+    "claim": "Diabetes remission occurs more in people treated with conventional therapy than in people treated with laparoscopic adjustable gastric banding surgery.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "341",
+    "evidence_doc_id": "7098463",
+    "evidence_sentences": [
+      9
+    ]
   },
   {
-    "claim": "JFK smoked cannabis in the White House during his presidency to treat various medical ailments.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "nutrition",
-    "source": "PUBHEALTH",
-    "source_id": "34555"
+    "claim": "Bariatric surgery has a positive impact on mental health.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "163",
+    "evidence_doc_id": "18872233",
+    "evidence_sentences": [
+      9
+    ]
   },
   {
-    "claim": "\"Congressman Ryan Zinke is offering an \"\"ISIS Hunting Tag\"\" to people who donate to his campaign.\"",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34623"
+    "claim": "Angiotensin converting enzyme inhibitors are associated with decreased risk for functional renal insufficiency.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "112",
+    "evidence_doc_id": "6157837",
+    "evidence_sentences": [
+      2
+    ]
   },
   {
-    "claim": "Two dozen children went home from St. Jude's hospital cancer-free in a single week.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "cancer",
-    "source": "PUBHEALTH",
-    "source_id": "34214"
+    "claim": "Bariatric surgery increases rates of postmenopausal breast cancer.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "165",
+    "evidence_doc_id": "5824985",
+    "evidence_sentences": [
+      11
+    ]
   },
   {
-    "claim": "Coconut oil is an effective treatment for Alzheimer's disease.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "chronic_disease",
-    "source": "PUBHEALTH",
-    "source_id": "34383"
+    "claim": "Cancers that initially benefit from epidermal growth factor receptor targeted therapies later become refractory through several mechanisms.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "227",
+    "evidence_doc_id": "26973393",
+    "evidence_sentences": [
+      0
+    ]
   },
   {
-    "claim": "People with Type-A blood are more susceptible to COVID-19.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "35203"
+    "claim": "Autologous transplantation of mesenchymal stem cells causes fewer opportunistic infections than induction therapy with anti-interleukin-2 receptor antibodies.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "143",
+    "evidence_doc_id": "10582939",
+    "evidence_sentences": [
+      12
+    ]
   },
   {
-    "claim": "Formaldehyde is in vaccines and causes cancer in humans among other issues and is banned from vaccines in most European countries.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "vaccines",
-    "source": "PUBHEALTH",
-    "source_id": "41313"
+    "claim": "Pyridostatin induces double-strand breaks accumulation.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "997",
+    "evidence_doc_id": "16472469",
+    "evidence_sentences": [
+      5
+    ]
   },
   {
-    "claim": "Marijuana legalization has led to an increase in crime and fatalities all over Colorado.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "moderate",
-    "category": "substance_use",
-    "source": "PUBHEALTH",
-    "source_id": "34534"
+    "claim": "In mouse models, the loss of CSF1R facilitates MOZ-TIF2-induced leuekmogenesis.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "578",
+    "evidence_doc_id": "8764879",
+    "evidence_sentences": [
+      5
+    ]
   },
   {
-    "claim": "A recent uptick in Zika virus infections is linked to the introduction of a genetically modified mosquito farm in Brazil in 2012.",
-    "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "general_health",
-    "source": "PUBHEALTH",
-    "source_id": "34642"
+    "claim": "Increased microtubule acetylation repairs LRRK2 Roc-COR domain mutation induced locomotor deficits.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "613",
+    "evidence_doc_id": "9638032",
+    "evidence_sentences": [
+      4
+    ]
   },
   {
-    "claim": "The symptoms of Covid-19 are that it first infects the throat, so you\u2019ll have a sore throat lasting 3 or 4 days. The virus then blends into nasal fluid that enters the trachea and then the lungs causing pneumonia. This takes about 5 or 6 days. With pneumonia comes high fever and difficulty breathing",
+    "claim": "Chlamydia trachomatis is most prevalent in the UK among individuals in their 50s and 60s.",
     "expected_verdict": "INSUFFICIENT_EVIDENCE",
-    "difficulty": "nuanced",
-    "category": "covid",
-    "source": "PUBHEALTH",
-    "source_id": "41070"
+    "source": "scifact",
+    "source_id": "255",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Aged patients are less susceptible to ischaemia/reperfusion injury.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "91",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "EG7 tumors can be killed by systemic oxaliplatin primed CD8+ T cells from the tumor-draining lymph node cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "363",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Cardiac tissue-resident macrophages directly contribute to electrical activity.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "228",
+    "evidence_doc_id": "4928057",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "Continued HHV-8 transmission among MSM in San Francisco may be explained by urogenital contact.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "285",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Podocytes are motile and migrate in the presence of injury.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "957",
+    "evidence_doc_id": "123859",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Having a main partner improves HIV outcomes.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "495",
+    "evidence_doc_id": "17077004",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "Combining phosphatidylinositide 3-kinase and MEK 1/2 inhibitors is effective at treating KRAS mutant tumors.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "275",
+    "evidence_doc_id": "4961038",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "N-terminal cleavage increases success identifying transcription start sites.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "820",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Reduced responsiveness to interleukin-2 in regulatory T cells is associated with greater resistance to autoimmune diseases such as Type 1 Diabetes.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1029",
+    "evidence_doc_id": "13923140",
+    "evidence_sentences": [
+      2,
+      3
+    ]
+  },
+  {
+    "claim": "Tirasemtiv has no effect on cardiac muscle.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1302",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "RANK-RANKL pathway signalling has no known association with development of Aire-expressing medullary thymic epithelial cells.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1004",
+    "evidence_doc_id": "301838",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "HbA1c consistently overestimates glycemic control in black individuals with Sickle cell trait (SCT).",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "499",
+    "evidence_doc_id": "26064662",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Cytosolic proteins bind to iron-responsive elements on mRNAs coding for TFRC1.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "301",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Chenodeoxycholic acid treatment decreases brown adipose tissue activity.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "250",
+    "evidence_doc_id": "1568684",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Stiff substrates encourage mesodermal differentiation by degrading beta-catenin in an integrin-dependent manner.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1101",
+    "evidence_doc_id": "3874000",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Pure neural progenitor cell (NPC) populations can only be obtained from cell cultures that undergo passaging, filtration, or other isolation and cell sorting methods.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "989",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Ethanol stress lowers the expression of PSP in bacteria.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "392",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "miR-142-5P is a temperature-sensitive microRNA (miRNA).",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1392",
+    "evidence_doc_id": "6766459",
+    "evidence_sentences": [
+      4,
+      5
+    ]
+  },
+  {
+    "claim": "Vitamin D deficiency effects the term of delivery.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1368",
+    "evidence_doc_id": "2425364",
+    "evidence_sentences": [
+      9
+    ]
+  },
+  {
+    "claim": "Commelina yellow mottle virus' (ComYMV) genome consists of 7489 baise pairs.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "279",
+    "evidence_doc_id": "14376683",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "JMJD6 slows the hydroxylation of C-terminal lysine",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "662",
+    "evidence_doc_id": "37204802",
+    "evidence_sentences": [
+      3,
+      4,
+      6
+    ]
+  },
+  {
+    "claim": "Microcin J25 encourages nucleoside triphosphate (NTP) binding.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "787",
+    "evidence_doc_id": "4740447",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "Activated Cdk5 phosphorylates the ATM protein in response to DNA damage.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "67",
+    "evidence_doc_id": "21295300",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "CCL19 is a ligand for CCR7.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "197",
+    "evidence_doc_id": "2177022",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Klf4 is important for proper myeloid cell differentiation.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "668",
+    "evidence_doc_id": "25148216",
+    "evidence_sentences": [
+      0
+    ]
+  },
+  {
+    "claim": "The genomic aberrations found in matasteses are very similar to those found in the primary tumor.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1221",
+    "evidence_doc_id": "19736671",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Toll-like receptor (TLR) signaling is involved in the pathogenesis of human MDS.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1306",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Inhibiting focal adhesion formation enables cells to convert mechanical strain into eventual scarring.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "632",
+    "evidence_doc_id": "5172048",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Polymeal nutrition increases cardiovascular mortality.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "959",
+    "evidence_doc_id": "8780599",
+    "evidence_sentences": [
+      6
+    ]
+  },
+  {
+    "claim": "Blocking the interaction between TDP-43 and respiratory complex I proteins ND3 and ND6 leads to increased TDP-43-induced neuronal loss.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "180",
+    "evidence_doc_id": "16966326",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "ITAM phosphorylation prevents the transfer of the T cell receptor (TCR) signal from the echo-domain to the cytoplasmic tail of the T cell receptor (TCR).",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "551",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Gpr124 suppresses BBB breakdown in mouse models of ischemic stroke.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "480",
+    "evidence_doc_id": "6325527",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Treatment with the EC uptake inhibitor AM404 resulted in a dose-dependent decrease in the expression of immobility.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1325",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Microcin J25 inhibits nucleoside triphosphate (NTP) binding.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "788",
+    "evidence_doc_id": "4740447",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "Depletion of T-helper 17 (Th17) cells during simian immunodeficiency virus (SIV) infection decreases dissemination of Salmonella Typhimurium from the gut.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "332",
+    "evidence_doc_id": "29023309",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "Transcription rates in S. cerevisiae range between 0.7 and 2 kb/min.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1314",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "GATA3 regulates cell cycle progression in bone marrow hematopoietic stem cells.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "444",
+    "evidence_doc_id": "10165258",
+    "evidence_sentences": [
+      5,
+      6
+    ]
+  },
+  {
+    "claim": "Ectopic expression of Sall4, Nanog, Esrrb, and Lin28 generates induced pluripotent stem cells from mouse embryonic fibroblasts more efficiently than other factor combinations.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "369",
+    "evidence_doc_id": "6826100",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Bcp1 is a chaperone for Rpl23.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "173",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "A high microerythrocyte count raises vulnerability to severe anemia in homozygous alpha (+)- thalassemia trait subjects.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "42",
+    "evidence_doc_id": "18174210",
+    "evidence_sentences": [
+      1,
+      9
+    ]
+  },
+  {
+    "claim": "1/2000 in UK have abnormal PrP positivity.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "5",
+    "evidence_doc_id": "13734012",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "miRNAs regulate a unique suite of mRNAs to maintain homeostasis in cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1394",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Gastric lavage is an effective treatment for acute paraquat poisoning.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "449",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Weighed food records (WFR) result in high completion since they're cheap to run and impose low participant burden.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1374",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Enhanced early production of inflammatory chemokines improves viral control in the lung.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "380",
+    "evidence_doc_id": "19005293",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Rapid up-regulation and higher basal expression of interferon-induced genes reduce survival of granule cell neurons that are infected by West Nile virus.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1021",
+    "evidence_doc_id": "9433958",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Rising temperatures caused by global warming lowers the risk of dengue fever transmission.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1053",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "One in two surgical randomized controlled trials are discontinued early.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "886",
+    "evidence_doc_id": "6477536",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Mutant mice lacking SVCT2 have greatly increased ascorbic acid levels in both brain and adrenals.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "811",
+    "evidence_doc_id": "19799455",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Homozygous deletion of murine Sbds gene from osterix-expressing mesenchymal stem and progenitor cells (MPCs) prevents oxidative stress.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "527",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Aged patients are more susceptible to ischaemia/reperfusion injury.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "92",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Cognitive behavioral therapy is an ineffective treatment for insomnia",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "267",
+    "evidence_doc_id": "5912283",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "Increased purity of cytoplasmic membranes isolated from overexpressors is indicated by stronger spots for OmpF in 2D BN-PAGE gels.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "618",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Omnivores produce less trimethylamine N-oxide from dietary I-carnitine than vegans.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "881",
+    "evidence_doc_id": "14803797",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "The YAP1 and TEAD complex tanslocates into the nucleus where it interacts with transcription factors and DNA-binding proteins that modulate target gene transcription.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1187",
+    "evidence_doc_id": "52873726",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Early patent ductus ateriosus (PDA) screening increases in-hospital mortality.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "368",
+    "evidence_doc_id": "27099731",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Dexamethasone decreases risk of postoperative bleeding.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "338",
+    "evidence_doc_id": "23349986",
+    "evidence_sentences": [
+      10,
+      11
+    ]
+  },
+  {
+    "claim": "Antimicrobial agents are more effective due to the pressure of antimicrobial usage.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "122",
+    "evidence_doc_id": "31460499",
+    "evidence_sentences": [
+      0
+    ]
+  },
+  {
+    "claim": "Chenodeosycholic acid treatment increases whole-body energy expenditure.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "248",
+    "evidence_doc_id": "1568684",
+    "evidence_sentences": [
+      1,
+      3
+    ]
+  },
+  {
+    "claim": "An M2-like phenotype in brown adipose tissue macrophages is quickly induced by cold exposure.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "109",
+    "evidence_doc_id": "4319174",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Type 1 Diabetes is associated with subtle perturbations in T reg development.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1334",
+    "evidence_doc_id": "13940200",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Blocking the interaction between TDP-43 and respiratory complex I proteins ND3 and ND6 prevents TDP-43-induced neuronal loss.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "181",
+    "evidence_doc_id": "16966326",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Activation of the Rac1 homolog CED-10 kills viable cells in SRGP-1 mutant Caenorhabditis elegans.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "71",
+    "evidence_doc_id": "1127562",
+    "evidence_sentences": [
+      4,
+      5
+    ]
+  },
+  {
+    "claim": "Induced hepatic stem cells possess the potential to differentiate into hepatocytic cells.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "625",
+    "evidence_doc_id": "20033112",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "H4 G94P proteins induce degradation of free histones via Rad53-dependent mechanisms.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "485",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Ribosome-inactivating protein-2 (RIP-2) interacts with the p75 NTR death domain",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1047",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Upon viral challenge, influenza-specific memory CD4+ T cells greatly diminish the early production of inflammatory chemokines in the lung.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1347",
+    "evidence_doc_id": "19005293",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Tuberculosis-induced granulomas express different immune system protein signatures than the surrounding tissue.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1328",
+    "evidence_doc_id": "3475317",
+    "evidence_sentences": [
+      4,
+      5
+    ]
+  },
+  {
+    "claim": "Students who perform poorly in the early years of medical school are less likely to commit professional misconduct later in their careers.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1106",
+    "evidence_doc_id": "6710713",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "Flexible molecules experience greater steric hindrance in the tumor microenviroment than rigid molecules.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "421",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Physical activity level has no association with the difference in maximal oxygen consumption between black and white youth.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "945",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Sn is present on mature DCs during inflammation in vivo.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1091",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Monoclonal antibody targeting of N-cadherin encourages castration resistance.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "801",
+    "evidence_doc_id": "22180793",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "The gene daf-16, which encodes forkhead Box O (FOXO), is required for all phenotypes associated with reduced insulin/insulin-like growth factor (Igf) signaling.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1219",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "ART substantially reduces infectiveness of HIV-positive people.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "61",
+    "evidence_doc_id": "13899137",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "COPI coatmer is involved in lipid homeostasis.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "210",
+    "evidence_doc_id": "13794374",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Integrated care is ineffective at tackling multiple comorbidities.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "647",
+    "evidence_doc_id": "15041758",
+    "evidence_sentences": [
+      6
+    ]
+  },
+  {
+    "claim": "taa1 tar1 tar2 triple mutants in Arabidopsis do not make root meristem during embryogenesis.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1405",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Inhibiting glucose-6-phospate dehydrogenase improves lipogenesis by deactivating LKB1-AMPK signaling.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "635",
+    "evidence_doc_id": "1686997",
+    "evidence_sentences": [
+      1,
+      2
+    ]
+  },
+  {
+    "claim": "Lupus-prone mice infected with curliproducing bacteria have higher autoantibody titers compared to controls.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "721",
+    "evidence_doc_id": "1834762",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "Taking 400mg of \u03b1-tocopheryl acetate in combination with vitamin C reduces the risk of prostate cancer.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1141",
+    "evidence_doc_id": "12009265",
+    "evidence_sentences": [
+      9,
+      10
+    ]
+  },
+  {
+    "claim": "H4 G94P proteins suppress degradation of free histones via Rad53-dependent mechanisms.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "487",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "The tissue surrounding the granuloma in an immune cell induces an anti-inflammatory immune response.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1276",
+    "evidence_doc_id": "3475317",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Mitochondria play a trivial role in calcium homeostasis.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "798",
+    "evidence_doc_id": "8551160",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "Mouse models can be generated using \"artificial spermatids.\"",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "810",
+    "evidence_doc_id": "13513790",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Homozygous deletion of murine Sbds gene from osterix-expressing mesenchymal stem and progenitor cells (MPCs) induces oxidative stress.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "526",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "At least 85% of patients exposed to radiation have activated markers of myofibroblasts.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "139",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Increased microtubule acetylation exacerbates LRRK2 Roc-COR domain mutation induced locomotor deficits.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "612",
+    "evidence_doc_id": "9638032",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "MafA phosphorylation decreases its ubiquitination.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "745",
+    "evidence_doc_id": "11291348",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Monoclonal antibody targeting of N-cadherin inhibits growth.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "804",
+    "evidence_doc_id": "22180793",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Vaccinating the gastrointestinal tract induces protection of rectal and vaginal mucosa.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1356",
+    "evidence_doc_id": "13764090",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "MT binding domain drives amyloid structure formation.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "739",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Sudden death can occur in patients with complex ventricular arrhythmias.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1111",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "DUSP4 decreases apoptosis.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "306",
+    "evidence_doc_id": "7821634",
+    "evidence_sentences": [
+      6
+    ]
+  },
+  {
+    "claim": "Metastatic colorectal cancer treated with a single agent fluoropyrimidines resulted in similar efficacy and better quality of life when compared with oxaliplatin-based chemotherapy in elderly patients.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "771",
+    "evidence_doc_id": "15476777",
+    "evidence_sentences": [
+      16
+    ]
+  },
+  {
+    "claim": "CD44v6 is not associated with constitutive and reprogrammed cancer stem cells driving cancer metastasis.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "203",
+    "evidence_doc_id": "9558539",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "LDL cholesterol has no involvement in the development of cardiovascular disease.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "674",
+    "evidence_doc_id": "2095573",
+    "evidence_sentences": [
+      0
+    ]
+  },
+  {
+    "claim": "ALDH1 expression is associated with better breast cancer outcomes.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "51",
+    "evidence_doc_id": "45638119",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "The amount of publicly available DNA data doubles every 10 years.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1191",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Pyridostatin destabilizes the G - quadruplex in the telomeric region.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "993",
+    "evidence_doc_id": "16472469",
+    "evidence_sentences": [
+      4
+    ]
+  },
+  {
+    "claim": "IL-6 signaling plays a major role in atherosclerotic cardiovascular disease.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "548",
+    "evidence_doc_id": "18199839",
+    "evidence_sentences": [
+      8,
+      9
+    ]
+  },
+  {
+    "claim": "Varenicline monotherapy is more effective after 26 weeks of treatment compared to combination nicotine replacement therapies with varenicline or bupropion.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1360",
+    "evidence_doc_id": "11614737",
+    "evidence_sentences": [
+      9
+    ]
+  },
+  {
+    "claim": "Nonhypertensive people who are 55 years old have a 90% chance of developing hypertension during their lifetime.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "854",
+    "evidence_doc_id": "12206390",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "Assessing treatment adherence is more beneficial to clinical practice than measuring routine outcomes.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "134",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Asymptomatic visual impairment screening in elderly populations leads to improved vision.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "138",
+    "evidence_doc_id": "26016929",
+    "evidence_sentences": [
+      7,
+      9
+    ]
+  },
+  {
+    "claim": "Integrated care is successful at tackling multiple comorbidities.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "648",
+    "evidence_doc_id": "15041758",
+    "evidence_sentences": [
+      6
+    ]
+  },
+  {
+    "claim": "Pretreatment with the Arp2/3 inhibitor CK-666 affects lamelliopodia formation.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "967",
+    "evidence_doc_id": "8997410",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Free histones are degraded by a Rad53-dependent mechanism once DNA has been replicated.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "436",
+    "evidence_doc_id": "14637235",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "The relationship between a breast cancer patient's capacity to metabolize tamoxifen and treatment outcome is dependent on the patient's genetic make-up.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1259",
+    "evidence_doc_id": "24341590",
+    "evidence_sentences": [
+      11
+    ]
+  },
+  {
+    "claim": "Transferred UCB T cells acquire a memory-like phenotype in recipients.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1316",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Expression of oncolytic virus antigens as peptides makes relapse more likely.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "403",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Peroxynitrite is required for nitration of TCR/CD8.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "936",
+    "evidence_doc_id": "5483793",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "HOXB4 is a highly expressed component of cellular secretome from fetal liver cell populations.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "493",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Microarray results from culture-amplified mixtures of serotypes correlate poorly with microarray results from uncultured mixtures.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "785",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Replacement of OCT4 and SOX2 genes with GATA3 has the ability to reprogram human cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1037",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "The one-child policy has been successful in lowering population growth.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1245",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Vitamin D deficiency is unrelated to birth weight.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1370",
+    "evidence_doc_id": "2425364",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Helicobacter pylori-induced aberrant NF-kB-dependent expression of activation-induced cytidine deaminase contributes to the mutagenesis of host DNA.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "505",
+    "evidence_doc_id": "22703082",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "The severity of cardiac involvement in amyloidosis can be described by the degree of transmurality of late gadolinium enhancement in MRI.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1271",
+    "evidence_doc_id": "13768432",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "Increased vessel density along with a reduction in fibrosis decreases the efficacy of chemotherapy treatments.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "619",
+    "evidence_doc_id": "20888849",
+    "evidence_sentences": [
+      2,
+      3
+    ]
+  },
+  {
+    "claim": "Citrullinated proteins externalized in neutrophil extracellular traps act indirectly to disrupt the inflammatory cycle.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "263",
+    "evidence_doc_id": "11328820",
+    "evidence_sentences": [
+      7,
+      9
+    ]
+  },
+  {
+    "claim": "The C-type lectin receptor (CLEC-2) rearranges the actin cytoskeleton in dendritic cells to promote efficient motility along stromal surfaces.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "1153",
+    "evidence_doc_id": "7370282",
+    "evidence_sentences": [
+      5
+    ]
+  },
+  {
+    "claim": "NR5A2 is important in development of endometrial tissues.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "837",
+    "evidence_doc_id": "15928989",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "De novo assembly of sequence data has more specific contigs than unassembled sequence data.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "312",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Increase of p62 in prostate tumor stroma results in defective autophagy.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "602",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Macrolides protect against myocardial infarction.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "743",
+    "evidence_doc_id": "32159283",
+    "evidence_sentences": [
+      8
+    ]
+  },
+  {
+    "claim": "Reduction of purity of cytoplasmic membranes isolated from overexpressors is indicated by stronger spots for OmpA in 2D BN-PAGE gels.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1032",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Combination nicotine replacement therapies with varenicline or bupropion lead to significantly higher long-term abstinence rates at 52 weeks than varenicline monotherapy.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "274",
+    "evidence_doc_id": "11614737",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "TNFAIP3 is a tumor suppressor in glioblastoma.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "1137",
+    "evidence_doc_id": "33370",
+    "evidence_sentences": [
+      6
+    ]
+  },
+  {
+    "claim": "Chenodeoxycholic acid treatment increases brown adipose tissue activity.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "251",
+    "evidence_doc_id": "1568684",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "APOE4 expression in iPSC-derived neurons results in decreased tau phosphorylation.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "58",
+    "evidence_doc_id": "4709641",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "Egr3 regulates the homeostasis of B and T cells.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "371",
+    "evidence_doc_id": "1550937",
+    "evidence_sentences": [
+      2
+    ]
+  },
+  {
+    "claim": "Phase information is useful for predicting donor-recipient matches in organ transplantation.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "942",
+    "evidence_doc_id": "11527199",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "The H2A-H2B eviction defect is compensated for by other histone chaperone(s).",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1166",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Patients in stable partnerships have a faster progression from HIV to AIDS.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "922",
+    "evidence_doc_id": "17077004",
+    "evidence_sentences": [
+      7
+    ]
+  },
+  {
+    "claim": "4-PBA treatment decreases endoplasmic reticulum stress in response to general endoplasmic reticulum stress markers.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "10",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Leukemia associated Rho guanine nucleotide-exchange factor represses RhoA in response to SRC activation.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "691",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "There is no association between HNF4A mutations and diabetes risks.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1291",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "N348I mutations cause resistance to nevirapine.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "822",
+    "evidence_doc_id": "15319019",
+    "evidence_sentences": [
+      13
+    ]
+  },
+  {
+    "claim": "General exercise therapy is more effective than scapular stabilizer exercises in reducing pain and improving function of the shoulder.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "scifact",
+    "source_id": "454",
+    "evidence_doc_id": "4200695",
+    "evidence_sentences": [
+      11
+    ]
+  },
+  {
+    "claim": "Medications to treat obesity have unwanted side effects.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "766",
+    "evidence_doc_id": "7552215",
+    "evidence_sentences": [
+      10
+    ]
+  },
+  {
+    "claim": "Depletion of T-helper 17 (Th17) cells during simian immunodeficiency virus (SIV) infection increases dissemination of Salmonella Typhimurium from the gut.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "333",
+    "evidence_doc_id": "29023309",
+    "evidence_sentences": [
+      1
+    ]
+  },
+  {
+    "claim": "The availability of safe places to study is not effective at decreasing homelessness.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "scifact",
+    "source_id": "1197",
+    "evidence_doc_id": null,
+    "evidence_sentences": null
+  },
+  {
+    "claim": "Genes involved in pre-mRNA splicing have a significant impact on genome stability.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "455",
+    "evidence_doc_id": "12643937",
+    "evidence_sentences": [
+      3
+    ]
+  },
+  {
+    "claim": "Nonsteroidal antinflammatory drugs show potential anticancer indications.",
+    "expected_verdict": "SUPPORTED",
+    "source": "scifact",
+    "source_id": "857",
+    "evidence_doc_id": "43334921",
+    "evidence_sentences": [
+      6
+    ]
   }
 ]

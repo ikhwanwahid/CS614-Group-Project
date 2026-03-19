@@ -20,10 +20,10 @@ class PipelineMetadata(BaseModel):
 
 class FactCheckResult(BaseModel):
     claim: str
-    verdict: str  # SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE
+    verdict: str  # SUPPORTED | UNSUPPORTED | INSUFFICIENT_EVIDENCE
     explanation: str
     evidence: list[EvidenceItem]
     metadata: PipelineMetadata
 
 
-VALID_VERDICTS = {"SUPPORTED", "UNSUPPORTED", "OVERSTATED", "INSUFFICIENT_EVIDENCE"}
+VALID_VERDICTS = {"SUPPORTED", "UNSUPPORTED", "INSUFFICIENT_EVIDENCE"}
