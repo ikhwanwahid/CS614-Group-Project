@@ -5,7 +5,10 @@
     "source": "scifact",
     "source_id": "1281",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4387784
+    ]
   },
   {
     "claim": "Acute ablation of Snail in the embryonic cortex affects the proliferation and number of embryonic cortical precursors.",
@@ -13,7 +16,10 @@
     "source": "scifact",
     "source_id": "81",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1797622
+    ]
   },
   {
     "claim": "Tirasemtiv has no effect on fast-twitch muscle.",
@@ -23,6 +29,9 @@
     "evidence_doc_id": "12631697",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      12631697
     ]
   },
   {
@@ -31,7 +40,11 @@
     "source": "scifact",
     "source_id": "205",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      7898952,
+      470625
+    ]
   },
   {
     "claim": "The deregulated and prolonged activation of monocytes has deleterious effects in inflammatory diseases.",
@@ -39,7 +52,10 @@
     "source": "scifact",
     "source_id": "1213",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14407673
+    ]
   },
   {
     "claim": "There is an inverse relationship between hip fractures and statin use.",
@@ -49,6 +65,9 @@
     "evidence_doc_id": "4687948",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      4687948
     ]
   },
   {
@@ -60,6 +79,13 @@
     "evidence_sentences": [
       3,
       4
+    ],
+    "cited_doc_ids": [
+      38485364,
+      6969753,
+      17934082,
+      16280642,
+      12640810
     ]
   },
   {
@@ -70,6 +96,10 @@
     "evidence_doc_id": "2078658",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      2078658,
+      30507607
     ]
   },
   {
@@ -80,6 +110,9 @@
     "evidence_doc_id": "16056514",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      16056514
     ]
   },
   {
@@ -88,7 +121,10 @@
     "source": "scifact",
     "source_id": "1074",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14658685
+    ]
   },
   {
     "claim": "Lamins are found within the inner layer of the nuclear membrane of all cells.",
@@ -96,7 +132,10 @@
     "source": "scifact",
     "source_id": "687",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4452659
+    ]
   },
   {
     "claim": "The proportion of people with visual difficulty is two times higher in low-income countries than in high-income countries.",
@@ -104,7 +143,10 @@
     "source": "scifact",
     "source_id": "1257",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      581832
+    ]
   },
   {
     "claim": "Expression of oncolytic virus antigens as peptides permits additional protection against relapse.",
@@ -112,7 +154,10 @@
     "source": "scifact",
     "source_id": "404",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1921218
+    ]
   },
   {
     "claim": "A total of 1,000 people in the UK are asymptomatic carriers of vCJD infection.",
@@ -122,6 +167,9 @@
     "evidence_doc_id": "13734012",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      13734012
     ]
   },
   {
@@ -130,7 +178,10 @@
     "source": "scifact",
     "source_id": "478",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14767844
+    ]
   },
   {
     "claim": "Arginine 90 in p150n is important for interaction with EB1.",
@@ -138,7 +189,10 @@
     "source": "scifact",
     "source_id": "127",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      21598000
+    ]
   },
   {
     "claim": "Downregulation and mislocalization of Scribble prevents cell transformation and mammary tumorigenesis.",
@@ -146,7 +200,10 @@
     "source": "scifact",
     "source_id": "354",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      8774475
+    ]
   },
   {
     "claim": "Febrile seizures increase the threshold for development of epilepsy.",
@@ -154,7 +211,10 @@
     "source": "scifact",
     "source_id": "410",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14924526
+    ]
   },
   {
     "claim": "Satellite cell dysfunction is a key factor in sarcopenia development.",
@@ -164,6 +224,9 @@
     "evidence_doc_id": "20418809",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      20418809
     ]
   },
   {
@@ -174,6 +237,9 @@
     "evidence_doc_id": "14803797",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      14803797
     ]
   },
   {
@@ -184,6 +250,9 @@
     "evidence_doc_id": "7662395",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      7662395
     ]
   },
   {
@@ -194,6 +263,9 @@
     "evidence_doc_id": "12258338",
     "evidence_sentences": [
       11
+    ],
+    "cited_doc_ids": [
+      12258338
     ]
   },
   {
@@ -204,6 +276,9 @@
     "evidence_doc_id": "12584053",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      12584053
     ]
   },
   {
@@ -214,6 +289,9 @@
     "evidence_doc_id": "10071552",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      10071552
     ]
   },
   {
@@ -224,6 +302,9 @@
     "evidence_doc_id": "13734012",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      13734012
     ]
   },
   {
@@ -234,6 +315,9 @@
     "evidence_doc_id": "17421851",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      17421851
     ]
   },
   {
@@ -245,6 +329,9 @@
     "evidence_sentences": [
       4,
       5
+    ],
+    "cited_doc_ids": [
+      7821634
     ]
   },
   {
@@ -255,6 +342,9 @@
     "evidence_doc_id": "5531479",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      5531479
     ]
   },
   {
@@ -263,7 +353,10 @@
     "source": "scifact",
     "source_id": "1175",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      31272411
+    ]
   },
   {
     "claim": "Suboptimal nutrition is a leading cause of premature death",
@@ -273,6 +366,10 @@
     "evidence_doc_id": "13770184",
     "evidence_sentences": [
       13
+    ],
+    "cited_doc_ids": [
+      13770184,
+      8582337
     ]
   },
   {
@@ -281,7 +378,10 @@
     "source": "scifact",
     "source_id": "949",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      13578199
+    ]
   },
   {
     "claim": "A country's Vaccine Alliance (GAVI) eligibility is not indictivate of accelerated adoption of the Hub vaccine.",
@@ -291,6 +391,9 @@
     "evidence_doc_id": "12428497",
     "evidence_sentences": [
       8
+    ],
+    "cited_doc_ids": [
+      12428497
     ]
   },
   {
@@ -299,7 +402,10 @@
     "source": "scifact",
     "source_id": "491",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      56893404
+    ]
   },
   {
     "claim": "Mice defective for deoxyribonucleic acid (DNA) polymerase I (polI) reveal increased sensitivity to ionizing radiation (IR).",
@@ -307,7 +413,10 @@
     "source": "scifact",
     "source_id": "775",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      32275758
+    ]
   },
   {
     "claim": "N348I mutations reduce resistance to nevirapine.",
@@ -317,6 +426,9 @@
     "evidence_doc_id": "15319019",
     "evidence_sentences": [
       13
+    ],
+    "cited_doc_ids": [
+      15319019
     ]
   },
   {
@@ -327,6 +439,9 @@
     "evidence_doc_id": "18340282",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      18340282
     ]
   },
   {
@@ -337,6 +452,9 @@
     "evidence_doc_id": "6309659",
     "evidence_sentences": [
       12
+    ],
+    "cited_doc_ids": [
+      6309659
     ]
   },
   {
@@ -347,6 +465,9 @@
     "evidence_doc_id": "1805641",
     "evidence_sentences": [
       13
+    ],
+    "cited_doc_ids": [
+      1805641
     ]
   },
   {
@@ -355,7 +476,10 @@
     "source": "scifact",
     "source_id": "226",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      6944800
+    ]
   },
   {
     "claim": "Tuberculosis incidence occurs at higher rates in more sparsely populated areas in the UK.",
@@ -365,6 +489,10 @@
     "evidence_doc_id": "24241932",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      24241932,
+      22194407
     ]
   },
   {
@@ -373,7 +501,10 @@
     "source": "scifact",
     "source_id": "1099",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      7662206
+    ]
   },
   {
     "claim": "NR5A2 does not play a role in development of endometrial tissues.",
@@ -384,6 +515,9 @@
     "evidence_sentences": [
       5,
       6
+    ],
+    "cited_doc_ids": [
+      15928989
     ]
   },
   {
@@ -394,6 +528,9 @@
     "evidence_doc_id": "24341590",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      24341590
     ]
   },
   {
@@ -404,6 +541,9 @@
     "evidence_doc_id": "8551160",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      8551160
     ]
   },
   {
@@ -414,6 +554,9 @@
     "evidence_doc_id": "12258338",
     "evidence_sentences": [
       11
+    ],
+    "cited_doc_ids": [
+      12258338
     ]
   },
   {
@@ -424,6 +567,9 @@
     "evidence_doc_id": "9433958",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      9433958
     ]
   },
   {
@@ -434,6 +580,9 @@
     "evidence_doc_id": "4547102",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      4547102
     ]
   },
   {
@@ -442,7 +591,10 @@
     "source": "scifact",
     "source_id": "20",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      3202143
+    ]
   },
   {
     "claim": "Amitriptyline is an effective treatment for chronic tension-type headaches.",
@@ -452,6 +604,11 @@
     "evidence_doc_id": "6191684",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      6191684,
+      22995579,
+      23865182
     ]
   },
   {
@@ -462,6 +619,9 @@
     "evidence_doc_id": "18956141",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      18956141
     ]
   },
   {
@@ -472,6 +632,9 @@
     "evidence_doc_id": "5824985",
     "evidence_sentences": [
       11
+    ],
+    "cited_doc_ids": [
+      5824985
     ]
   },
   {
@@ -482,6 +645,9 @@
     "evidence_doc_id": "20333864",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      20333864
     ]
   },
   {
@@ -490,7 +656,10 @@
     "source": "scifact",
     "source_id": "623",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      17000834
+    ]
   },
   {
     "claim": "Replacement of histone H2A with H2A.Z slows gene activation in yeasts by stabilizing +1 nucleosomes.",
@@ -500,6 +669,10 @@
     "evidence_doc_id": "25254425",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      25254425,
+      16626264
     ]
   },
   {
@@ -510,6 +683,9 @@
     "evidence_doc_id": "43329366",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      43329366
     ]
   },
   {
@@ -518,7 +694,11 @@
     "source": "scifact",
     "source_id": "35",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      5152028,
+      11705328
+    ]
   },
   {
     "claim": "Hematopoietic Stem Cell purification reaches purity rates above 90%.",
@@ -526,7 +706,10 @@
     "source": "scifact",
     "source_id": "509",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      13980338
+    ]
   },
   {
     "claim": "CHOP is a general endoplasmic reticulum stress marker.",
@@ -534,7 +717,10 @@
     "source": "scifact",
     "source_id": "209",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      32587939
+    ]
   },
   {
     "claim": "Bone marrow cells contribute to adult macrophage compartments.",
@@ -544,6 +730,9 @@
     "evidence_doc_id": "12827098",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      12827098
     ]
   },
   {
@@ -554,6 +743,9 @@
     "evidence_doc_id": "4469125",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      4469125
     ]
   },
   {
@@ -562,7 +754,10 @@
     "source": "scifact",
     "source_id": "204",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      7898952
+    ]
   },
   {
     "claim": "GATA-3 is important for hematopoietic stem cell (HSC) function.",
@@ -574,6 +769,9 @@
       4,
       5,
       6
+    ],
+    "cited_doc_ids": [
+      10165258
     ]
   },
   {
@@ -584,6 +782,9 @@
     "evidence_doc_id": "11254556",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      11254556
     ]
   },
   {
@@ -594,6 +795,9 @@
     "evidence_doc_id": "3355397",
     "evidence_sentences": [
       12
+    ],
+    "cited_doc_ids": [
+      3355397
     ]
   },
   {
@@ -605,6 +809,9 @@
     "evidence_sentences": [
       4,
       6
+    ],
+    "cited_doc_ids": [
+      19799455
     ]
   },
   {
@@ -613,7 +820,10 @@
     "source": "scifact",
     "source_id": "1194",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      11419230
+    ]
   },
   {
     "claim": "High levels of copeptin decrease risk of diabetes.",
@@ -621,7 +831,10 @@
     "source": "scifact",
     "source_id": "517",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      15663829
+    ]
   },
   {
     "claim": "RAD52 is involved in break-induced DNA replication (BIR).",
@@ -631,6 +844,11 @@
     "evidence_doc_id": "14332945",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      14332945,
+      4319844,
+      4899981
     ]
   },
   {
@@ -641,6 +859,10 @@
     "evidence_doc_id": "5912283",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      5912283,
+      31554917
     ]
   },
   {
@@ -649,7 +871,10 @@
     "source": "scifact",
     "source_id": "628",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      24512064
+    ]
   },
   {
     "claim": "Environmental factors can influence the development of breast cancer.",
@@ -659,6 +884,9 @@
     "evidence_doc_id": "18340282",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      18340282
     ]
   },
   {
@@ -667,7 +895,10 @@
     "source": "scifact",
     "source_id": "474",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4373433
+    ]
   },
   {
     "claim": "CR is associated with higher methylation age.",
@@ -677,6 +908,9 @@
     "evidence_doc_id": "22038539",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      22038539
     ]
   },
   {
@@ -687,6 +921,9 @@
     "evidence_doc_id": "3355397",
     "evidence_sentences": [
       12
+    ],
+    "cited_doc_ids": [
+      3355397
     ]
   },
   {
@@ -697,6 +934,9 @@
     "evidence_doc_id": "20333864",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      20333864
     ]
   },
   {
@@ -705,7 +945,10 @@
     "source": "scifact",
     "source_id": "776",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      32275758
+    ]
   },
   {
     "claim": "The removal of reactive oxygen species by activated oncogenes contributes to the increased genomic instability of leukaemia cells.",
@@ -716,6 +959,9 @@
     "evidence_sentences": [
       0,
       1
+    ],
+    "cited_doc_ids": [
+      13023410
     ]
   },
   {
@@ -726,6 +972,9 @@
     "evidence_doc_id": "4381486",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      4381486
     ]
   },
   {
@@ -736,6 +985,9 @@
     "evidence_doc_id": "24142891",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      24142891
     ]
   },
   {
@@ -746,6 +998,9 @@
     "evidence_doc_id": "9745001",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      9745001
     ]
   },
   {
@@ -756,6 +1011,9 @@
     "evidence_doc_id": "6309659",
     "evidence_sentences": [
       12
+    ],
+    "cited_doc_ids": [
+      6309659
     ]
   },
   {
@@ -764,7 +1022,10 @@
     "source": "scifact",
     "source_id": "1196",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      25649714
+    ]
   },
   {
     "claim": "Decrease of p62 in prostate tumor stroma results in defective autophagy.",
@@ -772,7 +1033,10 @@
     "source": "scifact",
     "source_id": "315",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      3701541
+    ]
   },
   {
     "claim": "Risedronate increases risk of vertebral and non-vertebral fractures.",
@@ -783,6 +1047,9 @@
     "evidence_sentences": [
       8,
       10
+    ],
+    "cited_doc_ids": [
+      19878070
     ]
   },
   {
@@ -793,6 +1060,9 @@
     "evidence_doc_id": "1982286",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      1982286
     ]
   },
   {
@@ -803,6 +1073,9 @@
     "evidence_doc_id": "20033112",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      20033112
     ]
   },
   {
@@ -811,7 +1084,10 @@
     "source": "scifact",
     "source_id": "1353",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      18816720
+    ]
   },
   {
     "claim": "Taking 400mg of \u03b1-tocopheryl acetate helps to prevent prostate cancer.",
@@ -821,6 +1097,9 @@
     "evidence_doc_id": "12009265",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      12009265
     ]
   },
   {
@@ -829,7 +1108,10 @@
     "source": "scifact",
     "source_id": "281",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4632921
+    ]
   },
   {
     "claim": "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",
@@ -840,6 +1122,9 @@
     "evidence_sentences": [
       2,
       5
+    ],
+    "cited_doc_ids": [
+      14717500
     ]
   },
   {
@@ -850,6 +1135,11 @@
     "evidence_doc_id": "10546779",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      10546779,
+      25413327,
+      36651210
     ]
   },
   {
@@ -860,6 +1150,9 @@
     "evidence_doc_id": "19912367",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      19912367
     ]
   },
   {
@@ -868,7 +1161,10 @@
     "source": "scifact",
     "source_id": "176",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      32587939
+    ]
   },
   {
     "claim": "There is a relation between Erythromycin use and hypertrophic pyloric stenosis.",
@@ -878,6 +1174,9 @@
     "evidence_doc_id": "21239672",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      21239672
     ]
   },
   {
@@ -888,6 +1187,9 @@
     "evidence_doc_id": "9505448",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      9505448
     ]
   },
   {
@@ -898,6 +1200,9 @@
     "evidence_doc_id": "6325527",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      6325527
     ]
   },
   {
@@ -908,6 +1213,9 @@
     "evidence_doc_id": "1642727",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      1642727
     ]
   },
   {
@@ -918,6 +1226,9 @@
     "evidence_doc_id": "8551160",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      8551160
     ]
   },
   {
@@ -926,7 +1237,10 @@
     "source": "scifact",
     "source_id": "126",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      24512064
+    ]
   },
   {
     "claim": "Walking in traffic areas in London did not improve lung function in elderly adults.",
@@ -936,6 +1250,9 @@
     "evidence_doc_id": "21003930",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      21003930
     ]
   },
   {
@@ -946,6 +1263,9 @@
     "evidence_doc_id": "2890952",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      2890952
     ]
   },
   {
@@ -957,6 +1277,9 @@
     "evidence_sentences": [
       1,
       2
+    ],
+    "cited_doc_ids": [
+      16120395
     ]
   },
   {
@@ -968,6 +1291,9 @@
     "evidence_sentences": [
       9,
       10
+    ],
+    "cited_doc_ids": [
+      6540064
     ]
   },
   {
@@ -978,6 +1304,9 @@
     "evidence_doc_id": "20231138",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      20231138
     ]
   },
   {
@@ -988,6 +1317,9 @@
     "evidence_doc_id": "13639330",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      13639330
     ]
   },
   {
@@ -996,7 +1328,10 @@
     "source": "scifact",
     "source_id": "456",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      30507607
+    ]
   },
   {
     "claim": "Mice that lack Interferon-\u03b3 or its receptor are highly susceptible to experimental autoimmune myocarditis.",
@@ -1006,6 +1341,10 @@
     "evidence_doc_id": "8246922",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      8246922,
+      24338780
     ]
   },
   {
@@ -1016,6 +1355,9 @@
     "evidence_doc_id": "19205437",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      19205437
     ]
   },
   {
@@ -1026,6 +1368,10 @@
     "evidence_doc_id": "21932050",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      21932050,
+      34016987
     ]
   },
   {
@@ -1034,7 +1380,10 @@
     "source": "scifact",
     "source_id": "555",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1049501
+    ]
   },
   {
     "claim": "Hyperfibrinogenemia increases rates of femoropopliteal bypass thrombosis.",
@@ -1044,6 +1393,9 @@
     "evidence_doc_id": "12991445",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      12991445
     ]
   },
   {
@@ -1054,6 +1406,9 @@
     "evidence_doc_id": "16737210",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      16737210
     ]
   },
   {
@@ -1064,6 +1419,10 @@
     "evidence_doc_id": "12804937",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      12804937,
+      464511
     ]
   },
   {
@@ -1072,7 +1431,10 @@
     "source": "scifact",
     "source_id": "1218",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      15635366
+    ]
   },
   {
     "claim": "Albendazole is used to treat soil-transmitted helminths.",
@@ -1080,7 +1442,10 @@
     "source": "scifact",
     "source_id": "95",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1215116
+    ]
   },
   {
     "claim": "In British Men, haplogroup I decreases risk of cardiovascular disease.",
@@ -1090,6 +1455,9 @@
     "evidence_doc_id": "2867345",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      2867345
     ]
   },
   {
@@ -1100,6 +1468,9 @@
     "evidence_doc_id": "25641414",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      25641414
     ]
   },
   {
@@ -1110,6 +1481,9 @@
     "evidence_doc_id": "13956305",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      13956305
     ]
   },
   {
@@ -1120,6 +1494,9 @@
     "evidence_doc_id": "1982286",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      1982286
     ]
   },
   {
@@ -1128,7 +1505,10 @@
     "source": "scifact",
     "source_id": "916",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      18037805
+    ]
   },
   {
     "claim": "Sympathetic nerve activity is reduced throughout normal pregnancy.",
@@ -1138,6 +1518,11 @@
     "evidence_doc_id": "5323845",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      5323845,
+      18997216,
+      13907928
     ]
   },
   {
@@ -1146,7 +1531,10 @@
     "source": "scifact",
     "source_id": "422",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      11172205
+    ]
   },
   {
     "claim": "Articles published in open access format are less likely to be cited than traditional journals.",
@@ -1156,6 +1544,9 @@
     "evidence_doc_id": "27768226",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      27768226
     ]
   },
   {
@@ -1164,7 +1555,10 @@
     "source": "scifact",
     "source_id": "714",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      18421962
+    ]
   },
   {
     "claim": "Hypothalamic glutamate neurotransmission is unrelated to energy balance.",
@@ -1174,6 +1568,11 @@
     "evidence_doc_id": "45154987",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      45154987,
+      11886686,
+      25007443
     ]
   },
   {
@@ -1185,6 +1584,9 @@
     "evidence_sentences": [
       3,
       5
+    ],
+    "cited_doc_ids": [
+      15535511
     ]
   },
   {
@@ -1193,7 +1595,10 @@
     "source": "scifact",
     "source_id": "1016",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      6277638
+    ]
   },
   {
     "claim": "B3-Galectin increases cell resistance to tyrosine kinase inhibitors (TKIs) by engaging the alternate KRAS-RalB signaling complex downstream of EGFR.",
@@ -1201,7 +1606,10 @@
     "source": "scifact",
     "source_id": "154",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4702639
+    ]
   },
   {
     "claim": "V-9302 inhibits antitumor responses by decreasing cell death and oxidative stress.",
@@ -1211,6 +1619,9 @@
     "evidence_doc_id": "5256564",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      5256564
     ]
   },
   {
@@ -1219,7 +1630,10 @@
     "source": "scifact",
     "source_id": "1112",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1686881
+    ]
   },
   {
     "claim": "The proliferative capacity of neural progenitors differs across species.",
@@ -1229,6 +1643,9 @@
     "evidence_doc_id": "16939583",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      16939583
     ]
   },
   {
@@ -1237,7 +1654,10 @@
     "source": "scifact",
     "source_id": "715",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      18421962
+    ]
   },
   {
     "claim": "The NF-\u03baB essential modulator gene induces intestinal inflammation by promoting receptor-interacting protein (RIP) kinase 1 kinase activity-mediated epithelial cell death.",
@@ -1247,6 +1667,9 @@
     "evidence_doc_id": "18956141",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      18956141
     ]
   },
   {
@@ -1255,7 +1678,10 @@
     "source": "scifact",
     "source_id": "550",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      33499189
+    ]
   },
   {
     "claim": "Mutations in G-Beta protein GNB2 are present in many cancers, resulting in loss of interaction with G-alpha subunits and concomitant activation of AKT pathway.",
@@ -1263,7 +1689,10 @@
     "source": "scifact",
     "source_id": "814",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      33387953
+    ]
   },
   {
     "claim": "High levels of CRP lead to a higher risk of exacerbations in chronic obstructive pulmonary disease (COPD).",
@@ -1273,6 +1702,9 @@
     "evidence_doc_id": "29564505",
     "evidence_sentences": [
       8
+    ],
+    "cited_doc_ids": [
+      29564505
     ]
   },
   {
@@ -1283,6 +1715,9 @@
     "evidence_doc_id": "12584053",
     "evidence_sentences": [
       13
+    ],
+    "cited_doc_ids": [
+      12584053
     ]
   },
   {
@@ -1293,6 +1728,9 @@
     "evidence_doc_id": "1780819",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      1780819
     ]
   },
   {
@@ -1301,7 +1739,10 @@
     "source": "scifact",
     "source_id": "1179",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      31272411
+    ]
   },
   {
     "claim": "Combination nicotine replacement therapies with varenicline or bupropion are more effective after 12 weeks of reatment compared to varenicline monotherapy.",
@@ -1311,6 +1752,9 @@
     "evidence_doc_id": "11614737",
     "evidence_sentences": [
       8
+    ],
+    "cited_doc_ids": [
+      11614737
     ]
   },
   {
@@ -1319,7 +1763,10 @@
     "source": "scifact",
     "source_id": "871",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      195689316
+    ]
   },
   {
     "claim": "AMP-activated protein kinase (AMPK) activation increases inflammation-related fibrosis in the lungs.",
@@ -1329,6 +1776,9 @@
     "evidence_doc_id": "49556906",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      49556906
     ]
   },
   {
@@ -1339,6 +1789,9 @@
     "evidence_doc_id": "20532591",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      20532591
     ]
   },
   {
@@ -1347,7 +1800,10 @@
     "source": "scifact",
     "source_id": "938",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      26231129
+    ]
   },
   {
     "claim": "The RANK-RANK-Ligand (RANKL) pathway is involved in the development of Aire-expressing medullary thymic epithelial cells (mTECs).",
@@ -1357,6 +1813,12 @@
     "evidence_doc_id": "301838",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      301838,
+      2734421,
+      39128592,
+      3952288
     ]
   },
   {
@@ -1367,6 +1829,9 @@
     "evidence_doc_id": "7098463",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      7098463
     ]
   },
   {
@@ -1377,6 +1842,9 @@
     "evidence_doc_id": "18872233",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      18872233
     ]
   },
   {
@@ -1387,6 +1855,9 @@
     "evidence_doc_id": "6157837",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      6157837
     ]
   },
   {
@@ -1397,6 +1868,9 @@
     "evidence_doc_id": "5824985",
     "evidence_sentences": [
       11
+    ],
+    "cited_doc_ids": [
+      5824985
     ]
   },
   {
@@ -1407,6 +1881,9 @@
     "evidence_doc_id": "26973393",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      26973393
     ]
   },
   {
@@ -1417,6 +1894,9 @@
     "evidence_doc_id": "10582939",
     "evidence_sentences": [
       12
+    ],
+    "cited_doc_ids": [
+      10582939
     ]
   },
   {
@@ -1427,6 +1907,9 @@
     "evidence_doc_id": "16472469",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      16472469
     ]
   },
   {
@@ -1437,6 +1920,9 @@
     "evidence_doc_id": "8764879",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      8764879
     ]
   },
   {
@@ -1447,6 +1933,9 @@
     "evidence_doc_id": "9638032",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      9638032
     ]
   },
   {
@@ -1455,7 +1944,10 @@
     "source": "scifact",
     "source_id": "255",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      5850219
+    ]
   },
   {
     "claim": "Aged patients are less susceptible to ischaemia/reperfusion injury.",
@@ -1463,7 +1955,10 @@
     "source": "scifact",
     "source_id": "91",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1084345
+    ]
   },
   {
     "claim": "EG7 tumors can be killed by systemic oxaliplatin primed CD8+ T cells from the tumor-draining lymph node cells.",
@@ -1471,7 +1966,10 @@
     "source": "scifact",
     "source_id": "363",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      5386514
+    ]
   },
   {
     "claim": "Cardiac tissue-resident macrophages directly contribute to electrical activity.",
@@ -1481,6 +1979,9 @@
     "evidence_doc_id": "4928057",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      4928057
     ]
   },
   {
@@ -1489,7 +1990,10 @@
     "source": "scifact",
     "source_id": "285",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      5548081
+    ]
   },
   {
     "claim": "Podocytes are motile and migrate in the presence of injury.",
@@ -1499,6 +2003,9 @@
     "evidence_doc_id": "123859",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      123859
     ]
   },
   {
@@ -1509,6 +2016,9 @@
     "evidence_doc_id": "17077004",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      17077004
     ]
   },
   {
@@ -1519,6 +2029,11 @@
     "evidence_doc_id": "4961038",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      4961038,
+      14241418,
+      14819804
     ]
   },
   {
@@ -1527,7 +2042,10 @@
     "source": "scifact",
     "source_id": "820",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      8646760
+    ]
   },
   {
     "claim": "Reduced responsiveness to interleukin-2 in regulatory T cells is associated with greater resistance to autoimmune diseases such as Type 1 Diabetes.",
@@ -1538,6 +2056,11 @@
     "evidence_sentences": [
       2,
       3
+    ],
+    "cited_doc_ids": [
+      13923140,
+      13940200,
+      11899391
     ]
   },
   {
@@ -1546,7 +2069,10 @@
     "source": "scifact",
     "source_id": "1302",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      12631697
+    ]
   },
   {
     "claim": "RANK-RANKL pathway signalling has no known association with development of Aire-expressing medullary thymic epithelial cells.",
@@ -1556,6 +2082,11 @@
     "evidence_doc_id": "301838",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      301838,
+      2734421,
+      3952288
     ]
   },
   {
@@ -1566,6 +2097,9 @@
     "evidence_doc_id": "26064662",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      26064662
     ]
   },
   {
@@ -1574,7 +2108,10 @@
     "source": "scifact",
     "source_id": "301",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      3553087
+    ]
   },
   {
     "claim": "Chenodeoxycholic acid treatment decreases brown adipose tissue activity.",
@@ -1584,6 +2121,9 @@
     "evidence_doc_id": "1568684",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      1568684
     ]
   },
   {
@@ -1594,6 +2134,9 @@
     "evidence_doc_id": "3874000",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      3874000
     ]
   },
   {
@@ -1602,7 +2145,10 @@
     "source": "scifact",
     "source_id": "989",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      9988425
+    ]
   },
   {
     "claim": "Ethanol stress lowers the expression of PSP in bacteria.",
@@ -1610,7 +2156,10 @@
     "source": "scifact",
     "source_id": "392",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1148122
+    ]
   },
   {
     "claim": "miR-142-5P is a temperature-sensitive microRNA (miRNA).",
@@ -1621,6 +2170,9 @@
     "evidence_sentences": [
       4,
       5
+    ],
+    "cited_doc_ids": [
+      6766459
     ]
   },
   {
@@ -1631,6 +2183,9 @@
     "evidence_doc_id": "2425364",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      2425364
     ]
   },
   {
@@ -1641,6 +2196,9 @@
     "evidence_doc_id": "14376683",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      14376683
     ]
   },
   {
@@ -1653,6 +2211,9 @@
       3,
       4,
       6
+    ],
+    "cited_doc_ids": [
+      37204802
     ]
   },
   {
@@ -1663,6 +2224,9 @@
     "evidence_doc_id": "4740447",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      4740447
     ]
   },
   {
@@ -1673,6 +2237,9 @@
     "evidence_doc_id": "21295300",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      21295300
     ]
   },
   {
@@ -1683,6 +2250,9 @@
     "evidence_doc_id": "2177022",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      2177022
     ]
   },
   {
@@ -1693,6 +2263,10 @@
     "evidence_doc_id": "25148216",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      6493422,
+      25148216
     ]
   },
   {
@@ -1703,6 +2277,9 @@
     "evidence_doc_id": "19736671",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      19736671
     ]
   },
   {
@@ -1711,7 +2288,11 @@
     "source": "scifact",
     "source_id": "1306",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      6000423,
+      5836
+    ]
   },
   {
     "claim": "Inhibiting focal adhesion formation enables cells to convert mechanical strain into eventual scarring.",
@@ -1721,6 +2302,9 @@
     "evidence_doc_id": "5172048",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      5172048
     ]
   },
   {
@@ -1731,6 +2315,9 @@
     "evidence_doc_id": "8780599",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      8780599
     ]
   },
   {
@@ -1741,6 +2328,9 @@
     "evidence_doc_id": "16966326",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      16966326
     ]
   },
   {
@@ -1749,7 +2339,10 @@
     "source": "scifact",
     "source_id": "551",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      33499189
+    ]
   },
   {
     "claim": "Gpr124 suppresses BBB breakdown in mouse models of ischemic stroke.",
@@ -1759,6 +2352,9 @@
     "evidence_doc_id": "6325527",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      6325527
     ]
   },
   {
@@ -1767,7 +2363,10 @@
     "source": "scifact",
     "source_id": "1325",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      40476126
+    ]
   },
   {
     "claim": "Microcin J25 inhibits nucleoside triphosphate (NTP) binding.",
@@ -1777,6 +2376,9 @@
     "evidence_doc_id": "4740447",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      4740447
     ]
   },
   {
@@ -1787,6 +2389,9 @@
     "evidence_doc_id": "29023309",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      29023309
     ]
   },
   {
@@ -1795,7 +2400,11 @@
     "source": "scifact",
     "source_id": "1314",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      13072112,
+      16237005
+    ]
   },
   {
     "claim": "GATA3 regulates cell cycle progression in bone marrow hematopoietic stem cells.",
@@ -1806,6 +2415,9 @@
     "evidence_sentences": [
       5,
       6
+    ],
+    "cited_doc_ids": [
+      10165258
     ]
   },
   {
@@ -1816,6 +2428,9 @@
     "evidence_doc_id": "6826100",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      6826100
     ]
   },
   {
@@ -1824,7 +2439,10 @@
     "source": "scifact",
     "source_id": "173",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      8126244
+    ]
   },
   {
     "claim": "A high microerythrocyte count raises vulnerability to severe anemia in homozygous alpha (+)- thalassemia trait subjects.",
@@ -1835,6 +2453,9 @@
     "evidence_sentences": [
       1,
       9
+    ],
+    "cited_doc_ids": [
+      18174210
     ]
   },
   {
@@ -1845,6 +2466,9 @@
     "evidence_doc_id": "13734012",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      13734012
     ]
   },
   {
@@ -1853,7 +2477,10 @@
     "source": "scifact",
     "source_id": "1394",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      2251426
+    ]
   },
   {
     "claim": "Gastric lavage is an effective treatment for acute paraquat poisoning.",
@@ -1861,7 +2488,11 @@
     "source": "scifact",
     "source_id": "449",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      12209494,
+      3430789
+    ]
   },
   {
     "claim": "Weighed food records (WFR) result in high completion since they're cheap to run and impose low participant burden.",
@@ -1869,7 +2500,10 @@
     "source": "scifact",
     "source_id": "1374",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      21993510
+    ]
   },
   {
     "claim": "Enhanced early production of inflammatory chemokines improves viral control in the lung.",
@@ -1879,6 +2513,9 @@
     "evidence_doc_id": "19005293",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      19005293
     ]
   },
   {
@@ -1889,6 +2526,9 @@
     "evidence_doc_id": "9433958",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      9433958
     ]
   },
   {
@@ -1897,7 +2537,10 @@
     "source": "scifact",
     "source_id": "1053",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      18816720
+    ]
   },
   {
     "claim": "One in two surgical randomized controlled trials are discontinued early.",
@@ -1907,6 +2550,9 @@
     "evidence_doc_id": "6477536",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      6477536
     ]
   },
   {
@@ -1917,6 +2563,9 @@
     "evidence_doc_id": "19799455",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      19799455
     ]
   },
   {
@@ -1925,7 +2574,10 @@
     "source": "scifact",
     "source_id": "527",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      3863543
+    ]
   },
   {
     "claim": "Aged patients are more susceptible to ischaemia/reperfusion injury.",
@@ -1933,7 +2585,10 @@
     "source": "scifact",
     "source_id": "92",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1084345
+    ]
   },
   {
     "claim": "Cognitive behavioral therapy is an ineffective treatment for insomnia",
@@ -1943,6 +2598,10 @@
     "evidence_doc_id": "5912283",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      5912283,
+      31554917
     ]
   },
   {
@@ -1951,7 +2610,10 @@
     "source": "scifact",
     "source_id": "618",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      6836086
+    ]
   },
   {
     "claim": "Omnivores produce less trimethylamine N-oxide from dietary I-carnitine than vegans.",
@@ -1961,6 +2623,9 @@
     "evidence_doc_id": "14803797",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      14803797
     ]
   },
   {
@@ -1971,6 +2636,9 @@
     "evidence_doc_id": "52873726",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      52873726
     ]
   },
   {
@@ -1981,6 +2649,9 @@
     "evidence_doc_id": "27099731",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      27099731
     ]
   },
   {
@@ -1992,6 +2663,9 @@
     "evidence_sentences": [
       10,
       11
+    ],
+    "cited_doc_ids": [
+      23349986
     ]
   },
   {
@@ -2002,6 +2676,9 @@
     "evidence_doc_id": "31460499",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      31460499
     ]
   },
   {
@@ -2013,6 +2690,9 @@
     "evidence_sentences": [
       1,
       3
+    ],
+    "cited_doc_ids": [
+      1568684
     ]
   },
   {
@@ -2023,6 +2703,9 @@
     "evidence_doc_id": "4319174",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      4319174
     ]
   },
   {
@@ -2033,6 +2716,11 @@
     "evidence_doc_id": "13940200",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      13923140,
+      13940200,
+      11899391
     ]
   },
   {
@@ -2043,6 +2731,9 @@
     "evidence_doc_id": "16966326",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      16966326
     ]
   },
   {
@@ -2054,6 +2745,9 @@
     "evidence_sentences": [
       4,
       5
+    ],
+    "cited_doc_ids": [
+      1127562
     ]
   },
   {
@@ -2064,6 +2758,9 @@
     "evidence_doc_id": "20033112",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      20033112
     ]
   },
   {
@@ -2072,7 +2769,10 @@
     "source": "scifact",
     "source_id": "485",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14637235
+    ]
   },
   {
     "claim": "Ribosome-inactivating protein-2 (RIP-2) interacts with the p75 NTR death domain",
@@ -2080,7 +2780,10 @@
     "source": "scifact",
     "source_id": "1047",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14706752
+    ]
   },
   {
     "claim": "Upon viral challenge, influenza-specific memory CD4+ T cells greatly diminish the early production of inflammatory chemokines in the lung.",
@@ -2090,6 +2793,9 @@
     "evidence_doc_id": "19005293",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      19005293
     ]
   },
   {
@@ -2101,6 +2807,9 @@
     "evidence_sentences": [
       4,
       5
+    ],
+    "cited_doc_ids": [
+      3475317
     ]
   },
   {
@@ -2111,6 +2820,9 @@
     "evidence_doc_id": "6710713",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      6710713
     ]
   },
   {
@@ -2119,7 +2831,10 @@
     "source": "scifact",
     "source_id": "421",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      11172205
+    ]
   },
   {
     "claim": "Physical activity level has no association with the difference in maximal oxygen consumption between black and white youth.",
@@ -2127,7 +2842,13 @@
     "source": "scifact",
     "source_id": "945",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      8428935,
+      26112696,
+      4463588,
+      13083189
+    ]
   },
   {
     "claim": "Sn is present on mature DCs during inflammation in vivo.",
@@ -2135,7 +2856,10 @@
     "source": "scifact",
     "source_id": "1091",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      2603304
+    ]
   },
   {
     "claim": "Monoclonal antibody targeting of N-cadherin encourages castration resistance.",
@@ -2145,6 +2869,9 @@
     "evidence_doc_id": "22180793",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      22180793
     ]
   },
   {
@@ -2153,7 +2880,11 @@
     "source": "scifact",
     "source_id": "1219",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      9393969,
+      14864285
+    ]
   },
   {
     "claim": "ART substantially reduces infectiveness of HIV-positive people.",
@@ -2163,6 +2894,10 @@
     "evidence_doc_id": "13899137",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      13899137,
+      13901073
     ]
   },
   {
@@ -2173,6 +2908,9 @@
     "evidence_doc_id": "13794374",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      13794374
     ]
   },
   {
@@ -2183,6 +2921,9 @@
     "evidence_doc_id": "15041758",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      15041758
     ]
   },
   {
@@ -2191,7 +2932,10 @@
     "source": "scifact",
     "source_id": "1405",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      10504681
+    ]
   },
   {
     "claim": "Inhibiting glucose-6-phospate dehydrogenase improves lipogenesis by deactivating LKB1-AMPK signaling.",
@@ -2202,6 +2946,9 @@
     "evidence_sentences": [
       1,
       2
+    ],
+    "cited_doc_ids": [
+      1686997
     ]
   },
   {
@@ -2212,6 +2959,9 @@
     "evidence_doc_id": "1834762",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      1834762
     ]
   },
   {
@@ -2223,6 +2973,9 @@
     "evidence_sentences": [
       9,
       10
+    ],
+    "cited_doc_ids": [
+      12009265
     ]
   },
   {
@@ -2231,7 +2984,10 @@
     "source": "scifact",
     "source_id": "487",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      14637235
+    ]
   },
   {
     "claim": "The tissue surrounding the granuloma in an immune cell induces an anti-inflammatory immune response.",
@@ -2241,6 +2997,9 @@
     "evidence_doc_id": "3475317",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      3475317
     ]
   },
   {
@@ -2251,6 +3010,9 @@
     "evidence_doc_id": "8551160",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      8551160
     ]
   },
   {
@@ -2261,6 +3023,9 @@
     "evidence_doc_id": "13513790",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      13513790
     ]
   },
   {
@@ -2269,7 +3034,10 @@
     "source": "scifact",
     "source_id": "526",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      3863543
+    ]
   },
   {
     "claim": "At least 85% of patients exposed to radiation have activated markers of myofibroblasts.",
@@ -2277,7 +3045,10 @@
     "source": "scifact",
     "source_id": "139",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      22080671
+    ]
   },
   {
     "claim": "Increased microtubule acetylation exacerbates LRRK2 Roc-COR domain mutation induced locomotor deficits.",
@@ -2287,6 +3058,9 @@
     "evidence_doc_id": "9638032",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      9638032
     ]
   },
   {
@@ -2297,6 +3071,9 @@
     "evidence_doc_id": "11291348",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      11291348
     ]
   },
   {
@@ -2307,6 +3084,9 @@
     "evidence_doc_id": "22180793",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      22180793
     ]
   },
   {
@@ -2317,6 +3097,9 @@
     "evidence_doc_id": "13764090",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      13764090
     ]
   },
   {
@@ -2325,7 +3108,10 @@
     "source": "scifact",
     "source_id": "739",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4446814
+    ]
   },
   {
     "claim": "Sudden death can occur in patients with complex ventricular arrhythmias.",
@@ -2333,7 +3119,10 @@
     "source": "scifact",
     "source_id": "1111",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1686881
+    ]
   },
   {
     "claim": "DUSP4 decreases apoptosis.",
@@ -2343,6 +3132,9 @@
     "evidence_doc_id": "7821634",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      7821634
     ]
   },
   {
@@ -2353,6 +3145,9 @@
     "evidence_doc_id": "15476777",
     "evidence_sentences": [
       16
+    ],
+    "cited_doc_ids": [
+      15476777
     ]
   },
   {
@@ -2363,6 +3158,9 @@
     "evidence_doc_id": "9558539",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      9558539
     ]
   },
   {
@@ -2373,6 +3171,9 @@
     "evidence_doc_id": "2095573",
     "evidence_sentences": [
       0
+    ],
+    "cited_doc_ids": [
+      2095573
     ]
   },
   {
@@ -2383,6 +3184,9 @@
     "evidence_doc_id": "45638119",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      45638119
     ]
   },
   {
@@ -2391,7 +3195,10 @@
     "source": "scifact",
     "source_id": "1191",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      30655442
+    ]
   },
   {
     "claim": "Pyridostatin destabilizes the G - quadruplex in the telomeric region.",
@@ -2401,6 +3208,9 @@
     "evidence_doc_id": "16472469",
     "evidence_sentences": [
       4
+    ],
+    "cited_doc_ids": [
+      16472469
     ]
   },
   {
@@ -2412,6 +3222,9 @@
     "evidence_sentences": [
       8,
       9
+    ],
+    "cited_doc_ids": [
+      18199839
     ]
   },
   {
@@ -2422,6 +3235,9 @@
     "evidence_doc_id": "11614737",
     "evidence_sentences": [
       9
+    ],
+    "cited_doc_ids": [
+      11614737
     ]
   },
   {
@@ -2432,6 +3248,9 @@
     "evidence_doc_id": "12206390",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      12206390
     ]
   },
   {
@@ -2440,7 +3259,10 @@
     "source": "scifact",
     "source_id": "134",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      4695046
+    ]
   },
   {
     "claim": "Asymptomatic visual impairment screening in elderly populations leads to improved vision.",
@@ -2451,6 +3273,9 @@
     "evidence_sentences": [
       7,
       9
+    ],
+    "cited_doc_ids": [
+      26016929
     ]
   },
   {
@@ -2461,6 +3286,9 @@
     "evidence_doc_id": "15041758",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      15041758
     ]
   },
   {
@@ -2471,6 +3299,10 @@
     "evidence_doc_id": "8997410",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      2119889,
+      8997410
     ]
   },
   {
@@ -2481,6 +3313,9 @@
     "evidence_doc_id": "14637235",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      14637235
     ]
   },
   {
@@ -2491,6 +3326,9 @@
     "evidence_doc_id": "24341590",
     "evidence_sentences": [
       11
+    ],
+    "cited_doc_ids": [
+      24341590
     ]
   },
   {
@@ -2499,7 +3337,10 @@
     "source": "scifact",
     "source_id": "1316",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      27910499
+    ]
   },
   {
     "claim": "Expression of oncolytic virus antigens as peptides makes relapse more likely.",
@@ -2507,7 +3348,10 @@
     "source": "scifact",
     "source_id": "403",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      1921218
+    ]
   },
   {
     "claim": "Peroxynitrite is required for nitration of TCR/CD8.",
@@ -2517,6 +3361,9 @@
     "evidence_doc_id": "5483793",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      5483793
     ]
   },
   {
@@ -2525,7 +3372,10 @@
     "source": "scifact",
     "source_id": "493",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      19583924
+    ]
   },
   {
     "claim": "Microarray results from culture-amplified mixtures of serotypes correlate poorly with microarray results from uncultured mixtures.",
@@ -2533,7 +3383,10 @@
     "source": "scifact",
     "source_id": "785",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      12471115
+    ]
   },
   {
     "claim": "Replacement of OCT4 and SOX2 genes with GATA3 has the ability to reprogram human cells.",
@@ -2541,7 +3394,10 @@
     "source": "scifact",
     "source_id": "1037",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      16287725
+    ]
   },
   {
     "claim": "The one-child policy has been successful in lowering population growth.",
@@ -2549,7 +3405,11 @@
     "source": "scifact",
     "source_id": "1245",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      7662395,
+      7662395
+    ]
   },
   {
     "claim": "Vitamin D deficiency is unrelated to birth weight.",
@@ -2559,6 +3419,9 @@
     "evidence_doc_id": "2425364",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      2425364
     ]
   },
   {
@@ -2569,6 +3432,9 @@
     "evidence_doc_id": "22703082",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      22703082
     ]
   },
   {
@@ -2579,6 +3445,9 @@
     "evidence_doc_id": "13768432",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      13768432
     ]
   },
   {
@@ -2590,6 +3459,10 @@
     "evidence_sentences": [
       2,
       3
+    ],
+    "cited_doc_ids": [
+      20888849,
+      2565138
     ]
   },
   {
@@ -2601,6 +3474,11 @@
     "evidence_sentences": [
       7,
       9
+    ],
+    "cited_doc_ids": [
+      11328820,
+      30041340,
+      14853989
     ]
   },
   {
@@ -2611,6 +3489,9 @@
     "evidence_doc_id": "7370282",
     "evidence_sentences": [
       5
+    ],
+    "cited_doc_ids": [
+      7370282
     ]
   },
   {
@@ -2621,6 +3502,9 @@
     "evidence_doc_id": "15928989",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      15928989
     ]
   },
   {
@@ -2629,7 +3513,10 @@
     "source": "scifact",
     "source_id": "312",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      6173523
+    ]
   },
   {
     "claim": "Increase of p62 in prostate tumor stroma results in defective autophagy.",
@@ -2637,7 +3524,10 @@
     "source": "scifact",
     "source_id": "602",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      3701541
+    ]
   },
   {
     "claim": "Macrolides protect against myocardial infarction.",
@@ -2647,6 +3537,9 @@
     "evidence_doc_id": "32159283",
     "evidence_sentences": [
       8
+    ],
+    "cited_doc_ids": [
+      32159283
     ]
   },
   {
@@ -2655,7 +3548,10 @@
     "source": "scifact",
     "source_id": "1032",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      6836086
+    ]
   },
   {
     "claim": "Combination nicotine replacement therapies with varenicline or bupropion lead to significantly higher long-term abstinence rates at 52 weeks than varenicline monotherapy.",
@@ -2665,6 +3561,9 @@
     "evidence_doc_id": "11614737",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      11614737
     ]
   },
   {
@@ -2675,6 +3574,9 @@
     "evidence_doc_id": "33370",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      33370
     ]
   },
   {
@@ -2685,6 +3587,9 @@
     "evidence_doc_id": "1568684",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      1568684
     ]
   },
   {
@@ -2695,6 +3600,9 @@
     "evidence_doc_id": "4709641",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      4709641
     ]
   },
   {
@@ -2705,6 +3613,9 @@
     "evidence_doc_id": "1550937",
     "evidence_sentences": [
       2
+    ],
+    "cited_doc_ids": [
+      1550937
     ]
   },
   {
@@ -2715,6 +3626,9 @@
     "evidence_doc_id": "11527199",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      11527199
     ]
   },
   {
@@ -2723,7 +3637,10 @@
     "source": "scifact",
     "source_id": "1166",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      9889151
+    ]
   },
   {
     "claim": "Patients in stable partnerships have a faster progression from HIV to AIDS.",
@@ -2733,6 +3650,9 @@
     "evidence_doc_id": "17077004",
     "evidence_sentences": [
       7
+    ],
+    "cited_doc_ids": [
+      17077004
     ]
   },
   {
@@ -2741,7 +3661,10 @@
     "source": "scifact",
     "source_id": "10",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      32587939
+    ]
   },
   {
     "claim": "Leukemia associated Rho guanine nucleotide-exchange factor represses RhoA in response to SRC activation.",
@@ -2749,7 +3672,10 @@
     "source": "scifact",
     "source_id": "691",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      10991183
+    ]
   },
   {
     "claim": "There is no association between HNF4A mutations and diabetes risks.",
@@ -2757,7 +3683,10 @@
     "source": "scifact",
     "source_id": "1291",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      56893404
+    ]
   },
   {
     "claim": "N348I mutations cause resistance to nevirapine.",
@@ -2767,6 +3696,9 @@
     "evidence_doc_id": "15319019",
     "evidence_sentences": [
       13
+    ],
+    "cited_doc_ids": [
+      15319019
     ]
   },
   {
@@ -2777,6 +3709,9 @@
     "evidence_doc_id": "4200695",
     "evidence_sentences": [
       11
+    ],
+    "cited_doc_ids": [
+      4200695
     ]
   },
   {
@@ -2787,6 +3722,9 @@
     "evidence_doc_id": "7552215",
     "evidence_sentences": [
       10
+    ],
+    "cited_doc_ids": [
+      7552215
     ]
   },
   {
@@ -2797,6 +3735,9 @@
     "evidence_doc_id": "29023309",
     "evidence_sentences": [
       1
+    ],
+    "cited_doc_ids": [
+      29023309
     ]
   },
   {
@@ -2805,7 +3746,10 @@
     "source": "scifact",
     "source_id": "1197",
     "evidence_doc_id": null,
-    "evidence_sentences": null
+    "evidence_sentences": null,
+    "cited_doc_ids": [
+      25649714
+    ]
   },
   {
     "claim": "Genes involved in pre-mRNA splicing have a significant impact on genome stability.",
@@ -2815,6 +3759,9 @@
     "evidence_doc_id": "12643937",
     "evidence_sentences": [
       3
+    ],
+    "cited_doc_ids": [
+      12643937
     ]
   },
   {
@@ -2825,6 +3772,9 @@
     "evidence_doc_id": "43334921",
     "evidence_sentences": [
       6
+    ],
+    "cited_doc_ids": [
+      43334921
     ]
   }
 ]

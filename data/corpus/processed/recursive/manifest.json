@@ -1,0 +1,13 @@
+{
+  "strategy": "recursive",
+  "corpus_size": 5183,
+  "chunk_count": 13580,
+  "parameters": {
+    "chunking_strategy": "recursive"
+  },
+  "artifact_files": {
+    "json": "data/corpus/processed/recursive/chunks.json",
+    "csv": "data/corpus/processed/recursive/chunks.csv"
+  },
+  "content_hash": "3a2bdf1c110157f4221bde46110bef9d01b696f68e8c745bb8145cd270b5d430"
+}

@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SYSTEM_PROMPT = """You are a medical evidence reviewer. Your task is to critically review
+SYSTEM_PROMPT = """You are a scientific evidence reviewer. Your task is to critically review
 retrieved evidence across all sub-claims and provide a structured assessment.
 
 You must:

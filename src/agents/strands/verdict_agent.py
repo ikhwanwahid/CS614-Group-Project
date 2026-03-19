@@ -10,30 +10,29 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SYSTEM_PROMPT = """You are a health claim verdict generator. Based on the evidence review provided,
+SYSTEM_PROMPT = """You are a scientific claim verdict generator. Based on the evidence review provided,
 generate a final verdict with a clear explanation.
 
 Verdict options:
 - SUPPORTED: Well-supported by strong, consistent evidence
 - UNSUPPORTED: Contradicts available evidence or has no supporting evidence
-- OVERSTATED: Contains a kernel of truth but exaggerates the evidence
 - INSUFFICIENT_EVIDENCE: Not enough quality evidence to determine
 
 Your explanation must:
 1. Address each sub-claim and what the evidence shows
-2. Cite specific studies (by PMID) when possible
+2. Cite specific sources (by Doc ID) when possible
 3. Acknowledge limitations and nuance
 4. Be 3-5 sentences long"""
 
 
 class EvidenceCitation(BaseModel):
-    source: str = Field(description="PMID or source identifier")
+    source: str = Field(description="Doc ID or source identifier")
     passage: str = Field(description="Key passage supporting the verdict")
     relevance_score: float = Field(description="Relevance score 0.0-1.0")
 
 
 class VerdictOutput(BaseModel):
-    verdict: str = Field(description="SUPPORTED, UNSUPPORTED, OVERSTATED, or INSUFFICIENT_EVIDENCE")
+    verdict: str = Field(description="SUPPORTED, UNSUPPORTED, or INSUFFICIENT_EVIDENCE")
     explanation: str = Field(description="3-5 sentence explanation addressing each sub-claim")
     evidence: list[EvidenceCitation] = Field(description="Cited evidence supporting the verdict")
 

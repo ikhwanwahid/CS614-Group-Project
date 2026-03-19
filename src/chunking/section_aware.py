@@ -1,13 +1,11 @@
-"""Section-aware chunking strategy.
-
-Parses PubMed abstract sections (Background, Methods, Results, Conclusions)
-and chunks per-section, keeping methodological context together.
-"""
+"""Section-aware chunking strategy."""
 
 import re
-from src.chunking.fixed import chunk_text
 
-# Define known section labels and their common variants in PubMed abstracts.
+from src.chunking.fixed import chunk_text
+from src.shared.chunking_utils import abstract_to_text, build_chunk_record
+
+# Define known section labels and their common variants in structured abstracts.
 # https://www.researchgate.net/figure/Headings-of-Structured-Abstracts_tbl1_23998674
 _SECTION_ALIASES: dict[str, tuple[str, ...]] = {
     "AIM": (
@@ -97,9 +95,17 @@ _SECTION_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+# Some SciFact abstracts use uppercase section headings without a colon, e.g.
+# "BACKGROUND ... RESULTS ... CONCLUSIONS ...". Restrict matching to the start
+# of the abstract, a new line, or runs of multiple spaces to avoid false positives.
+_SECTION_PATTERN_NO_COLON = re.compile(
+    rf"(?:^|[\n\r]|\s{{2,}})(?P<label>{_VARIANT_PATTERN})\b\s+",
+    re.IGNORECASE,
+)
+
 
 def _normalize_abstract(abstract: str) -> str:
-    """Remove simple HTML tags that commonly wrap PubMed section headers."""
+    """Remove simple HTML tags that commonly wrap section headers."""
     return _HTML_TAG_PATTERN.sub("", abstract)
 
 
@@ -112,6 +118,8 @@ def split_into_sections(abstract: str) -> list[tuple[str, str]]:
     """
     normalized_abstract = _normalize_abstract(abstract)
     matches = list(_SECTION_PATTERN.finditer(normalized_abstract))
+    if not matches:
+        matches = list(_SECTION_PATTERN_NO_COLON.finditer(normalized_abstract))
     if not matches:
         return [("", normalized_abstract)]
 
@@ -131,25 +139,26 @@ def chunk_corpus_section_aware(corpus: list[dict], chunk_size: int = 200, overla
     """Chunk all abstracts by detected section boundaries.
 
     Args:
-        corpus: List of article dicts with 'pmid', 'title', 'abstract'.
+        corpus: List of article dicts with 'doc_id', 'title', 'abstract'.
 
     Returns:
-        List of chunk dicts with 'pmid', 'title', 'chunk_index', 'text'.
+        List of chunk dicts with 'doc_id', 'title', 'chunk_index', 'text'.
     """
     chunked: list[dict] = []
     for article in corpus:
-        abstract = article.get("abstract", "") or ""
+        abstract = abstract_to_text(article.get("abstract"))
         sections = split_into_sections(abstract)
 
         chunk_index = 0
         for section_label, section_text in sections:
             for text in chunk_text(section_text, chunk_size=chunk_size, overlap=overlap):
-                chunked.append({
-                    "pmid": article["pmid"],
-                    "title": article["title"],
-                    "chunk_index": chunk_index,
-                    "text": text,
-                    "metadata": {"section": section_label.lower() if section_label else "unstructured"},
-                })
+                chunked.append(
+                    build_chunk_record(
+                        article,
+                        chunk_index,
+                        text,
+                        extra_metadata={"section": section_label.lower() if section_label else "unstructured"},
+                    )
+                )
                 chunk_index += 1
     return chunked

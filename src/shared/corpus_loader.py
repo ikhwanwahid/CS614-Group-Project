@@ -7,11 +7,11 @@ backward-compatible wrappers and the corpus loading/saving utilities.
 import json
 from pathlib import Path
 
-from src.chunking.fixed import chunk_text, chunk_corpus_fixed
+from src.chunking.fixed import chunk_corpus_fixed
 
 
 def load_corpus(corpus_path: str = "data/corpus.json") -> list[dict]:
-    """Load raw corpus from JSON file."""
+    """Load the local SciFact corpus from JSON."""
     with open(corpus_path) as f:
         return json.load(f)
 
