@@ -1,0 +1,13 @@
+{
+  "strategy": "section_aware",
+  "corpus_size": 5183,
+  "chunk_count": 13700,
+  "parameters": {
+    "chunking_strategy": "section_aware"
+  },
+  "artifact_files": {
+    "json": "data/corpus/processed/section_aware/chunks.json",
+    "csv": "data/corpus/processed/section_aware/chunks.csv"
+  },
+  "content_hash": "442eb67b168abacec271199827bd97b76423e718f73622419faca9f59cd483ee"
+}

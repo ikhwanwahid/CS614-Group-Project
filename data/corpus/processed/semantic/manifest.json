@@ -1,0 +1,13 @@
+{
+  "strategy": "semantic",
+  "corpus_size": 5183,
+  "chunk_count": 28090,
+  "parameters": {
+    "chunking_strategy": "semantic"
+  },
+  "artifact_files": {
+    "json": "data/corpus/processed/semantic/chunks.json",
+    "csv": "data/corpus/processed/semantic/chunks.csv"
+  },
+  "content_hash": "29ff2c14f126a83413f1a8065fe5a4d49476ea1ce5cac08f44fcb9dd9abb4c8f"
+}

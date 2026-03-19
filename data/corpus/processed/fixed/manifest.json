@@ -1,0 +1,13 @@
+{
+  "strategy": "fixed",
+  "corpus_size": 5183,
+  "chunk_count": 11992,
+  "parameters": {
+    "chunking_strategy": "fixed"
+  },
+  "artifact_files": {
+    "json": "data/corpus/processed/fixed/chunks.json",
+    "csv": "data/corpus/processed/fixed/chunks.csv"
+  },
+  "content_hash": "3e9e4f25c3610c478334db3431a063dd38a4022ba5ae54a82eaa041dda8d954e"
+}
