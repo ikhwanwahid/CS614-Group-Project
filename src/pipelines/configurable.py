@@ -391,13 +391,8 @@ def _run_strands_multi(claim: str, model: str) -> dict:
 
 
 def _run_langgraph_multi(claim: str, model: str) -> dict:
-    """Run the LangGraph multi-agent pipeline when the graph is implemented."""
-    try:
-        from src.agents.langgraph.graph import build_graph
-    except ImportError as exc:
-        raise NotImplementedError(
-            "langgraph_multi is not available: src.agents.langgraph.graph.build_graph is not implemented."
-        ) from exc
+    """LangGraph graph-based multi-agent pipeline."""
+    from src.agents.langgraph.graph import build_graph
 
     model_id = _resolve_model_id(model)
     graph = build_graph()
@@ -414,16 +409,16 @@ def _run_langgraph_multi(claim: str, model: str) -> dict:
 
 
 def _run_strands_rerouting(claim: str, model: str) -> dict:
-    """Backward-compatible alias to the current gated Strands pipeline."""
-    from src.agents.strands.orchestrator_gated import run_pipeline_with_gating
+    """Strands multi-agent with adaptive rerouting (evidence gap loop)."""
+    from src.agents.strands.orchestrator_rerouting import run_pipeline_rerouting
 
-    # The current gated Strands path also resolves its model internally.
     get_agent_collection()
-    raw = run_pipeline_with_gating(claim)
+    raw = run_pipeline_rerouting(claim)
     verdict = raw["verdict"]
 
     return {
         "verdict": verdict.get("verdict", "INSUFFICIENT_EVIDENCE"),
         "explanation": verdict.get("explanation", ""),
         "evidence": verdict.get("evidence", []),
+        "rerouting_loops": raw.get("rerouting_loops", 1),
     }
