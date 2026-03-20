@@ -89,9 +89,28 @@ Respond ONLY with valid JSON:
 # ── Helper ────────────────────────────────────────────────────────────────────
 
 def _parse_json(content: str) -> dict:
-    """Reuse the robust JSON parser already in configurable.py."""
-    from src.pipelines.configurable import parse_json_response
-    return parse_json_response(content)
+    """Extract JSON from LLM response without verdict normalization."""
+    import json as _json
+    import re as _re
+    from src.pipelines.configurable import _extract_first_json_object, _sanitize_json
+
+    # Try markdown code block first
+    match = _re.search(r"```(?:json)?\s*\n?(.*?)\n?```", content, _re.DOTALL)
+    candidates = [content]
+    if match:
+        candidates.append(match.group(1))
+    extracted = _extract_first_json_object(content)
+    if extracted:
+        candidates.append(extracted)
+
+    for text in candidates:
+        for attempt in [text, _sanitize_json(text)]:
+            try:
+                return _json.loads(attempt)
+            except _json.JSONDecodeError:
+                pass
+
+    raise ValueError(f"Failed to parse JSON from LLM response: {content[:200]}")
 
 
 def _resolve_model(state: PipelineState) -> str:
