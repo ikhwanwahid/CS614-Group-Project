@@ -61,27 +61,27 @@ Respond ONLY with valid JSON:
     "recommendation": "<preliminary direction for verdict>"
 }"""
 
-_VERDICT_SYSTEM = """You are a health claim verdict generator. Based on the evidence review provided,
+_VERDICT_SYSTEM = """You are a scientific claim fact-checker. Based on the evidence review provided,
 generate a final verdict with a clear explanation.
 
 Verdict options:
-- SUPPORTED: Well-supported by strong, consistent evidence
-- UNSUPPORTED: Contradicts available evidence or has no supporting evidence
-- OVERSTATED: Contains a kernel of truth but exaggerates the evidence
-- INSUFFICIENT_EVIDENCE: Not enough quality evidence to determine
+- SUPPORTED: Evidence directly supports the claim's assertion
+- UNSUPPORTED: Evidence directly contradicts the claim's assertion
+- INSUFFICIENT_EVIDENCE: Evidence does not address the claim, or is only tangentially related
+
+Important: Base your verdict ONLY on the provided evidence. If evidence contradicts the claim, verdict is UNSUPPORTED. Only use INSUFFICIENT_EVIDENCE when the evidence truly does not address the specific claim.
 
 Your explanation must:
 1. Address each sub-claim and what the evidence shows
-2. Cite specific studies (by PMID) when possible
-3. Acknowledge limitations and nuance
-4. Be 3-5 sentences long
+2. Cite specific studies when possible
+3. Be 2-3 sentences long
 
 Respond ONLY with valid JSON:
 {
-    "verdict": "SUPPORTED | UNSUPPORTED | OVERSTATED | INSUFFICIENT_EVIDENCE",
-    "explanation": "<3-5 sentence explanation>",
+    "verdict": "SUPPORTED | UNSUPPORTED | INSUFFICIENT_EVIDENCE",
+    "explanation": "<2-3 sentence explanation>",
     "evidence": [
-        {"source": "<PMID or author>", "passage": "<key passage>", "relevance_score": 0.0}
+        {"source": "<Doc ID>", "passage": "<key passage>", "relevance_score": 0.0}
     ]
 }"""
 
@@ -143,20 +143,28 @@ def parse_claim_node(state: PipelineState) -> dict:
 
 
 def retrieve_evidence_node(state: PipelineState) -> dict:
-    """Node 2 — retrieve evidence passages for every sub-claim."""
+    """Node 2 — retrieve evidence passages for every sub-claim via ChromaDB."""
+    from src.shared.vector_store import get_chroma_client, get_or_create_collection, search
+
     sub_claims = state["sub_claims"]
+    client = get_chroma_client()
+    collection = get_or_create_collection(client)
 
-    # Use the shared retrieval agent; it already handles the vector store
-    from src.agents.strands.retrieval_agent import retrieve_evidence
-    retrieval_output = retrieve_evidence(sub_claims)
-
-    evidence: list[dict] = [
-        {
-            "sub_claim": se.sub_claim,
-            "evidence": [e.model_dump() for e in se.evidence],
-        }
-        for se in retrieval_output.all_evidence
-    ]
+    evidence: list[dict] = []
+    for sc in sub_claims:
+        query = sc.get("query", sc.get("sub_claim", ""))
+        hits = search(collection, query, top_k=5)
+        evidence.append({
+            "sub_claim": sc.get("sub_claim", query),
+            "evidence": [
+                {
+                    "source": h["metadata"].get("doc_id", h["metadata"].get("title", "N/A")),
+                    "passage": h["text"],
+                    "relevance_score": round(1 - h["distance"], 3),
+                }
+                for h in hits
+            ],
+        })
     return {"evidence": evidence}
 
 

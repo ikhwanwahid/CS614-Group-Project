@@ -14,7 +14,7 @@ from src.shared.schema import VALID_VERDICTS
 # Supported values for each axis
 CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
 RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
-AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting")
+AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting", "strands_rerouting_ext")
 MODELS = (
     "claude-sonnet-4",
     "gpt-4o-mini",
@@ -26,7 +26,7 @@ MODELS = (
 
 DEFAULT_CHUNKING_STRATEGY = "recursive"
 DEFAULT_RETRIEVAL_METHOD = "naive"
-DEFAULT_AGENT_COLLECTION = "health_corpus"
+DEFAULT_AGENT_COLLECTION = "health_corpus_recursive"
 
 # ── Model resolution ──────────────────────────────────────────────────────────
 
@@ -291,6 +291,8 @@ def run_experiment(
         raw = _run_langgraph_multi(claim, model)
     elif agent_architecture == "strands_rerouting":
         raw = _run_strands_rerouting(claim, model)
+    elif agent_architecture == "strands_rerouting_ext":
+        raw = _run_strands_rerouting_ext(claim, model)
     else:
         raise ValueError(f"Unknown agent architecture: {agent_architecture}")
 
@@ -421,4 +423,22 @@ def _run_strands_rerouting(claim: str, model: str) -> dict:
         "explanation": verdict.get("explanation", ""),
         "evidence": verdict.get("evidence", []),
         "rerouting_loops": raw.get("rerouting_loops", 1),
+    }
+
+
+def _run_strands_rerouting_ext(claim: str, model: str) -> dict:
+    """Strands rerouting with Semantic Scholar external search fallback."""
+    from src.agents.strands.orchestrator_rerouting_ext import run_pipeline_rerouting_ext
+
+    get_agent_collection()
+    raw = run_pipeline_rerouting_ext(claim)
+    verdict = raw["verdict"]
+
+    return {
+        "verdict": verdict.get("verdict", "INSUFFICIENT_EVIDENCE"),
+        "explanation": verdict.get("explanation", ""),
+        "evidence": verdict.get("evidence", []),
+        "rerouting_loops": raw.get("rerouting_loops", 1),
+        "external_search_used": raw.get("external_search_used", False),
+        "external_papers_added": raw.get("external_papers_added", 0),
     }

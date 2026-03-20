@@ -88,19 +88,32 @@ def call_llm(
 
 
 def _call_anthropic(prompt: str, system: str, model: str, max_tokens: int) -> dict:
-    """Call Anthropic's Messages API."""
+    """Call Anthropic's Messages API with retry on transient errors."""
+    import time as _time
+
     client = get_llm_client("anthropic")
-    response = client.messages.create(
-        model=model,
-        max_tokens=max_tokens,
-        system=system,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return {
-        "content": response.content[0].text,
-        "input_tokens": response.usage.input_tokens,
-        "output_tokens": response.usage.output_tokens,
-    }
+    max_retries = 3
+
+    for attempt in range(max_retries):
+        try:
+            response = client.messages.create(
+                model=model,
+                max_tokens=max_tokens,
+                system=system,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return {
+                "content": response.content[0].text,
+                "input_tokens": response.usage.input_tokens,
+                "output_tokens": response.usage.output_tokens,
+            }
+        except (BrokenPipeError, ConnectionError, OSError) as e:
+            if attempt < max_retries - 1:
+                wait = 2 ** attempt  # 1s, 2s
+                print(f"[LLM] Transient error ({type(e).__name__}), retrying in {wait}s (attempt {attempt + 1}/{max_retries})")
+                _time.sleep(wait)
+            else:
+                raise
 
 
 def _call_openai_compatible(prompt: str, system: str, model: str, provider: str, max_tokens: int) -> dict:

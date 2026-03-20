@@ -29,7 +29,7 @@ def get_chroma_client(persist_dir: str = "data/corpus/embeddings/chroma_db") -> 
 
 def get_or_create_collection(
     client: chromadb.ClientAPI,
-    collection_name: str = "health_corpus",
+    collection_name: str = "health_corpus_recursive",
     embedding_model: str = DEFAULT_MODEL,
 ) -> chromadb.Collection:
     """Get or create a ChromaDB collection with local HuggingFace embeddings."""

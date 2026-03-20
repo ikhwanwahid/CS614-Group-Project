@@ -81,6 +81,13 @@ EXPERIMENT_CONFIGS = {
         "agent_architecture": "strands_rerouting",
         "model": "claude-sonnet-4-20250514",
     },
+    "E9b": {
+        "name": "Rerouting + Semantic Scholar fallback",
+        "chunking_strategy": BEST_CHUNKING_STRATEGY,
+        "retrieval_method": BEST_RETRIEVAL_METHOD,
+        "agent_architecture": "strands_rerouting_ext",
+        "model": "claude-sonnet-4-20250514",
+    },
     "E10": {
         "name": "GPT-4o-mini + single-pass",
         "chunking_strategy": BEST_CHUNKING_STRATEGY,
