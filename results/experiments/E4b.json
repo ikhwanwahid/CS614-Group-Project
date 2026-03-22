@@ -1,0 +1,717 @@
+{
+  "experiment_id": "E4b",
+  "config": {
+    "name": "RAG baseline on out-of-corpus claims",
+    "chunking_strategy": "recursive",
+    "retrieval_method": "naive",
+    "agent_architecture": "single_pass",
+    "model": "claude-sonnet-4-20250514"
+  },
+  "total_claims": 18,
+  "correct": 4,
+  "accuracy": 0.2222222222222222,
+  "results": [
+    {
+      "claim": "CAR-T cell therapy has received FDA approval for treatment of relapsed or refractory B-cell acute lymphoblastic leukemia.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "While the evidence demonstrates that CAR-T cell therapies have shown clinical efficacy in treating relapsed or refractory B-cell acute lymphoblastic leukemia in clinical trials, none of the provided passages explicitly mention FDA approval status. The evidence shows promising results from phase 1 and phase 2 trials, but regulatory approval information is not addressed.",
+      "evidence": [
+        {
+          "source": "5132358",
+          "passage": "Two children with relapsed and refractory pre-B-cell ALL received infusions of T cells transduced with anti-CD19 antibody and a T-cell signaling molecule (CTL019 chimeric antigen receptor T cells)",
+          "relevance_score": 0.8
+        },
+        {
+          "source": "3462075",
+          "passage": "We conducted a phase 1 trial involving adults with relapsed B\u2010cell ALL who received an infusion of autologous T cells expressing the 19\u201028z CAR",
+          "relevance_score": 0.8
+        },
+        {
+          "source": "3935126",
+          "passage": "axicabtagene ciloleucel (axi\u2010cel), an autologous anti\u2010CD19 chimeric antigen receptor (CAR) T\u2010cell therapy, showed efficacy in patients with refractory large B\u2010cell lymphoma",
+          "relevance_score": 0.6
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 17.73,
+        "total_tokens": 1577,
+        "estimated_cost_usd": 0.014193,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Psilocybin-assisted therapy has shown significant antidepressant effects in treatment-resistant depression clinical trials.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence discusses various depression treatments including tricyclic antidepressants, stress management therapy, acupuncture, and general depression screening, but none of the passages mention psilocybin-assisted therapy or its effects on treatment-resistant depression. While the evidence addresses depression treatment broadly, it does not contain any information relevant to the specific claim about psilocybin therapy.",
+      "evidence": [
+        {
+          "source": "6191684",
+          "passage": "antidepressant medication and stress management therapy are each modestly effective in treating chronic tension-type headaches",
+          "relevance_score": 0.1
+        },
+        {
+          "source": "24276304",
+          "passage": "Major depressive disorder is a common disorder, widely distributed in the population, and usually associated with substantial symptom severity",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "27150276",
+          "passage": "the odds ratios of existing literature suggest a role for acupuncture in the treatment of depression, the evidence thus far is inconclusive",
+          "relevance_score": 0.1
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.1,
+        "total_tokens": 1037,
+        "estimated_cost_usd": 0.009333,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "SGLT2 inhibitors reduce cardiovascular mortality in patients with heart failure regardless of diabetes status.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence discusses the effects of digoxin, epidemiologic features of heart failure, and outcomes with enalapril, but does not contain any information about SGLT2 inhibitors or their cardiovascular effects in heart failure patients. None of the evidence passages address the specific claim about SGLT2 inhibitors reducing cardiovascular mortality regardless of diabetes status.",
+      "evidence": [
+        {
+          "source": "33533307",
+          "passage": "treatment with digoxin did not decrease overall mortality among patients with heart failure and depressed left ventricular systolic function",
+          "relevance_score": 0.1
+        },
+        {
+          "source": "26341063",
+          "passage": "enalapril reduced mortality in patients with symptomatic but not asymptomatic left ventricular systolic dysfunction",
+          "relevance_score": 0.1
+        },
+        {
+          "source": "19675911",
+          "passage": "survival after onset of heart failure has increased overall",
+          "relevance_score": 0.1
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.49,
+        "total_tokens": 1116,
+        "estimated_cost_usd": 0.010044,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Long COVID is associated with persistent neurological symptoms including brain fog and cognitive impairment.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "None of the provided evidence passages address Long COVID or its neurological symptoms. The evidence discusses various unrelated conditions including psychotic symptoms in adolescents, dementia-related impairments, headache-associated brain changes, Alzheimer's disease, and chronic kidney disease effects on cognitive performance. While some passages mention cognitive impairment, they are in entirely different disease contexts and do not provide any information about Long COVID's association with brain fog or persistent neurological symptoms.",
+      "evidence": [
+        {
+          "source": "21274919",
+          "passage": "Only hearing impairment made a notable independent contribution to cognitive impairment",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "17930286",
+          "passage": "Evidence that headache of any type by itself or in combination with brain lesions was associated with cognitive impairment was lacking",
+          "relevance_score": 0.1
+        },
+        {
+          "source": "19804204",
+          "passage": "Higher BP was independently associated with decreased WASI Performance IQ scores in children with mild-to-moderate CKD",
+          "relevance_score": 0.1
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.29,
+        "total_tokens": 1032,
+        "estimated_cost_usd": 0.009288,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "mRNA COVID-19 vaccines permanently alter human genomic DNA.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "None of the provided evidence passages directly address mRNA COVID-19 vaccines or their potential to alter human genomic DNA. The evidence discusses RNA viruses, miRNAs, memory T cells, and viral oncogenesis, but does not contain information about mRNA vaccines' mechanism of action or genomic integration.",
+      "evidence": [
+        {
+          "source": "Doc ID: 6820680",
+          "passage": "RNA viruses can produce functional miRNAs and suggests that this level of transcriptional regulation may extend beyond DNA viruses",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "Doc ID: 24879055",
+          "passage": "CD4(+) memory T cells \"remember\" their previous effector lineage after antigen clearance",
+          "relevance_score": 0.1
+        },
+        {
+          "source": "Doc ID: 10494012",
+          "passage": "genomic and epigenetic variability is also triggered by cell fusion, which is often caused by viruses",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.6,
+        "total_tokens": 1122,
+        "estimated_cost_usd": 0.010098,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Ketamine has demonstrated rapid-acting antidepressant effects within hours of administration.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence discusses various medications including olanzapine, fluoxetine, and methylphenidate, but does not contain any information about ketamine or its antidepressant effects. None of the passages address ketamine's rapid-acting properties or timeline of antidepressant response.",
+      "evidence": [
+        {
+          "source": "Doc ID: 45153864",
+          "passage": "depot injections of 100-250 mg/kg olanzapine yielded clinically relevant plasma olanzapine concentrations",
+          "relevance_score": 0.0
+        },
+        {
+          "source": "Doc ID: 12039953",
+          "passage": "Plasma fluoxetine and serotonin levels increased after drug administration, reaching the highest levels on the 30th day",
+          "relevance_score": 0.0
+        },
+        {
+          "source": "Doc ID: 2475059",
+          "passage": "Methylphenidate (MPH), the most commonly prescribed drug for attention-deficit/hyperactivity disorder",
+          "relevance_score": 0.0
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.31,
+        "total_tokens": 1254,
+        "estimated_cost_usd": 0.011286,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Fecal microbiota transplantation is an effective treatment for recurrent Clostridioides difficile infection.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence focuses on the mechanisms of C. difficile infection, antibiotic-induced microbiome disruption, and the identification of resistance-associated bacteria like Clostridium scindens. While this research provides foundational understanding of how microbiome alterations affect C. difficile susceptibility and mentions implications for microbiome-based therapeutics, none of the passages directly evaluate or demonstrate the effectiveness of fecal microbiota transplantation (FMT) as a treatment for recurrent C. difficile infections.",
+      "evidence": [
+        {
+          "source": "4465735",
+          "passage": "These findings have implications for the rational design of targeted antimicrobials as well as microbiome-based diagnostics and therapeutics for individuals at risk of C. difficile infection",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "4465735",
+          "passage": "Clostridium scindens, a bile acid 7\u03b1-dehydroxylating intestinal bacterium, is associated with resistance to C. difficile infection and, upon administration, enhances resistance to infection",
+          "relevance_score": 0.4
+        },
+        {
+          "source": "6372244",
+          "passage": "Antibiotics can have significant and long-lasting effects on the gastrointestinal tract microbiota, reducing colonization resistance against pathogens including Clostridium difficile",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 6.61,
+        "total_tokens": 1289,
+        "estimated_cost_usd": 0.011601,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Intermittent fasting causes greater muscle mass loss compared to continuous caloric restriction when protein intake is matched.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence does not directly address the claim about intermittent fasting versus continuous caloric restriction and their effects on muscle mass loss. The evidence discusses various dietary interventions including methionine restriction, vegetarian diets, and protein restriction, but none specifically compare intermittent fasting to continuous caloric restriction or measure muscle mass outcomes.",
+      "evidence": [
+        {
+          "source": "23017040",
+          "passage": "Reduced dietary methionine intake (0.17% methionine, MR) and calorie restriction (CR) prolong lifespan in male Fischer 344 rats",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "5687200",
+          "passage": "A calorie-restricted vegetarian diet had greater capacity to improve insulin sensitivity compared with a conventional diabetic diet over 24 weeks",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "2605032",
+          "passage": "intrauterine protein restriction followed by overfeeding during lactation did not induce obesity, but produced glucose intolerance",
+          "relevance_score": 0.1
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.61,
+        "total_tokens": 1098,
+        "estimated_cost_usd": 0.009882,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Microplastics have been detected in human blood and placental tissue.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence passages discuss various aspects of maternal plasma analysis, placental biomarkers, and DNA fragments in blood, but none directly address the detection of microplastics in human blood or placental tissue. The evidence focuses on fetal DNA analysis, pregnancy hormones, cancer-related DNA fragments, and particle exposure effects on methylation, but does not contain any information about microplastic detection in these biological samples.",
+      "evidence": [
+        {
+          "source": "Doc ID: 9306247",
+          "passage": "Analysis of fetal DNA in maternal plasma has recently been introduced as a new method for noninvasive prenatal diagnosis",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "Doc ID: 37480103",
+          "passage": "Pregnancy hormones primarily are produced in the placenta, and signs of placental impairment may serve as indirect markers",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "Doc ID: 42387637",
+          "passage": "We found decreased repeated-element methylation after exposure to traffic particles",
+          "relevance_score": 0.3
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.64,
+        "total_tokens": 1153,
+        "estimated_cost_usd": 0.010377,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Base editing technology can correct point mutations without creating double-strand DNA breaks.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence primarily discusses traditional genome editing methods that create double-strand breaks (DSBs) using Cas9, zinc finger nucleases, and other endonucleases. While one passage mentions DNA mismatch repair in cellular extracts, none of the evidence specifically addresses base editing technology or demonstrates point mutation correction without creating double-strand DNA breaks.",
+      "evidence": [
+        {
+          "source": "21561474",
+          "passage": "Methods to introduce targeted double-strand breaks (DSBs) into DNA enable precise genome editing",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "461550",
+          "passage": "Cas9 can also be converted into a nicking enzyme to facilitate homology-directed repair with minimal mutagenic activity",
+          "relevance_score": 0.4
+        },
+        {
+          "source": "25813706",
+          "passage": "Nuclear extracts derived from HeLa and Drosophila melanogaster KC cell lines have been found to correct single base-base mispairs within open circular DNA heteroduplexes",
+          "relevance_score": 0.5
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.8,
+        "total_tokens": 1209,
+        "estimated_cost_usd": 0.010881,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Semaglutide has no effect on cardiovascular outcomes in patients with obesity.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The evidence provided does not directly address cardiovascular outcomes with semaglutide treatment in patients with obesity. While one document mentions semaglutide's effects on HbA1c and weight reduction, it focuses on glycemic control rather than cardiovascular endpoints, and the study population had type 2 diabetes rather than obesity specifically. None of the evidence passages provide data on cardiovascular outcomes such as heart attacks, strokes, or cardiovascular death in obese patients treated with semaglutide.",
+      "evidence": [
+        {
+          "source": "3654468",
+          "passage": "oral semaglutide resulted in better glycemic control than placebo over 26 weeks. These findings support phase 3 studies to assess longer-term and clinical outcomes",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "3654468",
+          "passage": "Reductions in body weight were greater with oral semaglutide (dosage-dependent range, \u22122.1 kg to \u22126.9 kg) and subcutaneous semaglutide (\u22126.4 kg) vs placebo",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.69,
+        "total_tokens": 1164,
+        "estimated_cost_usd": 0.010476,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Time-restricted eating to an 8-hour window increases the risk of cardiovascular mortality.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence does not address time-restricted eating or 8-hour eating windows. The evidence discusses various health behaviors, CRP levels, fitness levels, adiposity measures, and physical activity recommendations, but none specifically examine the relationship between time-restricted eating patterns and cardiovascular mortality risk.",
+      "evidence": [
+        {
+          "source": "12794099",
+          "passage": "Four health behaviours combined predict a 4-fold difference in total mortality in men and women",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "21048969",
+          "passage": "In an underpowered analysis of time to cardiovascular events, an identical pattern of risk emerged",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "12770738",
+          "passage": "low fitness level was associated with increased risk of CVD mortality",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "23967973",
+          "passage": "both general adiposity and abdominal adiposity are associated with the risk of death",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "6647414",
+          "passage": "A similar dose-response relationship was observed for mortality due to cardiovascular disease",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.12,
+        "total_tokens": 915,
+        "estimated_cost_usd": 0.008235,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "correct": true
+    },
+    {
+      "claim": "Immunotherapy with checkpoint inhibitors has achieved durable complete responses in advanced melanoma.",
+      "verdict": "SUPPORTED",
+      "explanation": "The evidence demonstrates that checkpoint inhibitors achieve durable complete responses in advanced melanoma. Document 3471191 shows pembrolizumab achieved a 33% objective response rate with 12-month progression-free survival of 35% and median overall survival of 23 months in advanced melanoma patients. Document 24726600 explicitly states that immune-checkpoint receptor therapies \"can induce durable antitumour responses in patients with advanced-stage cancers, including melanoma.\"",
+      "evidence": [
+        {
+          "source": "Doc ID: 3471191",
+          "passage": "Among patients with advanced melanoma, pembrolizumab administration was associated with an overall objective response rate of 33%, 12-month progression-free survival rate of 35%, and median overall survival of 23 months",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "Doc ID: 24726600",
+          "passage": "Therapeutic approaches that target these pathways, particularly immune-checkpoint receptors, can induce durable antitumour responses in patients with advanced-stage cancers, including melanoma",
+          "relevance_score": 0.8
+        },
+        {
+          "source": "Doc ID: 4468861",
+          "passage": "Immune checkpoint inhibitors result in impressive clinical responses, but optimal results will require combination with each other and other therapies",
+          "relevance_score": 0.7
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.12,
+        "total_tokens": 1317,
+        "estimated_cost_usd": 0.011853,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": true
+    },
+    {
+      "claim": "Artificial sweeteners have been conclusively proven to cause cancer in humans.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence does not address artificial sweeteners or their relationship to cancer in humans. The passages discuss general cancer theories, aspirin's protective effects, vegan diets and cancer risk, natural compounds, and candy consumption, but none specifically examine artificial sweeteners and their carcinogenic potential in humans.",
+      "evidence": [
+        {
+          "source": "Doc ID: 7451018",
+          "passage": "Cancer has been recognized for thousands of years. Egyptians believed that cancer occurred at the will of the gods.",
+          "relevance_score": 0.1
+        },
+        {
+          "source": "Doc ID: 5293024",
+          "passage": "Our attitude towards candy\u2014'if it tastes that good, it can't be healthy'\u2014betrays society's puritanical stance towards pleasure. Candy has been blamed for various ills, including hyperactivity in children; however, clinical trials have not supported this.",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 4.45,
+        "total_tokens": 1170,
+        "estimated_cost_usd": 0.01053,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Alzheimer's disease is solely caused by amyloid-beta plaque accumulation in the brain.",
+      "verdict": "UNSUPPORTED",
+      "explanation": "The evidence contradicts the claim that Alzheimer's disease is solely caused by amyloid-beta plaque accumulation. Multiple sources indicate that Alzheimer's involves both amyloid-beta plaques AND neurofibrillary tangles as pathological hallmarks, with evidence suggesting that amyloid aggregation may be a later event rather than the sole cause, occurring after other pathological changes like synaptic losses and neuronal death.",
+      "evidence": [
+        {
+          "source": "Doc ID: 4459491",
+          "passage": "Alzheimer's disease is the most common form of dementia, characterized by two pathological hallmarks: amyloid-\u03b2 plaques and neurofibrillary tangles",
+          "relevance_score": 1.0
+        },
+        {
+          "source": "Doc ID: 15347087",
+          "passage": "an age-dependent increase in the levels of A\u03b2\u2081\u208b\u2084\u2082 and extracellular A\u03b2 deposits in the brain of OXYS rats occur later than do synaptic losses, neuronal cell death, mitochondrial structural abnormalities, and hyperphosphorylation of the tau protein",
+          "relevance_score": 0.9
+        },
+        {
+          "source": "Doc ID: 739734",
+          "passage": "\u03b2-amyloid plaques and NFTs were significantly correlated (p < 0.0001)",
+          "relevance_score": 0.8
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.32,
+        "total_tokens": 1443,
+        "estimated_cost_usd": 0.012987,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "UNSUPPORTED",
+      "correct": true
+    },
+    {
+      "claim": "CRISPR-Cas9 gene therapy has been approved to treat sickle cell disease.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence discusses various CRISPR-Cas9 applications and improvements, including genome editing in mouse models and mammalian cell lines, but does not contain any information about regulatory approval for treating sickle cell disease or any other human therapeutic applications. The evidence is focused on research developments and proof-of-concept studies rather than clinical approvals.",
+      "evidence": [
+        {
+          "source": "4462919",
+          "passage": "We packaged SaCas9 and its single guide RNA expression cassette into a single AAV vector and targeted the cholesterol regulatory gene Pcsk9 in the mouse liver",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "1286352",
+          "passage": "Our CRISPR/Cas tools will facilitate the rapid evaluation of mutant phenotypes of specific genes and the precise modification of the genome with single-nucleotide precision",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "21561474",
+          "passage": "Scr7 treatment increased the efficiency of HDR-mediated genome editing, using Cas9 in mammalian cell lines and in mice",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.02,
+        "total_tokens": 1322,
+        "estimated_cost_usd": 0.011898,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    },
+    {
+      "claim": "Psychedelic-assisted therapy completely eliminates the need for ongoing psychiatric medication.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence discusses general psychiatric medication mechanisms, withdrawal effects, and prescribing considerations, but does not mention psychedelic-assisted therapy at all. None of the passages address whether psychedelic therapy can replace ongoing psychiatric medications, making it impossible to evaluate this specific claim.",
+      "evidence": [
+        {
+          "source": "Doc ID: 13883546",
+          "passage": "drugs themselves cause abnormal states, which may coincidentally relieve psychiatric symptoms",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "Doc ID: 6112053",
+          "passage": "Clinicians need to add SSRI to the list of drugs potentially inducing withdrawal symptoms upon discontinuation",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "Doc ID: 39970500",
+          "passage": "It is better to prescribe psychiatric medications, particularly the new ones, rather than withhold them",
+          "relevance_score": 0.2
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.07,
+        "total_tokens": 1099,
+        "estimated_cost_usd": 0.009891,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "correct": true
+    },
+    {
+      "claim": "GLP-1 receptor agonists reduce the risk of kidney disease progression in patients with type 2 diabetes.",
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "explanation": "The provided evidence does not directly address the claim about GLP-1 receptor agonists reducing kidney disease progression risk. While some passages discuss GLP-1 receptor agonists like liraglutide in type 2 diabetes patients, they focus on other outcomes such as pancreatitis, cardiovascular risk, and general diabetes complications rather than specifically examining kidney disease progression.",
+      "evidence": [
+        {
+          "source": "32850528",
+          "passage": "OBJECTIVE To evaluate serum amylase and lipase levels and the rate of acute pancreatitis in patients with type 2 diabetes and high cardiovascular risk randomized to liraglutide or placebo",
+          "relevance_score": 0.3
+        },
+        {
+          "source": "3127341",
+          "passage": "The glucagon-like peptide-1 receptor (GLP-1R) is a key physiological regulator of insulin secretion and a major therapeutic target for the treatment of type II diabetes",
+          "relevance_score": 0.2
+        },
+        {
+          "source": "13619127",
+          "passage": "OBJECTIVE To assess the risks of amputation, blindness, severe kidney failure, hyperglycaemia, and hypoglycaemia in patients with type 2 diabetes associated with prescribed diabetes drugs",
+          "relevance_score": 0.4
+        }
+      ],
+      "metadata": {
+        "latency_seconds": 5.45,
+        "total_tokens": 1438,
+        "estimated_cost_usd": 0.012942,
+        "pipeline": "recursive_naive_single_pass_claude-sonnet-4-20250514",
+        "retrieval_method": "naive",
+        "agent_type": "single_pass"
+      },
+      "experiment_config": {
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+        "force_rebuild_chunks": false
+      },
+      "expected_verdict": "SUPPORTED",
+      "correct": false
+    }
+  ]
+}

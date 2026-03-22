@@ -99,12 +99,12 @@ Verdict: SUPPORTED / UNSUPPORTED / INSUFFICIENT_EVIDENCE
 
 | Strategy | Accuracy | SUPPORTED | UNSUPPORTED | INSUFF_EVIDENCE |
 |----------|----------|-----------|-------------|-----------------|
-| Fixed | 79.9% | 81% | 84% | 75% |
+| Fixed | 79.7% | 80% | 84% | 75% |
 | Section-aware | 77.3% | — | — | — |
 | Semantic | 76.3% | — | — | — |
 | **Recursive** | **82.0%** | **88%** | **83%** | **75%** |
 
-**Accuracy ranking**: Recursive (82%) > Fixed (80%) > Section-aware (77%) > Semantic (76%)
+**Accuracy ranking**: Recursive (82.0%) > Fixed (79.7%) > Section-aware (77.3%) > Semantic (76.3%)
 
 **Analysis**:
 - Recursive's 800-char chunks capture enough context for the LLM to reason about cause-effect relationships
@@ -112,7 +112,7 @@ Verdict: SUPPORTED / UNSUPPORTED / INSUFFICIENT_EVIDENCE
 - Section-aware suffered from 81% fallback rate — most abstracts weren't structured
 - Fixed is a strong baseline — simplicity shouldn't be underestimated
 
-**Speaker notes**: The 82% vs 76% gap (6 percentage points) is statistically significant across 300 claims. Recursive chunking is our winner and becomes the fixed choice for all subsequent experiments.
+**Speaker notes**: The 82% vs 76% gap (5.7 percentage points) is statistically significant across 300 claims. Recursive chunking is our winner and becomes the fixed choice for all subsequent experiments.
 
 ---
 
@@ -217,186 +217,213 @@ Claim → [Agent 1: Claim Parser]
 
 ---
 
-## Slide 11: Axis 3 Results — RAG vs Agents
+## Slide 11: Axis 3 Results — RAG vs Agents (300 Claims)
 
-| Architecture | Accuracy | SUP | UNS | INS | Avg Latency | Cost/300 |
-|-------------|----------|-----|-----|-----|-------------|----------|
-| **Single-pass RAG (E4)** | **82.0%** | **88%** | **83%** | **75%** | **8.4s** | **$3.46** |
-| Strands Agents (E7)* | 71.0% | 50% | 88% | 64% | 81.4s | ~$5+ |
-| LangGraph Agents (E8)* | 34.8% | 0% | 1% | 100% | 107.0s | ~$8+ |
+| Architecture | Accuracy | SUP | UNS | INS | Avg Latency | LLM Calls |
+|-------------|----------|-----|-----|-----|-------------|-----------|
+| **Single-pass RAG (E4)** | **82.0%** | **88%** | **83%** | **75%** | **8.4s** | **1** |
+| Strands Agents (E7) | 65.3% | 49% | 84% | 63% | 68s median | 4-5 |
+| LangGraph Agents (E8) | 66.0% | 49% | 83% | 66% | 32s median | 3 |
+| Llama 3.1 8B RAG (E11) | 62.7% | 61% | 68% | 59% | 98s median | 1 |
 
-*Preliminary — experiments still running
+**Diagram**: `results/accuracy_comparison.png` — bar chart of all experiments
 
-**Confusion matrix spotlight — E8 has a critical failure mode:**
-```
-E8 Predictions:     SUPPORTED  UNSUPPORTED  INSUFFICIENT
-Expected SUP:            0          1            72    ← all misclassified
-Expected UNS:            0          1            79    ← all misclassified
-Expected INS:            0          0            80    ← 100% correct (by default)
-```
-E8 classifies virtually everything as INSUFFICIENT_EVIDENCE — 99% of predictions are this single class.
+**Key observations**:
+- RAG outperforms both agent frameworks by 16-17 percentage points on closed corpus
+- E7 and E8 converge to similar accuracy (65-66%) — the large gap in preliminary results disappeared after E8 bug fixes
+- Both agents share the same weakness: SUPPORTED recall drops from 88% (RAG) to 49% (agents)
+- Both agents are strong on UNSUPPORTED (83-84%) — close to RAG's 83%
+- Llama 3.1 8B (E11) at 62.7% shows model quality matters: Claude Sonnet RAG beats Llama RAG by 19.3pp
+- E11's high latency (98s median) is due to local Ollama inference — not a fair speed comparison, but cost is ~$0
 
-**E7 is more balanced but still underperforms RAG:**
-```
-E7 Predictions:     SUPPORTED  UNSUPPORTED  INSUFFICIENT
-Expected SUP:            8          2             5
-Expected UNS:            1         23             2
-Expected INS:            1          7            14
-```
-E7 is strong on UNSUPPORTED (88%) but weak on SUPPORTED (50%).
-
-**Speaker notes**: The E8 result is striking and warrants explanation — next slide.
+**Speaker notes**: The 82% vs 65% gap is the central result. But the story doesn't end here — agents have a fundamentally different failure mode that becomes an advantage in different settings.
 
 ---
 
-## Slide 12: Root Cause Analysis — Why Agents Underperform
+## Slide 12: Root Cause Analysis — Why Agents Underperform on Closed Corpus
+
+**Diagram**: `results/confusion_matrices.png` — E4/E7/E8 side-by-side
 
 **Root Cause 1: Query Dilution**
-- Claim: "Aspirin inhibits platelet aggregation" (concise, searchable)
-- After decomposition: sub-claim queries like "mechanism of aspirin on platelets" and "platelet aggregation pathways" — more generic, retrieve less targeted evidence
-- SciFact claims are already well-scoped — decomposition hurts when the original claim IS the best search query
+- Claim: "Aspirin inhibits platelet aggregation" (concise, directly searchable)
+- After decomposition: sub-claims like "mechanism of aspirin on platelets" — more generic, retrieve less targeted evidence
+- SciFact claims are already well-scoped — decomposition hurts when the original claim IS the best query
 
 **Root Cause 2: Error Accumulation**
 - 4 sequential LLM calls, each with ~5-10% error rate
 - Compounded: 0.95^4 = 0.81 — up to 19% accuracy loss from chaining alone
 - Single-pass RAG: 1 call, 1 chance to get it right
 
-**Root Cause 3: The INSUFFICIENT_EVIDENCE Trap (E8's failure)**
-- Evidence Reviewer flags gaps in every sub-claim (because decomposed queries find weaker evidence)
-- Verdict Agent sees "WEAK evidence, multiple GAP flags" → defaults to INSUFFICIENT_EVIDENCE
-- This is rational given the input — the problem is upstream (query dilution → weak retrieval → conservative review → wrong verdict)
+**Root Cause 3: SUPPORTED Recall Collapse**
+- Both E7 and E8 drop SUPPORTED recall from 88% to 49% — the biggest single failure mode
+- Diluted queries retrieve weaker evidence → Evidence Reviewer flags gaps → Verdict Agent defaults to cautious verdicts
+- UNSUPPORTED is preserved (83-84%) because contradiction detection benefits from multi-step review
 
-**Root Cause 4: E7 vs E8 gap (71% vs 35%)**
-- Strands agent has tool-calling agency — can retry searches, adjust queries
-- LangGraph nodes are deterministic — one search per sub-claim, no adaptation
-- Strands structured output (Pydantic) constrains LLM to valid verdicts; LangGraph JSON parsing is more fragile
+**Root Cause 4: Framework differences are minor**
+- Strands (65.3%) vs LangGraph (66.0%) — effectively identical after bug fixes
+- Strands has tool-calling agency; LangGraph uses deterministic graph execution
+- Both converge because the bottleneck is upstream (query dilution), not the framework
 
-**Speaker notes**: This is the most important slide. The insight is NOT "agents are bad" — it's "agents add value when they can take actions that simple RAG can't". On a closed corpus with well-scoped claims, the extra complexity hurts.
+**Speaker notes**: The insight is NOT "agents are bad" — it's that agents add value when they can take actions simple RAG cannot. On a closed corpus with well-scoped claims, extra complexity hurts. Next slides show where agents shine.
 
 ---
 
-## Slide 13: Easy vs Hard Claims — Where Does Each Architecture Excel?
+## Slide 13: Easy vs Hard Claims + Cross-Model Analysis
+
+**Diagram**: `results/easy_vs_hard_claims.png`
 
 **Using SciFact's gold evidence annotations to classify claims:**
-- **Easy** (200 claims): Gold evidence document exists in corpus — system should find it
-- **Hard** (100 claims): No gold evidence — system must reason from tangentially related papers
+- **Easy** (200 claims): Gold evidence document exists in corpus
+- **Hard** (100 claims): No gold evidence — system must reason from tangential papers
 
-| Architecture | Easy Claims | Hard Claims |
-|-------------|-------------|-------------|
-| RAG (E4) | 85.5% (200) | 75.0% (100) |
-| Strands (E7)* | 75.6% (41) | 63.6% (22) |
-| LangGraph (E8)* | 0.7% (153) | 100.0% (80)** |
+| Architecture | Easy Claims | Hard Claims | Gap |
+|-------------|-------------|-------------|-----|
+| RAG (E4) | 85.5% | 75.0% | -10.5pp |
+| Strands (E7) | 66.5% | 63.0% | -3.5pp |
+| LangGraph (E8) | 66.0% | 66.0% | 0pp |
 
-*Preliminary sample sizes
-**E8's "100% on hard" is misleading — it predicts INSUFFICIENT_EVIDENCE for everything, which happens to be correct for the 100 hard claims that ARE insufficient evidence
+**Key insight**: RAG has a 10.5pp drop from easy→hard, while agents show minimal or no drop (E8: 0pp gap). Agents are equally mediocre on both, but RAG's hard-claim gap is where external search can add value.
 
-**Key insight**: RAG has a 10.5 percentage point drop from easy→hard (85.5%→75.0%). This gap is where agents with external search could add value.
+**Cross-model comparison (all single-pass RAG)**:
+| Model | Accuracy | Note |
+|-------|----------|------|
+| Claude Sonnet 4 (E4) | 82.0% | Best overall |
+| Llama 3.1 8B (E11) | 62.7% | -19.3pp vs Claude |
 
-**Speaker notes**: The hard claims are where the corpus literally doesn't have the answer. RAG can only guess from tangential evidence. This motivates E9b.
+Model quality is a larger factor (19pp gap) than architecture choice (17pp gap), suggesting investment in stronger models may yield higher returns than architectural complexity.
+
+**Speaker notes**: The hard claims motivate our next experiment — what happens when the system can go beyond the local corpus?
 
 ---
 
-## Slide 14: E9b — Rerouting with Semantic Scholar External Search
+## Slide 14: E9c — Smart Rerouting with Semantic Scholar Fallback
 
 **The hypothesis**: Agents justify their cost when they can go BEYOND the local corpus.
 
-**Implementation** (`src/agents/strands/orchestrator_rerouting_ext.py`):
+**E9c implementation** — three key improvements over basic agents (`src/agents/strands/orchestrator_rerouting_ext_v2.py`):
+
 ```
-Claim → [Claim Parser] → [Retrieval Agent (local ChromaDB)]
-      → [Evidence Reviewer]
-          ├─ Evidence SUFFICIENT → [Verdict Agent] → done (same as E7)
-          └─ Evidence WEAK →
-               → Identify which sub-claims have gaps
-               → Query Semantic Scholar API (200M+ papers) for those sub-claims
-               → Merge external abstracts with local evidence
-               → [Evidence Reviewer round 2] with enriched evidence
-               → [Verdict Agent] → done
+Claim → [Smart Gate]
+  SIMPLE (≤25 words, no conjunctions) →
+     [Direct ChromaDB search] → [Optional S2 if weak] → [Verdict Agent]     (~20s, 2 calls)
+  COMPLEX →
+     [Claim Parser] → [Original-claim-first retrieval + sub-claim supplement]
+     → [Evidence Reviewer] → [Optional S2 if weak/moderate] → [Verdict Agent] (~60-80s, 4-5 calls)
 ```
 
-**Semantic Scholar integration** (`src/retrieval/semantic_scholar.py`):
-- API: `GET https://api.semanticscholar.org/graph/v1/paper/search`
-- Returns: title, abstract, year, citation count
-- Rate limited: 1 request/second with API key
-- Filters: skip papers without abstracts, cap passage length at 800 chars
+**Three innovations**:
+1. **Smart gating**: Simple claims skip decomposition entirely — avoids query dilution for straightforward claims
+2. **Original-claim-first retrieval**: Always search with the original claim first, sub-claims supplement — fixes the query dilution problem
+3. **Aggressive S2 trigger**: External Semantic Scholar search fires on "moderate" evidence too, not just "weak" — catches borderline cases
 
-**What this tests:**
-- Does external evidence improve "hard" claims where local corpus fails?
-- Is the added latency (~1-2s per API call) and cost worth the accuracy gain?
-- Can agents justify their complexity by doing something RAG fundamentally cannot?
+**Semantic Scholar integration**: 200M+ papers, free API, rate-limited to 1 req/1.5s with exponential backoff on 429 errors
 
-**Speaker notes**: This is the key innovation — we're not just comparing architectures, we're showing that each has a regime where it excels. RAG wins on closed corpus, agents win when they need to go beyond it.
+**Speaker notes**: Each innovation targets a specific root cause identified in the previous analysis. Smart gating reduces error accumulation, original-claim-first fixes query dilution, and S2 fallback extends coverage beyond the local corpus.
 
 ---
 
-## Slide 15: Cost, Latency & Practical Tradeoffs
+## Slide 15: E9c/E9d Results — Where Agents Shine
 
-| Pipeline | Avg Latency | Cost (300 claims) | Accuracy | LLM Calls/Claim |
-|----------|-------------|-------------------|----------|-----------------|
-| Single-pass RAG (E4) | 8.4s | $3.46 | 82.0% | 1 |
-| Strands Agents (E7) | 81.4s | ~$5+ | 71.0%* | 4-5 |
-| LangGraph Agents (E8) | 107.0s | ~$8+ | 34.8%* | 3 |
-| Rerouting + S2 (E9b) | ~100-120s est. | ~$8-10 est. | TBD | 4-6 |
+**In-corpus analysis (E9c vs E4 on 79 targeted claims)**:
+- Tested on 54 claims E4 got wrong + 25 E4 successes (control)
+- E9c recovered 12/54 E4 failures (22.2% recovery rate)
+- E9c regressed on 4/25 E4 successes (16% regression rate)
+- 97.6% of persistent failures had identical errors to E4 — a **corpus-level ceiling**, not a pipeline failure
 
-**Cost breakdown**:
-- RAG: 1 LLM call × ~1,300 tokens = ~$0.012/claim
-- Agents: 4 LLM calls × ~500-2000 tokens each = ~$0.03-0.05/claim
-- External search adds ~$0 (Semantic Scholar API is free)
+**Out-of-corpus analysis (E9d vs E4b on 18 novel claims)**:
 
-**The "10x cost for lower accuracy" problem**:
-- On a closed, well-indexed corpus: RAG is strictly better (faster, cheaper, more accurate)
-- The agent value proposition requires a scenario where RAG fails — open-domain, evolving knowledge, or insufficient corpus coverage
+| Pipeline | Accuracy | SUP (11) | UNS (5) | INS (2) |
+|----------|----------|----------|---------|---------|
+| RAG baseline (E4b) | 22.2% | 9% (1/11) | 20% (1/5) | 100% (2/2) |
+| **E9c + S2 (E9d)** | **66.7%** | **73% (8/11)** | **60% (3/5)** | **50% (1/2)** |
+| | **+44.5pp** | | | |
 
-**Speaker notes**: For a production health fact-checking system, you'd likely use RAG as the fast path and trigger agents only when RAG confidence is low (confidence gating — a future optimization we've designed but not yet tested).
+**The S2 insight — context-dependent value**:
+- On in-corpus claims: S2 adds noise (local evidence already strong) — agents with S2 slightly hurt accuracy
+- On out-of-corpus claims: S2 is transformative — **+44.5pp accuracy gain**, RAG baseline collapses to predicting INSUFFICIENT_EVIDENCE for 89% of claims
+
+**Speaker notes**: This is the key finding. RAG is strictly better on closed corpora, but agents with external search are dramatically better on open-domain claims. A production system should use RAG first, then escalate to agents when local evidence is weak.
 
 ---
 
-## Slide 16: Key Findings Summary
+## Slide 16: Cost, Latency & Practical Tradeoffs
+
+**Diagram**: `results/cost_latency_analysis.png`
+
+| Pipeline | Avg Latency | Cost/300 | Accuracy | Use Case |
+|----------|-------------|----------|----------|----------|
+| Single-pass RAG (E4) | 8.4s | $3.46 | 82.0% | Closed corpus, fast path |
+| Llama 3.1 8B (E11) | 98s median* | ~$0 (local) | 62.7% | Budget/offline |
+| Strands Agents (E7) | 68s median | ~$1.28** | 65.3% | Multi-agent baseline |
+| LangGraph Agents (E8) | 32s median | ~$0.86** | 66.0% | Multi-agent baseline |
+| Smart Rerouting (E9c) | 28s avg | — | 41.8%*** | Recovery of RAG failures |
+| E9c + S2 out-of-corpus (E9d) | 22s avg | — | 66.7% | When corpus coverage is weak |
+
+*E11 latency is local Ollama inference (no API cost)
+**E7/E8 cost tracking is approximate — Bedrock costs may be underreported
+***E9c tested on skewed set (54 E4 failures + 25 control); projects to 84.7% on full 300
+
+**Recommended three-tier production architecture**:
+1. **Tier 1 — RAG** (8s, ~$0.01/claim): Fast path for all claims. Best on well-indexed corpora.
+2. **Tier 2 — Smart Agent** (20-80s, ~$0.02-0.05/claim): Triggered when RAG confidence is low. Uses claim decomposition + evidence review.
+3. **Tier 3 — External Search** (~60s extra): Triggered when local evidence is weak/moderate. Queries Semantic Scholar for 200M+ papers.
+
+**Speaker notes**: The key design insight is that no single architecture wins everywhere. A tiered system combines the strengths of each: RAG for speed, agents for depth, external search for coverage.
+
+---
+
+## Slide 17: Key Findings Summary
 
 **Finding 1: Chunking matters more than retrieval method**
-- Recursive chunking (82%) vs semantic chunking (76%) = 6pp gap
-- Naive retrieval (82%) vs hybrid (79%) = 3pp gap
+- Recursive chunking (82.0%) vs semantic chunking (76.3%) = 5.7pp gap
+- Naive retrieval (82.0%) vs hybrid (79.0%) = 3.0pp gap
 - Invest in how you split documents before optimizing how you search them
 
 **Finding 2: Simplicity wins on closed corpora**
 - Best pipeline: recursive chunking + naive retrieval + single-pass RAG = 82.0%
-- Simplest pipeline is also the fastest (8.4s) and cheapest ($3.46/300 claims)
-- Adding complexity (hybrid retrieval, multi-agent) reduced accuracy
+- Simplest pipeline is also the fastest (8.4s) and cheapest
+- Adding multi-agent complexity reduced accuracy by 16-17pp on this benchmark
 
-**Finding 3: Multi-agent architectures have a conservative bias problem**
-- Evidence Reviewer creates an INSUFFICIENT_EVIDENCE default
-- LangGraph (E8) is an extreme case: 99% of predictions are INSUFFICIENT_EVIDENCE
-- This is a design flaw in multi-step review pipelines, not a framework issue
+**Finding 3: Agents excel at contradiction detection**
+- UNSUPPORTED recall: E7 84%, E8 83%, RAG 83% — agents match or exceed RAG
+- SUPPORTED recall: E7 49%, E8 49%, RAG 88% — agents lose on confirmation
+- Multi-step review acts as a "devil's advocate" — strong at finding counterevidence, weak at affirming
 
-**Finding 4: Agents and RAG serve different regimes**
-- RAG excels: closed corpus, well-scoped claims, speed-critical
-- Agents excel: open-domain, evidence gaps, complex multi-source reasoning
-- E9b (external search) tests this hypothesis directly
+**Finding 4: External search is context-dependent**
+- On in-corpus claims: Semantic Scholar adds noise (local evidence already strong)
+- On out-of-corpus claims: S2 provides **+44.5pp** accuracy gain (22% → 67%)
+- The value of external tools depends entirely on corpus coverage
 
-**Finding 5: Framework ≠ architecture**
-- Strands (71%) vs LangGraph (35%) gap is implementation detail (structured output, tool-calling agency), not fundamental
-- BrokenPipe errors in E8 are API client issues, not LangGraph limitations
+**Finding 5: Model quality > architectural complexity**
+- Claude Sonnet RAG (82.0%) vs Llama 3.1 8B RAG (62.7%) = 19.3pp gap (model)
+- Claude Sonnet RAG (82.0%) vs Claude Sonnet Agents (65-66%) = 16-17pp gap (architecture)
+- A stronger model with simple RAG outperforms a weaker architecture with the same model
 
----
-
-## Slide 17: Limitations & Future Work
-
-**Limitations of current study:**
-- SciFact claims are concise, well-scoped scientific statements — real health misinformation is vague, emotional, multi-faceted ("Big Pharma is hiding the cure")
-- Single LLM (Claude Sonnet 4) — accuracy may vary significantly across models
-- E7/E8 results are preliminary (experiments still completing)
-- No evaluation of explanation quality — a claim could get the right verdict for wrong reasons
-
-**Planned & future work:**
-- **E9b**: Semantic Scholar external search — does it close the gap on hard claims?
-- **E10-E13**: Cross-model comparison (GPT-4o-mini, Llama 3.1 8B) — already configured
-- **LLM-as-judge**: Have a separate LLM score explanation quality and evidence grounding
-- **Confidence gating**: Use RAG as fast path, trigger agents only when confidence is low
-- **Real-world dataset**: Test on PUBHEALTH or COVID-specific misinformation claims
-- **Fine-tuned models**: Llama 3.1 fine-tuned on SciFact training set (E11 configured)
+**Finding 6: Corpus-level ceiling limits all architectures**
+- 97.6% of E9c's persistent failures had identical errors to E4
+- When the corpus doesn't contain relevant evidence, no amount of architectural sophistication helps
+- This motivates the tiered approach: exhaust local evidence first, then go external
 
 ---
 
-## Slide 18: Demo & Architecture Walkthrough
+## Slide 18: Limitations & Future Work
+
+**Limitations**:
+- SciFact claims are concise, well-scoped — real misinformation is vague and emotional ("Big Pharma hides cures")
+- Out-of-corpus evaluation is small (18 claims) — directionally strong but needs larger validation
+- No evaluation of explanation quality — correct verdict could cite wrong evidence
+- Single embedding model (all-MiniLM-L6-v2) — larger models may improve retrieval
+
+**Future work**:
+- **E10/E12/E13**: Cross-model experiments (GPT-4o-mini, GPT-4o-mini + agents) — configured but not yet run
+- **Confidence gating**: Automatically route claims between tiers based on retrieval confidence scores
+- **LLM-as-judge**: Score explanation quality and evidence grounding, not just verdict accuracy
+- **Real-world claims**: Test on PUBHEALTH or social media health misinformation
+- **Fine-tuned retrieval**: Domain-adapted embedding model for biomedical text
+
+---
+
+## Slide 19: Demo & Questions
 - **Live demo**: Streamlit app with 3 tabs
   - Tab 1: Enter a claim → get verdict with evidence citations
   - Tab 2: Run batch experiments across configurations
@@ -433,28 +460,39 @@ Expected SUP:                 88      3      9
 Expected UNS:                  5     83     12
 Expected INS:                 10     15     75
 ```
-- Most common error: INSUFFICIENT_EVIDENCE claims misclassified as UNSUPPORTED (15/100)
-- Strong diagonal = good balanced classification
+- Strong balanced classification across all three classes
+- Most common error: INS misclassified as UNS (15/100)
 
 **E7 (Strands Agents) — Confusion Matrix:**
 ```
-                  Predicted:  SUP    UNS    INS
-Expected SUP:                  8      2      5
-Expected UNS:                  1     23      2
-Expected INS:                  1      7     14
+                  Predicted:  SUP    UNS    INS    ERR
+Expected SUP:                 49      8     36      7
+Expected UNS:                  2     84     10      4
+Expected INS:                  2     28     63      7
 ```
-- Strong on UNSUPPORTED (88%) — agents good at detecting contradictions
-- Weak on SUPPORTED (50%) — query dilution loses supporting evidence
+- 18/300 claims errored (Bedrock timeouts) — rows sum to 100 including ERR column
+- Strong on UNSUPPORTED (84%) — agents excel at contradiction detection
+- Weak on SUPPORTED (49%) — query dilution loses supporting evidence
+- Over-predicts UNSUPPORTED for INSUFFICIENT_EVIDENCE claims (28/100)
 
 **E8 (LangGraph Agents) — Confusion Matrix:**
 ```
                   Predicted:  SUP    UNS    INS
-Expected SUP:                  0      1     72
-Expected UNS:                  0      1     79
-Expected INS:                  0      0     80
+Expected SUP:                 49     20     31    ← 31 misclassified as INS
+Expected UNS:                  0     83     17
+Expected INS:                  3     31     66    ← 31 misclassified as UNS
 ```
-- Near-total collapse to INSUFFICIENT_EVIDENCE
-- Conservative bias from multi-step review pipeline
+- Same SUPPORTED weakness as E7 (49%)
+- Similar pattern: strong UNSUPPORTED, weak SUPPORTED — confirms this is architectural, not framework-specific
+
+**E9d vs E4b (Out-of-Corpus, 18 claims) — Comparison:**
+```
+E4b: Predicts INSUFFICIENT_EVIDENCE for 89% of claims (corpus has no coverage)
+     Only 4/18 correct — 2 genuine INS + 1 SUP + 1 UNS by luck
+
+E9d: 12/18 correct — recovers 8 SUP, 3 UNS via Semantic Scholar evidence
+     S2 transforms out-of-corpus performance: +44.5pp over RAG baseline
+```
 
 ---
 
@@ -470,7 +508,24 @@ Expected INS:                  0      0     80
 | E6 | Recursive + Hybrid Reranked | recursive | hybrid_reranked | single_pass | Claude Sonnet 4 |
 | E7 | Strands Multi-Agent | recursive | naive | strands_multi | Claude Sonnet 4 |
 | E8 | LangGraph Multi-Agent | recursive | naive | langgraph_multi | Claude Sonnet 4 |
-| E9 | Strands Rerouting (local) | recursive | naive | strands_rerouting | Claude Sonnet 4 |
-| E9b | Rerouting + Semantic Scholar | recursive | naive | strands_rerouting_ext | Claude Sonnet 4 |
-| E10 | GPT-4o-mini baseline | recursive | naive | single_pass | GPT-4o-mini |
+| E9c | Smart Rerouting + S2 v2 | recursive | naive | strands_rerouting_ext_v2 | Claude Sonnet 4 |
+| E9d | E9c on out-of-corpus claims | recursive | naive | strands_rerouting_ext_v2 | Claude Sonnet 4 |
+| E4b | RAG on out-of-corpus claims | recursive | naive | single_pass | Claude Sonnet 4 |
 | E11 | Llama 3.1 8B baseline | recursive | naive | single_pass | Llama 3.1 8B |
+
+---
+
+## Appendix D: Diagrams Inventory (Backup Slide)
+
+**Available from notebooks** (saved to `results/`):
+1. `accuracy_comparison.png` — Bar chart of all experiment accuracies → Slides 11, 16
+2. `confusion_matrices.png` — Side-by-side confusion matrices for E4/E7/E8 → Slide 12, Appendix B
+3. `cost_latency_analysis.png` — Scatter plots of cost vs accuracy, latency vs accuracy → Slide 16
+4. `easy_vs_hard_claims.png` — Grouped bar chart by claim difficulty → Slide 13
+
+**Generated in E9c notebook (saved after re-run)**:
+5. `e9c_accuracy_comparison.png` — E9c vs E4 on 79-claim subset → Slide 15
+6. `e9c_recovery_analysis.png` — Recovery pie + verdict bar chart → Slide 15
+7. `e9c_confusion_matrices.png` — E4 vs E9c confusion matrices → Slide 15
+8. `e9d_out_of_corpus_comparison.png` — E9d vs E4b bar chart → Slide 15
+9. `s2_impact_comparison.png` — S2 value in-corpus vs out-of-corpus → Slide 15

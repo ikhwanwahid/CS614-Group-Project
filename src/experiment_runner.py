@@ -88,6 +88,27 @@ EXPERIMENT_CONFIGS = {
         "agent_architecture": "strands_rerouting_ext",
         "model": "claude-sonnet-4-20250514",
     },
+    "E9c": {
+        "name": "Revamped rerouting v2 (original-claim-first + S2)",
+        "chunking_strategy": BEST_CHUNKING_STRATEGY,
+        "retrieval_method": BEST_RETRIEVAL_METHOD,
+        "agent_architecture": "strands_rerouting_ext_v2",
+        "model": "claude-sonnet-4-20250514",
+    },
+    "E9d": {
+        "name": "E9c on out-of-corpus claims",
+        "chunking_strategy": BEST_CHUNKING_STRATEGY,
+        "retrieval_method": BEST_RETRIEVAL_METHOD,
+        "agent_architecture": "strands_rerouting_ext_v2",
+        "model": "claude-sonnet-4-20250514",
+    },
+    "E4b": {
+        "name": "RAG baseline on out-of-corpus claims",
+        "chunking_strategy": "recursive",
+        "retrieval_method": "naive",
+        "agent_architecture": "single_pass",
+        "model": "claude-sonnet-4-20250514",
+    },
     "E10": {
         "name": "GPT-4o-mini + single-pass",
         "chunking_strategy": BEST_CHUNKING_STRATEGY,
@@ -240,11 +261,26 @@ if __name__ == "__main__":
         list_experiments()
         sys.exit(1)
 
-    experiment_id = sys.argv[1].upper()
+    experiment_id = sys.argv[1]
+    # Try uppercase first, then original case (for IDs like E9b, E9c)
+    if experiment_id.upper() in EXPERIMENT_CONFIGS:
+        experiment_id = experiment_id.upper()
+    elif experiment_id not in EXPERIMENT_CONFIGS:
+        # Try common casings
+        for key in EXPERIMENT_CONFIGS:
+            if key.lower() == experiment_id.lower():
+                experiment_id = key
+                break
     force_rebuild_chunks = "--force-rebuild-chunks" in sys.argv[2:]
     resume = "--no-resume" not in sys.argv[2:]
 
-    with open("data/test_claims.json") as f:
+    # Support custom claims file via --claims flag
+    claims_file = "data/test_claims.json"
+    for arg in sys.argv[2:]:
+        if arg.startswith("--claims="):
+            claims_file = arg.split("=", 1)[1]
+
+    with open(claims_file) as f:
         claims = json.load(f)
 
     results = run_batch(

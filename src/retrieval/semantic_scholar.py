@@ -28,8 +28,8 @@ def _rate_limit():
     """Enforce 1 request per second."""
     global _LAST_CALL_TIME
     elapsed = time.time() - _LAST_CALL_TIME
-    if elapsed < 1.1:
-        time.sleep(1.1 - elapsed)
+    if elapsed < 1.5:
+        time.sleep(1.5 - elapsed)
     _LAST_CALL_TIME = time.time()
 
 
@@ -52,14 +52,23 @@ def search(query: str, limit: int = 5, min_citation_count: int = 0) -> list[dict
     if min_citation_count > 0:
         params["minCitationCount"] = min_citation_count
 
-    _rate_limit()
-
-    try:
-        resp = requests.get(_API_BASE, params=params, headers=headers, timeout=10)
-        resp.raise_for_status()
-        data = resp.json()
-    except (requests.RequestException, ValueError) as e:
-        print(f"[SemanticScholar] Search failed for '{query[:50]}': {e}")
+    for attempt in range(3):
+        _rate_limit()
+        try:
+            resp = requests.get(_API_BASE, params=params, headers=headers, timeout=10)
+            if resp.status_code == 429:
+                wait = 3 * (attempt + 1)
+                print(f"[SemanticScholar] Rate limited, waiting {wait}s (attempt {attempt + 1}/3)")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            break
+        except (requests.RequestException, ValueError) as e:
+            print(f"[SemanticScholar] Search failed for '{query[:50]}': {e}")
+            return []
+    else:
+        print(f"[SemanticScholar] Gave up after 3 rate-limit retries for '{query[:50]}'")
         return []
 
     hits = []
