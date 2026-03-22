@@ -1,0 +1,128 @@
+[
+  {
+    "claim": "CAR-T cell therapy has received FDA approval for treatment of relapsed or refractory B-cell acute lymphoblastic leukemia.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "novel_therapy",
+    "rationale": "Tisagenlecleucel (Kymriah) was FDA-approved in 2017 for pediatric/young adult B-ALL. Well-established."
+  },
+  {
+    "claim": "Psilocybin-assisted therapy has shown significant antidepressant effects in treatment-resistant depression clinical trials.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "psychedelic_medicine",
+    "rationale": "Multiple RCTs including COMPASS Pathways Phase 2 show significant depression reduction vs placebo."
+  },
+  {
+    "claim": "SGLT2 inhibitors reduce cardiovascular mortality in patients with heart failure regardless of diabetes status.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "cardiology",
+    "rationale": "DAPA-HF and EMPEROR-Reduced trials show 14% CV death reduction. Consistent across diabetic/non-diabetic subgroups."
+  },
+  {
+    "claim": "Long COVID is associated with persistent neurological symptoms including brain fog and cognitive impairment.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "post_covid",
+    "rationale": "Extensive literature documents neurocognitive sequelae of post-acute COVID-19 syndrome."
+  },
+  {
+    "claim": "mRNA COVID-19 vaccines permanently alter human genomic DNA.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "out_of_corpus",
+    "category": "vaccine_misinformation",
+    "rationale": "mRNA does not integrate into DNA. No reverse transcriptase in human cells. Extensively debunked."
+  },
+  {
+    "claim": "Ketamine has demonstrated rapid-acting antidepressant effects within hours of administration.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "psychiatry",
+    "rationale": "Well-established since Berman et al 2000. FDA-approved esketamine (Spravato) for TRD."
+  },
+  {
+    "claim": "Fecal microbiota transplantation is an effective treatment for recurrent Clostridioides difficile infection.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "microbiome",
+    "rationale": "Multiple RCTs show 80-90% cure rates. FDA-approved products (Rebyota, Vowst) available."
+  },
+  {
+    "claim": "Intermittent fasting causes greater muscle mass loss compared to continuous caloric restriction when protein intake is matched.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "out_of_corpus",
+    "category": "nutrition",
+    "rationale": "2024 evidence shows similar lean mass changes between IF and continuous restriction when protein is adequate."
+  },
+  {
+    "claim": "Microplastics have been detected in human blood and placental tissue.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "environmental_health",
+    "rationale": "Leslie et al 2022 detected microplastics in human blood. Ragusa et al 2021 found them in placenta."
+  },
+  {
+    "claim": "Base editing technology can correct point mutations without creating double-strand DNA breaks.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "gene_editing",
+    "rationale": "Base editors (CBE/ABE) by David Liu lab use catalytically impaired Cas9 + deaminase. No DSBs. Well-established."
+  },
+  {
+    "claim": "Semaglutide has no effect on cardiovascular outcomes in patients with obesity.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "out_of_corpus",
+    "category": "cardiology",
+    "rationale": "SELECT trial (2023) showed 20% reduction in MACE events with semaglutide vs placebo in obese patients."
+  },
+  {
+    "claim": "Time-restricted eating to an 8-hour window increases the risk of cardiovascular mortality.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "out_of_corpus",
+    "category": "nutrition",
+    "rationale": "AHA 2024 abstract suggested association but was observational, used single dietary recall, widely criticized methodologically."
+  },
+  {
+    "claim": "Immunotherapy with checkpoint inhibitors has achieved durable complete responses in advanced melanoma.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "oncology",
+    "rationale": "Nivolumab + ipilimumab shows 5-year OS of 52% in CheckMate 067. Durable CRs well documented."
+  },
+  {
+    "claim": "Artificial sweeteners have been conclusively proven to cause cancer in humans.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "out_of_corpus",
+    "category": "nutrition",
+    "rationale": "IARC classified aspartame as 'possibly carcinogenic' (2B) but evidence is limited and inconclusive. No proof of causation."
+  },
+  {
+    "claim": "Alzheimer's disease is solely caused by amyloid-beta plaque accumulation in the brain.",
+    "expected_verdict": "UNSUPPORTED",
+    "source": "out_of_corpus",
+    "category": "neurology",
+    "rationale": "Amyloid hypothesis is one of many. Tau, neuroinflammation, vascular factors all implicated. Anti-amyloid drugs show modest benefit at best."
+  },
+  {
+    "claim": "CRISPR-Cas9 gene therapy has been approved to treat sickle cell disease.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "gene_therapy",
+    "rationale": "Casgevy (exagamglogene autotemcel) FDA-approved Dec 2023 for SCD. First approved CRISPR therapy."
+  },
+  {
+    "claim": "Psychedelic-assisted therapy completely eliminates the need for ongoing psychiatric medication.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "out_of_corpus",
+    "category": "psychedelic_medicine",
+    "rationale": "While psilocybin shows promise, no evidence supports complete medication elimination. Most trials show relapse over time."
+  },
+  {
+    "claim": "GLP-1 receptor agonists reduce the risk of kidney disease progression in patients with type 2 diabetes.",
+    "expected_verdict": "SUPPORTED",
+    "source": "out_of_corpus",
+    "category": "nephrology",
+    "rationale": "FLOW trial (2024) showed semaglutide reduced kidney disease progression by 24% vs placebo in T2D with CKD."
+  }
+]

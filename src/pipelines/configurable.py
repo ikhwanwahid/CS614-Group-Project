@@ -14,7 +14,7 @@ from src.shared.schema import VALID_VERDICTS
 # Supported values for each axis
 CHUNKING_STRATEGIES = ("fixed", "semantic", "section_aware", "recursive")
 RETRIEVAL_METHODS = ("naive", "hybrid", "hybrid_reranked")
-AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting", "strands_rerouting_ext")
+AGENT_ARCHITECTURES = ("single_pass", "strands_multi", "langgraph_multi", "strands_rerouting", "strands_rerouting_ext", "strands_rerouting_ext_v2")
 MODELS = (
     "claude-sonnet-4",
     "gpt-4o-mini",
@@ -293,6 +293,8 @@ def run_experiment(
         raw = _run_strands_rerouting(claim, model)
     elif agent_architecture == "strands_rerouting_ext":
         raw = _run_strands_rerouting_ext(claim, model)
+    elif agent_architecture == "strands_rerouting_ext_v2":
+        raw = _run_strands_rerouting_ext_v2(claim, model)
     else:
         raise ValueError(f"Unknown agent architecture: {agent_architecture}")
 
@@ -441,4 +443,23 @@ def _run_strands_rerouting_ext(claim: str, model: str) -> dict:
         "rerouting_loops": raw.get("rerouting_loops", 1),
         "external_search_used": raw.get("external_search_used", False),
         "external_papers_added": raw.get("external_papers_added", 0),
+    }
+
+
+def _run_strands_rerouting_ext_v2(claim: str, model: str) -> dict:
+    """Revamped Strands rerouting: original-claim-first + smart gating + S2 fallback."""
+    from src.agents.strands.orchestrator_rerouting_ext_v2 import run_pipeline_rerouting_ext_v2
+
+    get_agent_collection()
+    raw = run_pipeline_rerouting_ext_v2(claim)
+    verdict = raw["verdict"]
+
+    return {
+        "verdict": verdict.get("verdict", "INSUFFICIENT_EVIDENCE"),
+        "explanation": verdict.get("explanation", ""),
+        "evidence": verdict.get("evidence", []),
+        "rerouting_loops": raw.get("rerouting_loops", 1),
+        "external_search_used": raw.get("external_search_used", False),
+        "external_papers_added": raw.get("external_papers_added", 0),
+        "path": raw.get("path", "unknown"),
     }

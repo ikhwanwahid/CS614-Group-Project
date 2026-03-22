@@ -1,0 +1,476 @@
+[
+  {
+    "claim": "The deregulated and prolonged activation of monocytes has deleterious effects in inflammatory diseases.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "There is no known interaction between Pioneer factor OCT3/4 and major chromatin remodeling factors.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Lamins are found within the inner layer of the nuclear membrane of all cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Downregulation and mislocalization of Scribble prevents cell transformation and mammary tumorigenesis.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Febrile seizures increase the threshold for development of epilepsy.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Satellite cell dysfunction is a key factor in sarcopenia development.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "The one-child policy has created a hospitable environment for female infants.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "The DESMOND program demonstrates no significant impact on biochemical outcomes.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Repressing IL-18 has negative effects on atherosclerotic lesion composition and progression.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "DUSP4 downregulation deactivates the Ras-ERK pathway",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Suboptimal nutrition is a leading cause of premature death",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Physical injury represses transgultaminase activity.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Female carriers of the Apolipoprotein E4 (APOE4) allele have shorter lifetime exposure to estrogen due to a decreased reproductive period.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Mathematical models predict that using Artemisinin-based combination therapy over nongametocytocidal drugs have a dramatic impact in reducing malaria transmission.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Statins decrease blood cholesterol.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "NR5A2 does not play a role in development of endometrial tissues.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Bariatric surgery increases rates of colorectal cancer.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "A deficiency of vitamin B12 decreases blood levels of homocysteine.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "CHOP is a general endoplasmic reticulum stress marker.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Bone marrow cells contribute to adult macrophage compartments.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "CR is associated with higher methylation age.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "All hematopoietic stem cells segregate their chromosomes randomly.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Female carriers of the Apolipoprotein E4 (APOE4) allele have increased risk for dementia.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Urbanization is an important risk factor related to the transmission of dengue fever.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Concentrations of SNV and CNV in stem-cell regulatory elements and binding sites of transcription factors in iPSC-lines are distinct from their founding cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "BiP is a general endoplasmic reticulum stress marker.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Physical activity does not improve cognitive function in individuals with Alzheimers.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Immune complex triggered cell death leads to extracellular release of nuclear DNA.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "B3-Galectin increases cell resistance to tyrosine kinase inhibitors (TKIs) by engaging the alternate KRAS-RalB signaling complex downstream of EGFR.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "V-9302 inhibits antitumor responses by decreasing cell death and oxidative stress.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "ITAM phosphorylation allows for the transfer of the T cell receptor (TCR) signal from the echo-domain to the cytoplasmic tail of the T cell receptor (TCR).",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "The DESMOND program caused substantial weight loss in most participants.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "The PRR MDA5 has a central DExD/H RNA helices domain.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Obesity decreases life quality.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Bariatric surgery increases rates of postmenopausal breast cancer.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Chlamydia trachomatis is most prevalent in the UK among individuals in their 50s and 60s.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Stiff substrates encourage mesodermal differentiation by degrading beta-catenin in an integrin-dependent manner.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Pure neural progenitor cell (NPC) populations can only be obtained from cell cultures that undergo passaging, filtration, or other isolation and cell sorting methods.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Vitamin D deficiency effects the term of delivery.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "The genomic aberrations found in matasteses are very similar to those found in the primary tumor.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "ITAM phosphorylation prevents the transfer of the T cell receptor (TCR) signal from the echo-domain to the cytoplasmic tail of the T cell receptor (TCR).",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "miRNAs regulate a unique suite of mRNAs to maintain homeostasis in cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Weighed food records (WFR) result in high completion since they're cheap to run and impose low participant burden.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Early patent ductus ateriosus (PDA) screening increases in-hospital mortality.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Activation of the Rac1 homolog CED-10 kills viable cells in SRGP-1 mutant Caenorhabditis elegans.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Physical activity level has no association with the difference in maximal oxygen consumption between black and white youth.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "The gene daf-16, which encodes forkhead Box O (FOXO), is required for all phenotypes associated with reduced insulin/insulin-like growth factor (Igf) signaling.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "ART substantially reduces infectiveness of HIV-positive people.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "ALDH1 expression is associated with better breast cancer outcomes.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Replacement of OCT4 and SOX2 genes with GATA3 has the ability to reprogram human cells.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Increase of p62 in prostate tumor stroma results in defective autophagy.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Phase information is useful for predicting donor-recipient matches in organ transplantation.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Genes involved in pre-mRNA splicing have a significant impact on genome stability.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_failure"
+  },
+  {
+    "claim": "Increased purity of cytoplasmic membranes isolated from overexpressors is indicated by stronger spots for OmpF in 2D BN-PAGE gels.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Including pharmacists in rounding teams does not alter the incidence of adverse drug events (ADEs).",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Hypocretin neurones suppress panicprone state in rats.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Mitochondria play a trivial role in calcium homeostasis.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Approximately 250,000 people are infected with human T-cell lymphotropic virus type 1 in the United Kingdom.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Induced hepatic stem cells possess the potential to differentiate into cholangiocytic cells.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Radioiodine treatment of non-toxic multinodular goitre increases thyroid volume.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Individuals with low serum vitamin D concentrations have increased risk of multiple sclerosis.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "The tissue surrounding the granuloma in an immune cell induces an anti-inflammatory immune response.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "A breast cancer patient's capacity to metabolize tamoxifen influences treatment outcome.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "H4 G94P proteins induce degradation of free histones via Rad53-dependent mechanisms.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Medications to treat obesity have unwanted side effects.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Macrolides protect against myocardial infarction.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Klf4 is important for proper myeloid cell differentiation.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "N348I mutations reduce resistance to nevirapine.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Bcp1 is a chaperone for Rpl23.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Persister cells provide relapse resistance in cancer patients.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "The proportion of people with visual difficulty is two times higher in low-income countries than in high-income countries.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Sequence conservation in gene regulatory regions between species is a high-accuracy predictor of conserved functionality.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Breast cancer development is determined exclusively by genetic factors.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "The removal of reactive oxygen species by activated oncogenes contributes to the increased genomic instability of leukaemia cells.",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Decrease of p62 in prostate tumor stroma results in defective autophagy.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "HbA1c consistently overestimates glycemic control in black individuals with Sickle cell trait (SCT).",
+    "expected_verdict": "UNSUPPORTED",
+    "e4_verdict": "UNSUPPORTED",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Gastric lavage is an effective treatment for acute paraquat poisoning.",
+    "expected_verdict": "INSUFFICIENT_EVIDENCE",
+    "e4_verdict": "INSUFFICIENT_EVIDENCE",
+    "source": "e4_correct"
+  },
+  {
+    "claim": "Depletion of T-helper 17 (Th17) cells during simian immunodeficiency virus (SIV) infection increases dissemination of Salmonella Typhimurium from the gut.",
+    "expected_verdict": "SUPPORTED",
+    "e4_verdict": "SUPPORTED",
+    "source": "e4_correct"
+  }
+]
