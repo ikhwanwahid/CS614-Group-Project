@@ -30,3 +30,6 @@ data/corpus/embeddings/chroma_db/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Office temp files
+~$*
