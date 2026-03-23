@@ -33,3 +33,6 @@ data/corpus/embeddings/chroma_db/
 
 # Office temp files
 ~$*
+
+# Docs (reports, proposals — kept locally only)
+Docs/
