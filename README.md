@@ -20,8 +20,6 @@ RAG wins on closed corpora (+16-17pp over agents). Agents with Semantic Scholar 
 
 ```
 CS614-Group-Project/
-├── app/
-│   └── streamlit_app.py                  # Demo UI (placeholder)
 ├── data/
 │   ├── corpus.json                       # SciFact corpus (5,183 abstracts)
 │   ├── test_claims.json                  # 300 balanced claims (100 per verdict)
@@ -176,4 +174,3 @@ uv run jupyter notebook notebooks/e9c_analysis.ipynb
 | Agent Frameworks | [Strands SDK](https://github.com/strands-agents/sdk-python), LangGraph |
 | External Search | Semantic Scholar API (200M+ papers) |
 | Dataset | SciFact (5,183 abstracts, 300 claims) |
-| Demo | Streamlit |
